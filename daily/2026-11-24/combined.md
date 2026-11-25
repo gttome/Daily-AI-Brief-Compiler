@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 25, 2026 · **Production evening:** 2026-11-24 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-25 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-25/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **INVALID**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **INVALID**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 6m 18s** · **Compiler final seal window 7m 35s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -79,9 +79,20 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**12 attempts; 0 of 6 images accepted on their first attempt.**
+
+Recorded ongoing from November 8 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| Formal checks turn agent proposals into auditable quantum results | 1 | 1 | 2 |
+| Protein-design results improve while the validation stack stays visible | 1 | 1 | 2 |
+| Agent evaluation needs a traceable chain, not one leaderboard number | 1 | 1 | 2 |
+| Shirudo tests temporary defenses before an operator deploys them | 1 | 1 | 2 |
+| Workspace agents need a permission-and-audit preflight | 1 | 1 | 2 |
+| Model routing needs a visible quality, cost and abstention policy | 1 | 1 | 2 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -130,12 +141,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **12** | Image worker AAR; no estimation |
 | Rejected candidates | **6** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -328,7 +339,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 12 · **Rejected candidates:** 6.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 12 · **Rejected candidates:** 6.
 
 ### Image production duration — Git-verified milestones
 
@@ -351,21 +362,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| Formal checks turn agent proposals into auditable quantum results | 2 | 1.02 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m01.png) |
+| Protein-design results improve while the validation stack stays visible | 2 | 0.82 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m02.png) |
+| Agent evaluation needs a traceable chain, not one leaderboard number | 2 | 0.81 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m10.png) |
+| Shirudo tests temporary defenses before an operator deploys them | 2 | 1.16 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m11.png) |
+| Workspace agents need a permission-and-audit preflight | 2 | 0.63 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m12.png) |
+| Model routing needs a visible quality, cost and abstention policy | 2 | 0.63 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m01.png" alt="Diagram for nov25-t1-quantum-verified-agents" width="420"/></a><br/><b>Formal checks turn agent proposals into auditable quantum results</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m02.png" alt="Diagram for nov25-t2-protein-design" width="420"/></a><br/><b>Protein-design results improve while the validation stack stays visible</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m10.png" alt="Diagram for nov25-a1-agentic-eval-chain" width="420"/></a><br/><b>Agent evaluation needs a traceable chain, not one leaderboard number</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m11.png" alt="Diagram for nov25-a2-shirudo-runtime" width="420"/></a><br/><b>Shirudo tests temporary defenses before an operator deploys them</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m12.png" alt="Diagram for nov25-g1-workspace-mcp" width="420"/></a><br/><b>Workspace agents need a permission-and-audit preflight</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-25/dab-edition-2026-11-25-m14.png" alt="Diagram for nov25-g2-switchcraft-routing" width="420"/></a><br/><b>Model routing needs a visible quality, cost and abstention policy</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -432,12 +453,12 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-25/shadow-runs/2026-11-25/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-25/shadow-runs/2026-11-25/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-25/shadow-runs/2026-11-25/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c8aee13aa5a66d1aaff401ef6f21587f088739fa/signals/ai-topic-top10/2026-11-24.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c8aee13aa5a66d1aaff401ef6f21587f088739fa/signals/ai-topic-top10/2026-11-24.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/884dd0c8ce795f95565add1e78b17323989468a1/signals/ai-topic-top10/2026-11-24.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/884dd0c8ce795f95565add1e78b17323989468a1/signals/ai-topic-top10/2026-11-24.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-25/shadow-runs/2026-11-25/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-25/shadow-runs/2026-11-25/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45542444360).
 
 ---
 
@@ -450,11 +471,10 @@ Edition **2026-11-25**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**4 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-24**. The daily review never waits for that date to act on a safe live problem.
+**3 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-24**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P1 | 3 failed protected publication gates were recorded (3 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Immediate, if ownership and gates allow |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
@@ -542,13 +562,13 @@ Pending: 0; overdue: 11; reviewed: 40. Implemented controls await measured resul
 | 2026-11-22 | 15/182 (8%) | 0 | 16 | 3 | 3 |
 | 2026-11-23 | 12/182 (7%) | 1 | 12 | 3 | Not recorded |
 | 2026-11-24 | 8/182 (4%) | 0 | 13 | 5 | Not recorded |
-| 2026-11-25 | 15/182 (8%) | Not recorded | Not recorded | 3 | Not recorded |
+| 2026-11-25 | 15/182 (8%) | 0 | 12 | 3 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 7 | 8 |
-| first pass accepted | 6 | 0.5 |
-| image attempts | 6 | 13.5 |
+| first pass accepted | 7 | 0 |
+| image attempts | 7 | 13 |
 | top10 linked items | 3 | 3 |
 | publication failures | 7 | 3 |
 
@@ -780,14 +800,14 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 
 | Recorded defect | Rejected attempts with defect | Recurred across editions |
 |---|---:|---|
-| LAYOUT | 25 | Yes |
-| OTHER | 16 | Yes |
-| CAUSAL_CONNECTOR | 14 | Yes |
-| PSEUDO_WRITING | 7 | Yes |
+| LAYOUT | 29 | Yes |
+| OTHER | 18 | Yes |
+| CAUSAL_CONNECTOR | 15 | Yes |
+| PSEUDO_WRITING | 9 | Yes |
 | UNSUPPORTED_CLAIM | 6 | Yes |
-| UNALLOWLISTED_TEXT | 2 | Yes |
+| UNALLOWLISTED_TEXT | 5 | Yes |
 
-Total rejected: 45; unclassified: 6. A rejected attempt can have several defect codes.
+Total rejected: 51; unclassified: 6. A rejected attempt can have several defect codes.
 
 ### Useful image detail and recent artwork comparisons
 

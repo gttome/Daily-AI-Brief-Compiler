@@ -1063,7 +1063,7 @@
       "attention": "YouTube program-specific reach and creator breadth lead discovery; timed social snapshots and direct community points supplement. No overlapping audiences summed or composite score invented.",
       "uncertainty": "WITL video measurement07:02Eastern/social07:01Eastern. AUA counters unavailable; original routes throttle. Creator breadth does not establish independence of underlying claims. Positions are search priorities."
     },
-    "source_commit": "c8aee13aa5a66d1aaff401ef6f21587f088739fa",
+    "source_commit": "884dd0c8ce795f95565add1e78b17323989468a1",
     "source_blob_sha": "8ce289fffbdcada05640b1c54e970c9f07e8466b",
     "report_sha256": "a41c6322bf47cb0d57219eb6f2047376f6d323db6568eedca97fd525c8798a78",
     "consumed_source_commit": null,
@@ -1202,7 +1202,7 @@
       },
       "previous_cycle": "2026-11-23",
       "previous_report_sha256": "93666c31516ddf53f7ef974291cbdb0b64dbab8237b0134d37fcf9d2d68d7bf2",
-      "previous_aar_sha256": "fbadb784943b13a4e15e746134ca0d62ca18bfe1987efb43b770b9a24c6c3f8b",
+      "previous_aar_sha256": "418e324997ce0afbabffbd6ad9d6070ad14783846f57dd173f9ddd4ee4a77bdc",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1621,9 +1621,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1682,11 +1682,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c8aee13aa5a66d1aaff401ef6f21587f088739fa/signals/ai-topic-top10/2026-11-24.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/884dd0c8ce795f95565add1e78b17323989468a1/signals/ai-topic-top10/2026-11-24.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c8aee13aa5a66d1aaff401ef6f21587f088739fa/signals/ai-topic-top10/2026-11-24.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/884dd0c8ce795f95565add1e78b17323989468a1/signals/ai-topic-top10/2026-11-24.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1724,8 +1724,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov25-t1-quantum-verified-agents",
+            "label": "Formal checks turn agent proposals into auditable quantum results",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov25-t2-protein-design",
+            "label": "Protein-design results improve while the validation stack stays visible",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov25-a1-agentic-eval-chain",
+            "label": "Agent evaluation needs a traceable chain, not one leaderboard number",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov25-a2-shirudo-runtime",
+            "label": "Shirudo tests temporary defenses before an operator deploys them",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov25-g1-workspace-mcp",
+            "label": "Workspace agents need a permission-and-audit preflight",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov25-g2-switchcraft-routing",
+            "label": "Model routing needs a visible quality, cost and abstention policy",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 12,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1941,8 +1985,8 @@
         "coverage_percent": 8,
         "coverage_numerator": 15,
         "coverage_denominator": 182,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 12,
         "top10_linked_items": null,
         "publication_failures": 3
       }
@@ -1953,12 +1997,12 @@
         "median": 8
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 0.5
+        "recorded_editions": 7,
+        "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 13.5
+        "recorded_editions": 7,
+        "median": 13
       },
       "top10_linked_items": {
         "recorded_editions": 3,
@@ -3082,18 +3126,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-24",
       "cumulative_review_due_today": false,
-      "finding_count": 4,
-      "open_production_blockers": 1,
+      "finding_count": 3,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -5969,53 +6004,57 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 45,
+      "recorded_editions": 7,
+      "total_rejected": 51,
       "unclassified": 6,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 25,
+          "rejected_attempts": 29,
           "editions": [
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-24"
+            "2026-11-24",
+            "2026-11-25"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 16,
+          "rejected_attempts": 18,
           "editions": [
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-24"
+            "2026-11-24",
+            "2026-11-25"
           ],
           "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 14,
+          "rejected_attempts": 15,
           "editions": [
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-24"
+            "2026-11-24",
+            "2026-11-25"
           ],
           "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 7,
+          "rejected_attempts": 9,
           "editions": [
             "2026-11-19",
             "2026-11-20",
             "2026-11-22",
-            "2026-11-24"
+            "2026-11-24",
+            "2026-11-25"
           ],
           "recurring": true
         },
@@ -6031,10 +6070,11 @@
         },
         {
           "cause": "UNALLOWLISTED_TEXT",
-          "rejected_attempts": 2,
+          "rejected_attempts": 5,
           "editions": [
             "2026-11-20",
-            "2026-11-24"
+            "2026-11-24",
+            "2026-11-25"
           ],
           "recurring": true
         }
