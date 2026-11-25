@@ -166,6 +166,11 @@
       "phase": "Final public status deployment",
       "issue": "Attempt 2 published six images, verified live hashes and captured all 24 contexts, then the separate metadata deploy could not see image-final-metadata-45542444360-2 immediately after upload at 03:51:44Z.",
       "correction": "Reuse all 24 reviewed captures and exact accepted PNGs through the existing metadata-only verification/sync lane; bind the original failed job, protected review hash, manifest hash and exact released-history head. No placeholder replacement or native regeneration."
+    },
+    {
+      "phase": "Metadata artifact visibility check",
+      "issue": "Sync run 45543688440 saw the new artifact through the full-page probe at 04:00:16Z, but deploy-pages returned zero artifacts at 04:00:17Z. A single positive probe was insufficient.",
+      "correction": "Strengthen the existing wait in both image release deployments and metadata sync to require repeated unique-artifact agreement on default and full listings plus a bounded settling interval. Resume only the exact November25 metadata and reuse every accepted PNG and all24 reviewed captures; future effectiveness remains unproven."
     }
   ],
   "publication": {

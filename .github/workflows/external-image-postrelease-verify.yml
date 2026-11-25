@@ -8,6 +8,7 @@ on:
       - 'config/image-metadata-sync-resume-2026-11-21.json'
       - 'external-image-packages/2026-11-22/reviews/live/semantic-pixel-review.json'
       - 'external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json'
+      - 'config/image-metadata-sync-resume-2026-11-25.json'
   workflow_dispatch:
     inputs:
       edition_date:
@@ -116,7 +117,13 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           git merge-base --is-ancestor ca1fb3ecf760089946be6ffdbf2d532269540c19 HEAD
           REVIEW=external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json
-          git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"
+          if ! git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"; then
+            RESUME=config/image-metadata-sync-resume-2026-11-25.json
+            git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$RESUME"
+            jq -e '.edition_date=="2026-11-25" and .original_release_run_id==45542444360 and .failed_sync_run_id==45543688440 and .history_head=="82ba898da5c81eb366b409a88e2d5a4b032937e3" and .review_sha256=="ac8352395b5ab8eedf616d06610672af4363844461fef9b9f7019b8c96b93f1a"' "$RESUME" >/dev/null
+            gh api repos/gttome/Daily-AI-Brief-Compiler/actions/runs/45543688440 |
+              jq -e '.head_sha=="42a2b45f4efb6608ac3606452060291d637260f1" and .conclusion=="failure" and .path==".github/workflows/external-image-postrelease-verify.yml"' >/dev/null
+          fi
           test "$(sha256sum "$REVIEW" | cut -d' ' -f1)" = ac8352395b5ab8eedf616d06610672af4363844461fef9b9f7019b8c96b93f1a
           test "$(sha256sum external-image-packages/2026-11-25/manifest.json | cut -d' ' -f1)" = 4464b3c6d92720b519f0a18f41bffc702559049e13c387c5cf72c58f7ee63fdd
           # Reuse the original release's exact bytes and reviewed captures.
@@ -285,20 +292,31 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 15); do
-            artifacts="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+          stable=0
+          for attempt in $(seq 1 20); do
+            # Match the deploy action's default listing as well as the full page.
+            artifacts="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts")"
+            full="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
             count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$artifacts")"
-            if [ "$count" = 1 ]; then
-              echo "EXACT_ATTEMPT_ARTIFACT_VISIBLE name=$ARTIFACT_NAME"
-              exit 0
-            fi
-            if [ "$count" -gt 1 ]; then
+            full_count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$full")"
+            if [ "$count" -gt 1 ] || [ "$full_count" -gt 1 ]; then
               echo '::error::AMBIGUOUS_CURRENT_ATTEMPT_ARTIFACT'
               exit 1
             fi
-            if [ "$attempt" -lt 15 ]; then sleep 2; fi
+            if [ "$count" = 1 ] && [ "$full_count" = 1 ]; then
+              stable=$((stable+1))
+            else
+              stable=0
+            fi
+            # Immediate one-endpoint visibility failed in the actual Nov25 run.
+            # Require repeated agreement and a bounded settling interval.
+            if [ "$attempt" -ge 8 ] && [ "$stable" -ge 3 ]; then
+              echo "EXACT_ATTEMPT_ARTIFACT_STABLY_VISIBLE name=$ARTIFACT_NAME observations=$stable"
+              exit 0
+            fi
+            if [ "$attempt" -lt 20 ]; then sleep 2; fi
           done
-          echo '::error::CURRENT_ATTEMPT_ARTIFACT_NOT_VISIBLE'
+          echo '::error::CURRENT_ATTEMPT_ARTIFACT_NOT_STABLY_VISIBLE'
           exit 1
       - id: deployment
         if: env.MODE == 'sync_metadata'
