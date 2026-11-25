@@ -464,8 +464,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5abc0077c9addd5116c228f2215012b0d8cdaf39/signals/ai-topic-top10/2026-11-20.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5abc0077c9addd5116c228f2215012b0d8cdaf39/signals/ai-topic-top10/2026-11-20.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0b4eac57babb29a7ee880205f6c07f3ad55ee98e/signals/ai-topic-top10/2026-11-20.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0b4eac57babb29a7ee880205f6c07f3ad55ee98e/signals/ai-topic-top10/2026-11-20.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/trend-search-coverage.json) |
 
@@ -547,6 +547,12 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV20-10 — Separate completion and evidence statuses | 2026-11-24 | PENDING | Not recorded |
 | NOV20-11 — Neutral AI video coverage badges | 2026-11-24 | PENDING | Not recorded |
 | NOV20-12 — Continue existing IMG19 evaluation | 2026-11-22 | REVIEWED | keep |
+| NOV25-P0-01 — Count visible layout families at planning and thumbnail review | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV25-P0-02 — Compare actual layouts across recent verified editions | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV25-P0-03 — Report layout decisions and independent live QA separately | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV25-P1-01 — Bind observed silhouettes and prior comparisons to exact pixels | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV25-P1-02 — Record attempt-scoped Pages artifact visibility and missing-artifact failures | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV25-P2-01 — Evaluate the first seven eligible image editions | 2026-12-02 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 10; overdue: 9; reviewed: 32. Implemented controls await measured results; review decisions do not disable controls.
 

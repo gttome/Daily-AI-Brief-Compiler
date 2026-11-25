@@ -624,7 +624,7 @@
       "attention": "Event-matched videos first when available, then distinct public discussions and tracked announcements. Stronger placement reflects corroboration and freshness. Same-program rounded interval deltas are retained separately.",
       "limitation": "Mixed formats and unknown clock or audience overlap preclude precise popularity ranking. No newness claim is inferred from a new screening result."
     },
-    "source_commit": "5abc0077c9addd5116c228f2215012b0d8cdaf39",
+    "source_commit": "0b4eac57babb29a7ee880205f6c07f3ad55ee98e",
     "source_blob_sha": "6150b534d32c78de199208c74ed52b60f216df74",
     "report_sha256": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
     "consumed_source_commit": "6e6911d0a393a3117160841950ecf3b2c3665777",
@@ -802,7 +802,7 @@
       },
       "previous_cycle": "2026-11-10",
       "previous_report_sha256": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
-      "previous_aar_sha256": "0a4553736d21bc36e29ff4895d873edb5448164e6abfba0318e0c1490ea1170a",
+      "previous_aar_sha256": "010d15489986d9d641ba3ee8638af15c647decb39ac79aa66f79ec3c2506e677",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1095,11 +1095,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5abc0077c9addd5116c228f2215012b0d8cdaf39/signals/ai-topic-top10/2026-11-11.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0b4eac57babb29a7ee880205f6c07f3ad55ee98e/signals/ai-topic-top10/2026-11-11.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5abc0077c9addd5116c228f2215012b0d8cdaf39/signals/ai-topic-top10/2026-11-11.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0b4eac57babb29a7ee880205f6c07f3ad55ee98e/signals/ai-topic-top10/2026-11-11.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -2138,6 +2138,84 @@
         "metric": "Observe existing November 20–22 eligible editions without restarting experiment",
         "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
         "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P0-01",
+        "title": "Count visible layout families at planning and thumbnail review",
+        "owner": "Images",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "At least four layout families, at most two per family",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P0-02",
+        "title": "Compare actual layouts across recent verified editions",
+        "owner": "Images",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "Three recent verified sets compared, three layout-and-treatment changes versus the preceding edition",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P0-03",
+        "title": "Report layout decisions and independent live QA separately",
+        "owner": "Images",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "Exact layout counts, prior matches, real corrections and independent live QA recorded",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P1-01",
+        "title": "Bind observed silhouettes and prior comparisons to exact pixels",
+        "owner": "Images",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "Reproducible six-up silhouettes, grouping, eye paths and current image hashes",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P1-02",
+        "title": "Record attempt-scoped Pages artifact visibility and missing-artifact failures",
+        "owner": "Images / Release",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "Actual bounded wait, probe counts and evidence-supported deploy outcomes",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV25-P2-01",
+        "title": "Evaluate the first seven eligible image editions",
+        "owner": "Images / Reporting",
+        "effective_edition": "2026-11-26",
+        "review_due_edition": "2026-12-02",
+        "metric": "Evidence for layout variety, attempts, first-pass accepts, owner intervention and known usage",
+        "baseline": "November 25 owner-directed correction is context, not a comparable unattended baseline.",
+        "evaluation_rule": "Use the first seven eligible editions. December 2 is the earliest ordinary calendar review marker. Missing observed outcomes are inconclusive, not zero or a gate waiver.",
         "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
         "outcome_status": "NOT_YET_EFFECTIVE",
         "latest_review": null
