@@ -7,6 +7,7 @@ on:
       - 'external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json'
       - 'config/image-metadata-sync-resume-2026-11-21.json'
       - 'external-image-packages/2026-11-22/reviews/live/semantic-pixel-review.json'
+      - 'external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json'
   workflow_dispatch:
     inputs:
       edition_date:
@@ -53,7 +54,7 @@ jobs:
         with:
           node-version: '20'
       - name: Bind exact November 21 protected visual-review merge for metadata-only resume
-        if: github.event_name == 'push' && !contains(github.event.head_commit.message, 'Nov22 image visual closeout')
+        if: github.event_name == 'push' && !contains(github.event.head_commit.message, 'Nov22 image visual closeout') && !contains(github.event.head_commit.message, 'Nov25 image visual closeout')
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -102,6 +103,31 @@ jobs:
           {
             echo TARGET_DATE=2026-11-22
             echo EXPECTED_HISTORY_HEAD=f681f99c8006c31f87e89ac626603143be584ced
+            echo MODE=sync_metadata
+          } >> "$GITHUB_ENV"
+      - name: Bind exact November 25 protected visual closeout for metadata-only resume
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Nov25 image visual closeout')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/main
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git merge-base --is-ancestor ca1fb3ecf760089946be6ffdbf2d532269540c19 HEAD
+          REVIEW=external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json
+          git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"
+          test "$(sha256sum "$REVIEW" | cut -d' ' -f1)" = ac8352395b5ab8eedf616d06610672af4363844461fef9b9f7019b8c96b93f1a
+          test "$(sha256sum external-image-packages/2026-11-25/manifest.json | cut -d' ' -f1)" = 4464b3c6d92720b519f0a18f41bffc702559049e13c387c5cf72c58f7ee63fdd
+          # Reuse the original release's exact bytes and reviewed captures.
+          # Only the final metadata deployment failed artifact discovery.
+          gh api repos/gttome/Daily-AI-Brief-Compiler/actions/runs/45542444360 |
+            jq -e '.head_sha=="ca1fb3ecf760089946be6ffdbf2d532269540c19" and .conclusion=="failure" and .path==".github/workflows/external-image-only-replacement.yml"' >/dev/null
+          gh api repos/gttome/Daily-AI-Brief-Compiler/actions/jobs/138964400586 |
+            jq -e '.run_id==45542444360 and any(.steps[]; .name=="I3 actual 24 target image-area captures (not a subjective review)" and .conclusion=="success") and any(.steps[]; .name=="Run actions/deploy-pages@v4" and .conclusion=="success") and any(.steps[]; .name=="Run actions/deploy-pages@v4" and .conclusion=="failure")' >/dev/null
+          {
+            echo TARGET_DATE=2026-11-25
+            echo EXPECTED_HISTORY_HEAD=82ba898da5c81eb366b409a88e2d5a4b032937e3
             echo MODE=sync_metadata
           } >> "$GITHUB_ENV"
       - name: Require selected flags and exact main/history heads

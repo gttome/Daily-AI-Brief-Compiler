@@ -4,7 +4,7 @@
   "job_sha256": "ff9f14990ae3b5bf9bde3d96483cfdece510dda3bfcafffa037fb0c32534511b",
   "original_source_commit_sha": "c78d2b5ffa0fb0b0d42a82d8646209c327b4ee68",
   "original_bundle_sha256": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f",
-  "status": "PACKAGE_READY_PUBLICATION_PENDING",
+  "status": "VISUAL_COMPLETE_PUBLIC_STATUS_SYNC_PENDING",
   "human_readable_path": "external-image-packages/2026-11-25/reviews/after-action.md",
   "production": {
     "actual_generation_count": 12,
@@ -28,8 +28,12 @@
       "local_node_available": true,
       "local_python_available": true,
       "actual_billing": null,
-      "first_party_scheduler_origin": null
-    }
+      "first_party_scheduler_origin": null,
+      "local_browser_capture_available": false
+    },
+    "release_retry_requested_observed_at": "2026-11-25T03:49:33Z",
+    "release_retry_observation_basis": "Trusted clock observed after the actual connected rerun request; not reconstructed request time.",
+    "semantic_review_completed_at": "2026-11-25T03:54:31.176806Z"
   },
   "images": [
     {
@@ -152,16 +156,38 @@
       "phase": "GitHub binary transport",
       "issue": "Local git push lacks credentials; GitHub contents API returns empty base64 for accepted PNGs larger than one MiB.",
       "correction": "Connected blob/tree/commit/expected-head ref writes preserved exact assets; immutable remote Git object readback independently compared the complete PNG bytes, SHA256, blob and length."
+    },
+    {
+      "phase": "Pages artifact discovery",
+      "issue": "Attempt 1 uploaded image-pages-45542444360-1, artifact 14989857659, at 03:48:48Z; deploy-pages immediately reported zero matching artifacts at 03:48:49Z.",
+      "correction": "Verified the artifact now exists through the connected GitHub artifact listing, then requested the existing failed image-only job retry. Attempt-scoped artifact names preserve both attempts; accepted PNGs unchanged."
+    },
+    {
+      "phase": "Final public status deployment",
+      "issue": "Attempt 2 published six images, verified live hashes and captured all 24 contexts, then the separate metadata deploy could not see image-final-metadata-45542444360-2 immediately after upload at 03:51:44Z.",
+      "correction": "Reuse all 24 reviewed captures and exact accepted PNGs through the existing metadata-only verification/sync lane; bind the original failed job, protected review hash, manifest hash and exact released-history head. No placeholder replacement or native regeneration."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PACKAGE",
-    "verified_at": null
+    "result": "LIVE_ASSETS_VERIFIED_STATUS_SYNC_PENDING",
+    "verified_at": null,
+    "workflow_run_id": 45542444360,
+    "workflow_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45542444360",
+    "package_pr": 420,
+    "package_pr_head": "8e66f7494885e86ffe773aa7f880fdea4420ae05",
+    "package_merge_sha": "ca1fb3ecf760089946be6ffdbf2d532269540c19",
+    "exact_head_validation_run": 45542189202,
+    "independent_live_hashes": 6,
+    "dated_permanent_pairings": 12,
+    "homepage_pairings": 6,
+    "protected_oct8_objects": 17,
+    "public_status": "PENDING_METADATA_SYNC"
   },
   "visual_review": {
-    "result": "PENDING_LIVE_REVIEW",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json",
+    "reviewed_at": "2026-11-25T03:54:31.176806Z"
   },
   "usage": {
     "work_usage_percent": null,
@@ -172,7 +198,8 @@
     "Source/job/bundle binding verified, canonical branch atomically claimed and actual first-call clock persisted/read back before generation. The protected package and live closure are still pending.",
     "Top 10 image mapping is one exact article: nov25-t1-quantum-verified-agents; see the final impact table. No mappings invented for the other five.",
     "November 20\u201322 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner acceptance and true usage unknown.",
-    "Previous AAR daily corrective review and all three chart data inspected: 13 calls, zero first-pass accepts, seven rejected candidates; current source-specific fixes retain actual failures and unknowns."
+    "Previous AAR daily corrective review and all three chart data inspected: 13 calls, zero first-pass accepts, seven rejected candidates; current source-specific fixes retain actual failures and unknowns.",
+    "Supplemental final source cross-check followed the linked Cisco Isovalent and OpenAI Shirudo explanations, confirming operator approval, signed deployment and bounded controlled examples. This later inspection is not backdated into the original generation clock."
   ],
   "editorial_quality_review": {
     "schema_version": "image-editorial-quality-review-v1",
@@ -529,6 +556,15 @@
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-25-native-primary/external-image-packages/2026-11-25/reviews/after-action.json"
       ]
+    }
+  ],
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45542444360/attempts/1",
+      "stage": "Pages artifact discovery",
+      "root_cause_code": "PAGES_ARTIFACT_METADATA_NOT_VISIBLE_AFTER_UPLOAD",
+      "reason": "The original deploy log reported no named artifact immediately after upload finalized; subsequent connected artifact listing shows the exact ID, name, digest and size. No claim about GitHub internal root cause beyond this observed mismatch.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45542444360/job/138963950768"
     }
   ]
 }
