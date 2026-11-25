@@ -1,6 +1,6 @@
 # 2026-11-25 premium image after-action report
 
-**Status: PACKAGE_READY_PUBLICATION_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: VISUAL_COMPLETE_PUBLIC_STATUS_SYNC_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | b515ccb33ac9e4a076a380eab0b401350d58f56d |
 | Executor observed run start | 2026-11-25T03:16:14Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-25T03:23:09Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PACKAGE |
+| Public release | LIVE_ASSETS_VERIFIED_STATUS_SYNC_PENDING |
 | Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_REVIEW; 0 targets |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -67,6 +67,8 @@ These are source-bound reviewer observations, not computer-vision scores, an ind
 | Native image generation | Saved request and audit documents contain simulated paragraph strokes. Remove every faux writing stroke from both content surfaces. Place the useful labels directly on their otherwise smooth faces, without simulated ruled lines. Preserve the visible confirmation boundary, two intended arrows, action record and named admin owner. | Targeted source-bound native edit was frozen and persisted before correction; complete 1200x630 and 320px saved outputs were inspected before acceptance. |
 | Native image generation | The draft repeats Profiled cost four times despite the once-only allowlist. Retain a single Profiled cost label with a nondirectional brace applying to all candidate specimens; remove the other three duplicate labels, without anonymous value boxes. Make the two alternate routing conditions explicit: Meets threshold on the eligible cost path, and None qualifies on the abstention path. Preserve the no-model-call distinction, held-out test and detached workload/version caveat. No new arrowheads. | Targeted source-bound native edit was frozen and persisted before correction; complete 1200x630 and 320px saved outputs were inspected before acceptance. |
 | GitHub binary transport | Local git push lacks credentials; GitHub contents API returns empty base64 for accepted PNGs larger than one MiB. | Connected blob/tree/commit/expected-head ref writes preserved exact assets; immutable remote Git object readback independently compared the complete PNG bytes, SHA256, blob and length. |
+| Pages artifact discovery | Attempt 1 uploaded image-pages-45542444360-1, artifact 14989857659, at 03:48:48Z; deploy-pages immediately reported zero matching artifacts at 03:48:49Z. | Verified the artifact now exists through the connected GitHub artifact listing, then requested the existing failed image-only job retry. Attempt-scoped artifact names preserve both attempts; accepted PNGs unchanged. |
+| Final public status deployment | Attempt 2 published six images, verified live hashes and captured all 24 contexts, then the separate metadata deploy could not see image-final-metadata-45542444360-2 immediately after upload at 03:51:44Z. | Reuse all 24 reviewed captures and exact accepted PNGs through the existing metadata-only verification/sync lane; bind the original failed job, protected review hash, manifest hash and exact released-history head. No placeholder replacement or native regeneration. |
 
 ## Evidence and limitations
 
@@ -85,5 +87,7 @@ Top 10 image mapping is one exact article: nov25-t1-quantum-verified-agents; see
 November 20–22 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner acceptance and true usage unknown.
 
 Previous AAR daily corrective review and all three chart data inspected: 13 calls, zero first-pass accepts, seven rejected candidates; current source-specific fixes retain actual failures and unknowns.
+
+Supplemental final source cross-check followed the linked Cisco Isovalent and OpenAI Shirudo explanations, confirming operator approval, signed deployment and bounded controlled examples. This later inspection is not backdated into the original generation clock.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
