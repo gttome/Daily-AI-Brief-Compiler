@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "edition_date": "2026-11-25",
-  "updated_at": "2026-11-25T01:40:30.000Z",
+  "updated_at": "2026-11-25T02:34:02Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -272,14 +272,14 @@
       "topic_id": "dab-topic-adaptive-agent-safeguards",
       "name": "Agent safeguards tailored to the task",
       "audience": "Agent builders and consultants",
-      "summary": "Agent governance combines bounded identity, permissions, cross-layer observation, deterministic containment and accountable human review before consequential actions.",
-      "why_now": "Microsoft’s October 19 agentic-insider essay adds dynamic risk assessment and guardian supervision to the previously reviewed layered control model.",
-      "practical_value": "Teams can fixture-test a read-only action-review skill while keeping permission changes, containment and final approval in external controls.",
-      "limitations": "First-party architecture evidence does not establish complete containment or independent assurance across every agent, runtime and hardware platform.",
-      "next_action": "Compare software-only and hardware-assisted enforcement, policy verification, audit coverage and independent bypass testing.",
+      "summary": "Google Workspace now documents service-level access controls and action review rules for external agents connected through its MCP tools or command line.",
+      "why_now": "The November 24 release moves Workspace MCP and its command line into general availability, with documented administrator controls and agent audit attributes.",
+      "practical_value": "Pilot one external agent in a test group and confirm that a restricted action triggers review and leaves the expected audit record.",
+      "limitations": "Google describes platform behavior, not independently measured protection or adoption. The external-agent review rules do not apply to standard app connections.",
+      "next_action": "Seek independent administrator tests that distinguish policy settings, actual prompts, audit coverage and failures across approved and blocked actions.",
       "first_detected": "2026-09-12T02:08:04.109758Z",
-      "updated_at": "2026-10-19T12:00:00Z",
-      "verification_observed_at": "2026-10-05T02:33:36.000Z",
+      "updated_at": "2026-11-25T02:34:02Z",
+      "verification_observed_at": "2026-11-25T02:34:02Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
       "evidence": [
@@ -402,6 +402,26 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-25",
           "development_id": "compiler-carried_forward-4"
+        },
+        {
+          "kind": "primary",
+          "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+          "title": "Simplifying agent access while keeping organizations in control",
+          "publisher": "Google Workspace Updates",
+          "publication_date": "2026-11-24",
+          "review_depth": "Google's dated release announcement confirms general availability of Workspace MCP servers and the official CLI alongside expanded controls. It supplies no independent operational outcomes.",
+          "checked_at": "2026-11-25T02:34:02Z",
+          "development_id": "nov25-workspace-governed-agent-access-ga"
+        },
+        {
+          "kind": "primary",
+          "url": "https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data",
+          "title": "Control which apps access Google Workspace data",
+          "publisher": "Google Workspace Admin Help",
+          "publication_date": null,
+          "review_depth": "Administration documentation lists client-level service controls, four user-review categories for external agents, and audit fields for agent identity and approval. The page was updated November 24 UTC; original publication date is unverified.",
+          "checked_at": "2026-11-25T02:34:02Z",
+          "development_id": "nov25-workspace-agent-admin-audit-controls"
         }
       ],
       "external_attention": [
@@ -421,34 +441,34 @@
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "Pre-action guardian supervision extends prior governance layers with dynamic intent checks and real-time containment decisions."
+          "reason": "General availability brings service-level controls and action-specific human review to common workplace tools on a named access route."
         },
         "evidence": {
-          "score": 3,
-          "reason": "Microsoft describes concrete signals, decision stages and traceability goals, but supplies no measured deployment outcomes."
+          "score": 4,
+          "reason": "The release and administrator guide specify access modes, review categories and audit fields, but do not quantify control effectiveness."
         },
         "independence": {
           "score": 3,
-          "reason": "Microsoft adds an independently authored architecture to prior AWS guidance, though both sources promote their own platforms."
+          "reason": "Google now documents a separate implementation alongside earlier AWS and Microsoft approaches, but these are platform-authored accounts, not independent product audits."
         },
         "momentum": {
           "score": null,
-          "reason": "The two governance publications use conceptual stages rather than comparable numerical observations collected at distinct times."
+          "reason": "No repeated measurement of approval behavior or audit coverage uses the same denominator at two known dates."
         },
         "relevance": {
           "score": 5,
-          "reason": "Organizations can map identity, permission, intent, signals and escalation onto one bounded agent action today."
+          "reason": "An administrator can test an external agent against one reviewable action and inspect the resulting access decision and log."
         },
         "durability": {
           "score": 5,
-          "reason": "External enforcement, least privilege, traceability and accountable judgment remain durable across models and agent frameworks."
+          "reason": "Separating identities, least-privilege access, action approval and audit evidence remains useful as models and connectors change."
         }
       },
       "trial_story_ids": [
         "dab-story-2026-09-13-91c7e2a4",
         "dab-story-2026-09-13-4b8f13d0"
       ],
-      "research_score": 65
+      "research_score": 70
     },
     {
       "topic_id": "dab-topic-concept-level-language-models",
