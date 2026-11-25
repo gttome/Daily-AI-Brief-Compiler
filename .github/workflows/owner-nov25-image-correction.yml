@@ -1,0 +1,182 @@
+name: owner-nov25-image-correction
+# One-shot owner-requested postpublication revision, not a daily producer or schedule.
+on:
+  pull_request:
+    paths:
+      - 'external-image-revisions/2026-11-25/owner-layout-r2/**'
+      - 'scripts/owner-nov25-image-revision.mjs'
+      - 'scripts/capture-owner-nov25-image-revision.mjs'
+      - '.github/workflows/owner-nov25-image-correction.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'external-image-revisions/2026-11-25/owner-layout-r2/manifest.json'
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+  pages: write
+  id-token: write
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+jobs:
+  owner-nov25-preflight:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Inspect exact existing history and dry-run only image routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          git worktree add --detach history "$HISTORY_HEAD"
+          mkdir -p build/evidence
+          node scripts/owner-nov25-image-revision.mjs stage . history/site build/patched \
+            build/evidence/staging.json "$HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          node -e "let r=require('./build/evidence/staging.json');if(r.changed_count!==7&&r.changed_count!==8)process.exit(1);if(r.images.length!==6||r.original_six_png_bytes_preserved!==true)process.exit(1)"
+  owner-nov25-image-revision:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PACKAGE_PATH: external-image-revisions/2026-11-25/owner-layout-r2/manifest.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Require only the exact owner-approved protected merge and successful PR validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REF" = refs/heads/main
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$PACKAGE_PATH" >/dev/null
+          gh api "repos/$GITHUB_REPOSITORY/rulesets/24610983" |
+            jq -e '.enforcement=="active" and (.bypass_actors|length)==0' >/dev/null
+          PR="$(gh api -H 'Accept: application/vnd.github+json' "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/pulls" |
+            jq -r '[.[]|select(.merged_at != null and .base.ref == "main")|.number]|first // empty')"
+          [[ "$PR" =~ ^[1-9][0-9]*$ ]]
+          PR_HEAD="$(gh api "repos/$GITHUB_REPOSITORY/pulls/$PR" --jq '.head.sha')"
+          [[ "$PR_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$PR_HEAD&event=pull_request&per_page=100" |
+            jq -e --arg sha "$PR_HEAD" '.workflow_runs|any(.head_sha==$sha and .event=="pull_request" and .name=="compiler-validation" and .conclusion=="success")' >/dev/null
+          echo "Owner correction authorized by protected PR #$PR exact head $PR_HEAD"
+      - name: Freeze exact published history head, required policy and original release
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HISTORY_HEAD"
+          test -s history/site/image-jobs/2026-11-25/release.json
+          test -s history/site/briefs/2026-11-25/index.html
+          test -s docs/automation/current/IMAGES.md
+          BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$BROWSER"
+          echo "CHROME_BINARY=$BROWSER" >> "$GITHUB_ENV"
+      - name: Stage byte-exact versioned replacements without modifying original artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/evidence
+          node scripts/owner-nov25-image-revision.mjs stage . history/site build/patched \
+            build/evidence/staging.json "$HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/patched
+          name: owner-nov25-image-revision-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for the exact Pages artifact to be visible
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 12); do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" |
+              jq -e --arg name "owner-nov25-image-revision-${{ github.run_id }}-${{ github.run_attempt }}" '.artifacts|any(.name==$name and .expired==false)' >/dev/null; then exit 0; fi
+            sleep 5
+          done
+          exit 1
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: owner-nov25-image-revision-${{ github.run_id }}-${{ github.run_attempt }}
+          timeout: 1200000
+      - name: Independently verify new and historic PNG hashes, pages, October 8 objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5; do
+            if node scripts/owner-nov25-image-revision.mjs verify build/evidence/staging.json; then
+              echo "LIVE_REVISION_VERIFIED=true" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            if [ "$attempt" -lt 5 ]; then sleep 10; fi
+          done
+          echo 'No publication success claimed without independent live verification'
+          exit 1
+      - name: Capture all 24 real dated and permanent image contexts at phone and desktop widths
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-audit --no-fund playwright-core@1.56.1
+          node scripts/capture-owner-nov25-image-revision.mjs \
+            "$PACKAGE_PATH" build/evidence/contexts
+          node -e "const r=require('./build/evidence/contexts/status.json'); if(r.status!=='CAPTURED_UNREVIEWED'||r.actual_captures!==24)process.exit(1)"
+      - name: Write a separate correction receipt while keeping original release immutable
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$LIVE_REVISION_VERIFIED" = true
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          DEST=build/patched/image-revisions/2026-11-25/owner-layout-r2
+          mkdir -p "$DEST"
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const s=JSON.parse(fs.readFileSync('build/evidence/staging.json'));
+          const c=JSON.parse(fs.readFileSync('build/evidence/contexts/status.json'));
+          const receipt={schema_version:'owner-nov25-image-revision-release-v1',edition_date:'2026-11-25',revision_id:'owner-layout-r2',result:'LIVE_HASH_AND_24_CAPTURES_VERIFIED',verified_at:new Date().toISOString(),original_accepted_images_preserved:true,original_release_receipt_preserved:true,original_bundle_unchanged:true,owner_requested:true,public_sha256_checks:12,protected_oct8_hashes_verified:17,context_capture_count:c.actual_captures,semantic_pixel_review:'NOT_AUTOMATICALLY_CERTIFIED',images:s.images};
+          fs.writeFileSync('build/patched/image-revisions/2026-11-25/owner-layout-r2/release.json',JSON.stringify(receipt,null,2)+'\n');
+          NODE
+          rm -rf history/site
+          mkdir -p history/site
+          cp -a build/patched/. history/site/
+          git -C history config user.name 'Daily Compiler'
+          git -C history config user.email 'actions@users.noreply.github.com'
+          git -C history add site
+          git -C history commit -m 'Record owner-approved November 25 versioned image revision'
+          git -C history push origin HEAD:shadow-pages-history
+      - name: Archive actual proof and 24 context images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: owner-nov25-image-revision-proof
+          path: build/evidence/
+          retention-days: 30
+          if-no-files-found: warn
