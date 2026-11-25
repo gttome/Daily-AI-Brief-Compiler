@@ -1,0 +1,460 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-25",
+  "story_id": "nov25-g2-switchcraft-routing",
+  "source_url": "https://www.microsoft.com/en-us/research/project/switchcraft-model-routing-for-agentic-ai/",
+  "visual_thesis": "A router selects the least costly candidate meeting a correctness threshold, or abstains when none qualifies; workload and version bound the result.",
+  "mechanism_metaphor": "A faceted request tile enters an open decision fan. A transparent threshold plane separates eligible model specimens from unqualified specimens without invented scores, bars or rankings. Profiled cost tags are plain geometric tags with the exact label Profiled cost, no currency or numeric tokens. The selected eligible path leads to one distinct model output. A clearly separated abstention branch returns control without sending a model call. Place a small held-out-test slice and result-version tab as evidence guides, not causal inputs or guarantees. Two allowed arrowheads: Quality threshold to Lowest eligible cost, conditional on qualification; Quality threshold to Abstain, conditional on no eligible candidate. Never draw both as simultaneous guaranteed outputs. No dashboard, gears, switches, knobs or invented charts.",
+  "story_anchors": [
+    "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+    "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization."
+  ],
+  "required_labels": [
+    "Request",
+    "Predicted correctness",
+    "Quality threshold",
+    "Lowest eligible cost",
+    "Profiled cost",
+    "Abstain",
+    "No model call",
+    "Held-out test",
+    "Workload and version matter",
+    "Meets threshold",
+    "None qualifies"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+      "supporting_source_excerpt": "least expensive model that meets its correctness threshold",
+      "source_url": "https://www.microsoft.com/en-us/research/project/switchcraft-model-routing-for-agentic-ai/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+      "supporting_source_excerpt": "without issuing a model call",
+      "source_url": "https://www.microsoft.com/en-us/research/project/switchcraft-model-routing-for-agentic-ai/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Quality threshold",
+      "to": "Lowest eligible cost",
+      "support_claim_id": "claim-1",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Quality threshold",
+      "to": "Abstain",
+      "support_claim_id": "claim-2",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported capability, efficacy or production guarantee. No fake data, unlisted labels, human figures, logos, controls, gears, shield icons, decorative micro-writing, empty information-bearing surfaces or extra arrowheads."
+  ],
+  "composition_signature": {
+    "grammar": "Cost-quality routing fan with abstention",
+    "metaphor": "Branching selection specimen",
+    "layout": "A faceted request tile enters an open decision fan. A transparent threshold plane separates eligible model specimens from unqualified specimens without invented scores, bars or rankings. Profiled cost tags are plain geometric tags with the exact label Profiled cost, no currency or numeric tokens. The selected eligible path leads to one distinct model output. A clearly separated abstention branch returns control without sending a model call. Place a small held-out-test slice and result-version tab as evidence guides, not causal inputs or guarantees. Two allowed arrowheads: Quality threshold to Lowest eligible cost, conditional on qualification; Quality threshold to Abstain, conditional on no eligible candidate. Never draw both as simultaneous guaranteed outputs. No dashboard, gears, switches, knobs or invented charts.",
+    "palette": "Indigo and lime with warm gray",
+    "hierarchy": "Request meets quality gate, eligible cost choice, explicit abstention",
+    "perspective": "High isometric exploded decision fan",
+    "annotation": "Floating direct labels on model-neutral decision facets"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "request tile",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "request tile as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "correctness-estimate facet",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "correctness-estimate facet as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "candidate model specimen",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "candidate model specimen as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "threshold plane",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "threshold plane as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "eligible branch",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "eligible branch as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "ineligible stopped branch",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "ineligible stopped branch as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "profiled-cost tag",
+        "visible_fact": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "profiled-cost tag as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "selected-cost facet",
+        "visible_fact": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "selected-cost facet as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "abstention branch",
+        "visible_fact": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "abstention branch as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "no-call returned-control state",
+        "visible_fact": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "no-call returned-control state as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "held-out evidence slice",
+        "visible_fact": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "held-out evidence slice as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "version-scope tab",
+        "visible_fact": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "version-scope tab as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker primary-source review",
+    "source_url": "https://www.microsoft.com/en-us/research/project/switchcraft-model-routing-for-agentic-ai/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Request",
+        "region_id": "request",
+        "region": "Request and correctness evidence",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 80,
+          "width": 270,
+          "height": 50
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Predicted correctness",
+        "region_id": "request",
+        "region": "Request and correctness evidence",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 350,
+          "width": 280,
+          "height": 75
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Quality threshold",
+        "region_id": "choice",
+        "region": "Threshold and eligible cost selection",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 85,
+          "width": 360,
+          "height": 55
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Lowest eligible cost",
+        "region_id": "choice",
+        "region": "Threshold and eligible cost selection",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 235,
+          "width": 360,
+          "height": 60
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Profiled cost",
+        "region_id": "choice",
+        "region": "Threshold and eligible cost selection",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 390,
+          "width": 320,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Abstain",
+        "region_id": "abstain",
+        "region": "Abstention and evidence boundary",
+        "bounding_box_px": {
+          "x": 845,
+          "y": 80,
+          "width": 270,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "No model call",
+        "region_id": "abstain",
+        "region": "Abstention and evidence boundary",
+        "bounding_box_px": {
+          "x": 845,
+          "y": 220,
+          "width": 270,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Held-out test",
+        "region_id": "abstain",
+        "region": "Abstention and evidence boundary",
+        "bounding_box_px": {
+          "x": 845,
+          "y": 350,
+          "width": 270,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Workload and version matter",
+        "region_id": "limit",
+        "region": "Detached workload and version scope",
+        "bounding_box_px": {
+          "x": 280,
+          "y": 520,
+          "width": 680,
+          "height": 42
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Meets threshold",
+        "region_id": "choice",
+        "region": "Threshold and eligible cost selection",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 310,
+          "width": 360,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "None qualifies",
+        "region_id": "abstain",
+        "region": "Abstention and evidence boundary",
+        "bounding_box_px": {
+          "x": 840,
+          "y": 150,
+          "width": 280,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Workload and version matter",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 74,
+    "explanatory_substage_labels": [
+      "Quality threshold",
+      "Lowest eligible cost"
+    ],
+    "thumbnail_priority_labels": [
+      "Request",
+      "Quality threshold",
+      "Lowest eligible cost"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.",
+        "allowed_path": "Quality threshold to Lowest eligible cost",
+        "blocked_path": "No additional arrowheads; stopped paths, comparison guides and detached source caveat never imply a successful causal output.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "condition": "When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.",
+        "allowed_path": "Quality threshold to Abstain",
+        "blocked_path": "No additional arrowheads; stopped paths, comparison guides and detached source caveat never imply a successful causal output.",
+        "support_claim_id": "claim-2"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Quality threshold",
+        "to": "Lowest eligible cost",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "origin_region": "Threshold and eligible cost selection",
+        "target_region": "Threshold and eligible cost selection",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Quality threshold",
+        "to": "Abstain",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "origin_region": "Threshold and eligible cost selection",
+        "target_region": "Abstention and evidence boundary",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Branching selection specimen",
+      "dominant_grammar": "Cost-quality routing fan with abstention",
+      "medium_treatment": "Matte three-dimensional scientific model with inked edges",
+      "perspective": "High isometric exploded decision fan",
+      "information_hierarchy": "Request meets quality gate, eligible cost choice, explicit abstention",
+      "palette_family": "Indigo and lime with warm gray",
+      "subject_specific_visual_thesis": "A router selects the least costly candidate meeting a correctness threshold, or abstains when none qualifies; workload and version bound the result. The two substages are Quality threshold and Lowest eligible cost. Full-size reading reveals abstention branch, no-call returned-control state, held-out evidence slice, version-scope tab.",
+      "difference_from_earlier_story_images": "nov20-k2-openrouter-routing: Unlike November 20’s managed-routing triangle and provider boxes, this exploded model-neutral fan distinguishes correctness eligibility, profiled cost and the explicit no-call abstention state.",
+      "first_pass_risk_mitigation": "Keep all relevant foreground preferably 72px inside edges, make every record meaningful with exact source labels, forbid pseudo-writing, unsupported controls and all arrowheads beyond the enumerated physical ports. Review the detached caveat and actual 320px pixels before any acceptance."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "request",
+          "description": "Request and correctness evidence",
+          "bounding_box_px": {
+            "x": 65,
+            "y": 65,
+            "width": 310,
+            "height": 420
+          }
+        },
+        {
+          "id": "choice",
+          "description": "Threshold and eligible cost selection",
+          "bounding_box_px": {
+            "x": 400,
+            "y": 65,
+            "width": 400,
+            "height": 420
+          }
+        },
+        {
+          "id": "abstain",
+          "description": "Abstention and evidence boundary",
+          "bounding_box_px": {
+            "x": 825,
+            "y": 65,
+            "width": 310,
+            "height": 420
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached workload and version scope",
+          "bounding_box_px": {
+            "x": 250,
+            "y": 510,
+            "width": 740,
+            "height": 60
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Quality threshold",
+          "to": "Lowest eligible cost",
+          "support_claim_id": "claim-1",
+          "direction": "conditional",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "choice",
+          "to_region_id": "choice",
+          "origin_px": {
+            "x": 760,
+            "y": 155
+          },
+          "target_px": {
+            "x": 760,
+            "y": 215
+          }
+        },
+        {
+          "from": "Quality threshold",
+          "to": "Abstain",
+          "support_claim_id": "claim-2",
+          "direction": "conditional",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "choice",
+          "to_region_id": "abstain",
+          "origin_px": {
+            "x": 780,
+            "y": 180
+          },
+          "target_px": {
+            "x": 845,
+            "y": 140
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and geometry reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "f60f73215ef30a4a0625621ec2c9f082ae2b83b62af456c99e935140ccc2d179"
+      }
+    }
+  },
+  "native_generation_prompt": "Create exactly one premium factual editorial illustration, landscape 1200x630, white background. Static educational artwork, not an engineering drawing. Style: Matte three-dimensional scientific model with inked edges. View: High isometric exploded decision fan. Palette: Indigo and lime with warm gray.\nARTICLE: Model routing needs a visible quality, cost and abstention policy\nMicrosoft Research describes Switchcraft, a router that chooses a model using predicted correctness, profiled cost and an abstention option. The project page reports higher evaluated accuracy than the best single candidate at lower cost for its tested model set, but an earlier paper reports different figures. That makes version, workload and decision threshold part of the operating record.\nSOURCE FACTS: The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold. When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.\nVISUAL THESIS: A router selects the least costly candidate meeting a correctness threshold, or abstains when none qualifies; workload and version bound the result.\nCOMPOSITION: A faceted request tile enters an open decision fan. A transparent threshold plane separates eligible model specimens from unqualified specimens without invented scores, bars or rankings. Profiled cost tags are plain geometric tags with the exact label Profiled cost, no currency or numeric tokens. The selected eligible path leads to one distinct model output. A clearly separated abstention branch returns control without sending a model call. Place a small held-out-test slice and result-version tab as evidence guides, not causal inputs or guarantees. Two allowed arrowheads: Quality threshold to Lowest eligible cost, conditional on qualification; Quality threshold to Abstain, conditional on no eligible candidate. Never draw both as simultaneous guaranteed outputs. No dashboard, gears, switches, knobs or invented charts.\nEvery content-bearing object must explain: request tile; correctness-estimate facet; candidate model specimen; threshold plane; eligible branch; ineligible stopped branch; profiled-cost tag; selected-cost facet; abstention branch; no-call returned-control state; held-out evidence slice; version-scope tab. No empty records, decorative paragraphs, pseudotext or invented symbols. No people, humanoids, logos, photorealism, dashboards, panel collages, machinery or unsupported graphs. Large clear typography; priority labels at least 36px and secondary labels at least 28px at final export. Keep every foreground shape, shadow and glyph preferably 72px inset, never less than 40px. Keep the main mechanism understandable at 320px. Render ONLY these exact labels, once each: [\"Request\",\"Predicted correctness\",\"Quality threshold\",\"Lowest eligible cost\",\"Profiled cost\",\"Abstain\",\"No model call\",\"Held-out test\",\"Workload and version matter\",\"Meets threshold\",\"None qualifies\"]. No title beyond those labels.\nDraw ONLY these arrowheads, each on the named physical object ports, never on text: Quality threshold to Lowest eligible cost; condition The router estimates tool-call correctness, profiles cost and selects the cheapest model above a correctness threshold.; Quality threshold to Abstain; condition When none is predicted correct, abstention can return control without a model call; a held-out benchmark tests generalization.. All other guides are explicitly nondirectional. Keep caveat detached.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"request\",\"description\":\"Request and correctness evidence\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":310,\"height\":420}},{\"id\":\"choice\",\"description\":\"Threshold and eligible cost selection\",\"bounding_box_px\":{\"x\":400,\"y\":65,\"width\":400,\"height\":420}},{\"id\":\"abstain\",\"description\":\"Abstention and evidence boundary\",\"bounding_box_px\":{\"x\":825,\"y\":65,\"width\":310,\"height\":420}},{\"id\":\"limit\",\"description\":\"Detached workload and version scope\",\"bounding_box_px\":{\"x\":250,\"y\":510,\"width\":740,\"height\":60}}],\"labels\":[{\"label\":\"Request\",\"region_id\":\"request\",\"region\":\"Request and correctness evidence\",\"bounding_box_px\":{\"x\":80,\"y\":80,\"width\":270,\"height\":50},\"minimum_font_px\":38},{\"label\":\"Predicted correctness\",\"region_id\":\"request\",\"region\":\"Request and correctness evidence\",\"bounding_box_px\":{\"x\":80,\"y\":350,\"width\":280,\"height\":75},\"minimum_font_px\":28},{\"label\":\"Quality threshold\",\"region_id\":\"choice\",\"region\":\"Threshold and eligible cost selection\",\"bounding_box_px\":{\"x\":420,\"y\":85,\"width\":360,\"height\":55},\"minimum_font_px\":40},{\"label\":\"Lowest eligible cost\",\"region_id\":\"choice\",\"region\":\"Threshold and eligible cost selection\",\"bounding_box_px\":{\"x\":420,\"y\":235,\"width\":360,\"height\":60},\"minimum_font_px\":36},{\"label\":\"Profiled cost\",\"region_id\":\"choice\",\"region\":\"Threshold and eligible cost selection\",\"bounding_box_px\":{\"x\":420,\"y\":390,\"width\":320,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Abstain\",\"region_id\":\"abstain\",\"region\":\"Abstention and evidence boundary\",\"bounding_box_px\":{\"x\":845,\"y\":80,\"width\":270,\"height\":50},\"minimum_font_px\":40},{\"label\":\"No model call\",\"region_id\":\"abstain\",\"region\":\"Abstention and evidence boundary\",\"bounding_box_px\":{\"x\":845,\"y\":220,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Held-out test\",\"region_id\":\"abstain\",\"region\":\"Abstention and evidence boundary\",\"bounding_box_px\":{\"x\":845,\"y\":350,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Workload and version matter\",\"region_id\":\"limit\",\"region\":\"Detached workload and version scope\",\"bounding_box_px\":{\"x\":280,\"y\":520,\"width\":680,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Meets threshold\",\"region_id\":\"choice\",\"region\":\"Threshold and eligible cost selection\",\"bounding_box_px\":{\"x\":420,\"y\":310,\"width\":360,\"height\":44},\"minimum_font_px\":28},{\"label\":\"None qualifies\",\"region_id\":\"abstain\",\"region\":\"Abstention and evidence boundary\",\"bounding_box_px\":{\"x\":840,\"y\":150,\"width\":280,\"height\":44},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Quality threshold\",\"to\":\"Lowest eligible cost\",\"support_claim_id\":\"claim-1\",\"direction\":\"conditional\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"choice\",\"to_region_id\":\"choice\",\"origin_px\":{\"x\":760,\"y\":155},\"target_px\":{\"x\":760,\"y\":215}},{\"from\":\"Quality threshold\",\"to\":\"Abstain\",\"support_claim_id\":\"claim-2\",\"direction\":\"conditional\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"choice\",\"to_region_id\":\"abstain\",\"origin_px\":{\"x\":780,\"y\":180},\"target_px\":{\"x\":845,\"y\":140}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nFIRST-ATTEMPT GEOMETRY REINFORCEMENT FROM ACTUAL CURRENT DRAFT FAILURES: create a wide, entirely blank white border around the complete composition, at least 10 percent on every side. Content including all shadows and words must fit inside x100..1100 and y75..550 on a 1200x630 canvas. The supplied region plan describes positions within that safe composition. Never enlarge to fill the edge. Printed text must be exclusively the exact label allowlist, with no added component names, symbols or descriptive words from the instructions. A generous white border is mandatory.\nTARGETED CORRECTION: The draft repeats Profiled cost four times despite the once-only allowlist. Retain a single Profiled cost label with a nondirectional brace applying to all candidate specimens; remove the other three duplicate labels, without anonymous value boxes. Make the two alternate routing conditions explicit: Meets threshold on the eligible cost path, and None qualifies on the abstention path. Preserve the no-model-call distinction, held-out test and detached workload/version caveat. No new arrowheads. Keep exactly the existing factual labels and the frozen geometry relationships. Do not introduce any extra text or arrowheads. The complete relevant artwork including labels and foreground must have a generous continuous white outer border, x80..1120 and y70..555 at final 1200x630. Preserve the meaningful objects and accurate relationships; no clipping, no blank information surfaces, no decorative replacement.\nThe new approved words Meets threshold and None qualifies are the conditional branch labels, not simultaneous results. This is an editorial selection specimen, not a dashboard. Keep both labels visibly attached to their correct branch; repeat no labels."
+}
