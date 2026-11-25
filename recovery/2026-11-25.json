@@ -1,0 +1,100 @@
+{
+  "schema_version": "daily-compiler-recovery-v1",
+  "edition_date": "2026-11-25",
+  "cycle_date": "2026-11-24",
+  "recorded_at": "2026-11-25T06:03:34.057Z",
+  "mode": "unknown",
+  "scheduler_origin": "UNPROVEN",
+  "owner_prompt_required": false,
+  "protected_main_commit": "bd8cb17a4f23631e9b0d6549b6e50ca725e73224",
+  "source_branch": "shadow/2026-11-25",
+  "source_head": "d2bc3bde3e80d201576390d421ca694f5c443ed3",
+  "original_source_commit": "c78d2b5ffa0fb0b0d42a82d8646209c327b4ee68",
+  "history_head": "5e5029d6ea5f60a7cc09ab39340b009c012b5c8b",
+  "operations_head_before_receipt": "3bcfc212d9317d9cb306419cabd1af482056c532",
+  "result": "REPORTING_RETRY_VERIFIED",
+  "completion_dimensions": {
+    "publication": "VERIFIED",
+    "images": "RELEASED_AND_24_CONTEXTS_VERIFIED_WITH_OWNER_APPROVED_VERSIONED_REVISION",
+    "top10": "INVALID",
+    "overall_evidence": "PARTIAL",
+    "autonomy": "UNPROVEN",
+    "runtime_policy": "DECLARED_RESTRICTED_EDITORIAL_RUNTIME",
+    "usage": "UNKNOWN"
+  },
+  "ownership": {
+    "primary_active": false,
+    "pending_publication_pr": false,
+    "image_lease_status": "RELEASED",
+    "image_worker_phase": "PUBLISHED_COMPLETE",
+    "checked_at": "2026-11-25T06:02:43.323Z",
+    "evidence_refs": [
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/bd8cb17a4f23631e9b0d6549b6e50ca725e73224/external-image-packages/2026-11-25/reviews/worker-state.json",
+      "https://api.github.com/repos/gttome/Daily-AI-Brief-Compiler/pulls?state=open"
+    ]
+  },
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45549002190",
+      "job_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45549002190/job/138985385681",
+      "stage": "DAILY_OPERATIONS_REPORT_PUSH",
+      "root_cause_code": "GITHUB_PUSH_INTERNAL_SERVER_ERROR",
+      "original_error": "remote: Internal Server Error; remote rejected HEAD -> operations-reports; error: failed to push some refs",
+      "reason": "The deterministic report build completed and committed locally, but GitHub rejected the operations-reports push with a transient Internal Server Error. No editorial, image, Pages, schema, or accepted-byte defect was observed."
+    }
+  ],
+  "recovery_action": {
+    "action": "RERUN_FAILED_DETERMINISTIC_REPORT_JOB",
+    "attempts_used": 1,
+    "workflow_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45549002190",
+    "run_attempt": 2,
+    "repair_started_at": "2026-11-25T06:00:22Z",
+    "repair_completed_at": "2026-11-25T06:01:03Z",
+    "verified_at": "2026-11-25T06:01:03Z",
+    "operations_head_after_retry": "3bcfc212d9317d9cb306419cabd1af482056c532",
+    "outcome": "SUCCESS"
+  },
+  "recovery_metrics": {
+    "owner_prompt_required": false,
+    "detected_at": null,
+    "detect_to_action_seconds": null,
+    "detect_to_verified_seconds": null,
+    "reason": "No trusted checkpoint detection timestamp was persisted before the recovery action, so detection intervals remain unknown rather than being reconstructed from chat or tool-call timing."
+  },
+  "image_completion": {
+    "immutable_job_sha256": "ff9f14990ae3b5bf9bde3d96483cfdece510dda3bfcafffa037fb0c32534511b",
+    "original_bundle_sha256": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f",
+    "release_status": "RELEASED_VERIFIED",
+    "lease_status": "RELEASED",
+    "semantic_pixel_contexts": 24,
+    "owner_revision_id": "owner-layout-r2",
+    "owner_revision_manifest": "external-image-revisions/2026-11-25/owner-layout-r2/manifest.json",
+    "preserve_accepted_originals": true,
+    "accepted_original_hashes": {
+      "m01": "6d8603245dcfaec4bab625248ff5a6bb1d8258a2fd3611e280eb5e4bf03d0bfc",
+      "m02": "ace44da0f3ebecb93becb5b8efcb24e60fea12eb54276d120c5ac9abd46f2d2d",
+      "m10": "3fb1563fdf618c25cdeb814ac190478f22be933639f874f60470594381247b29",
+      "m11": "e91db1c2635a534e62695c9b5134a371ab4fec4895350aee6a995a8ba6ae2fd0",
+      "m12": "a4351506832e7108b7469e14c1bee2fd86cfa76d61da9e931b242e6342556aa7",
+      "m14": "f12e852a79769cae8aed237a5fe921114337f87230fa3e53f3683e4a0ac0b157"
+    },
+    "current_live_hashes": {
+      "m01": "6d8603245dcfaec4bab625248ff5a6bb1d8258a2fd3611e280eb5e4bf03d0bfc",
+      "m02": "ace44da0f3ebecb93becb5b8efcb24e60fea12eb54276d120c5ac9abd46f2d2d",
+      "m10": "4ad1377cb73d6dd0c1fb2a94a4c95d91ed605d0d7525930b333bd81e306a2fc3",
+      "m11": "e91db1c2635a534e62695c9b5134a371ab4fec4895350aee6a995a8ba6ae2fd0",
+      "m12": "09950e6fb4b0a8dab865921276f509ffdb2a5ebf8a81a6aead25780c8447006e",
+      "m14": "0c3448d5082f20ff019e88fc1d5edb7d8fac278427ba04407291c047fbd131ad"
+    },
+    "live_reader": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-25/",
+    "live_observation": "Six complete 1200x630 images observed; three original routes and three owner-layout-r2 routes matched the versioned revision manifest."
+  },
+  "evidence_refs": [
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45549002190",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3bcfc212d9317d9cb306419cabd1af482056c532/daily/2026-11-24/combined.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/bd8cb17a4f23631e9b0d6549b6e50ca725e73224/external-image-revisions/2026-11-25/owner-layout-r2/manifest.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/bd8cb17a4f23631e9b0d6549b6e50ca725e73224/external-image-packages/2026-11-25/reviews/live/semantic-pixel-review.json",
+    "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-25/"
+  ],
+  "next_action": "Read-only for the released November 25 reader and images. Apply Top 10 evidence and image-efficiency lessons prospectively in the next genuine unlocked edition; do not reopen this edition or regenerate accepted/revised images."
+}
