@@ -204,6 +204,39 @@ jobs:
         with:
           path: build/patched
           name: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for exact initial image artifact before Pages deployment
+        if: env.EXACT_LIVE_RESUME != 'true'
+        env:
+          ARTIFACT_NAME: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          stable=0
+          for attempt in $(seq 1 20); do
+            # Match the deploy action's default listing as well as the full page.
+            artifacts="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts")"
+            full="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+            count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$artifacts")"
+            full_count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$full")"
+            if [ "$count" -gt 1 ] || [ "$full_count" -gt 1 ]; then
+              echo '::error::AMBIGUOUS_CURRENT_ATTEMPT_ARTIFACT'
+              exit 1
+            fi
+            if [ "$count" = 1 ] && [ "$full_count" = 1 ]; then
+              stable=$((stable+1))
+            else
+              stable=0
+            fi
+            # Immediate one-endpoint visibility failed in the actual Nov25 run.
+            # Require repeated agreement and a bounded settling interval.
+            if [ "$attempt" -ge 8 ] && [ "$stable" -ge 3 ]; then
+              echo "EXACT_ATTEMPT_ARTIFACT_STABLY_VISIBLE name=$ARTIFACT_NAME observations=$stable"
+              exit 0
+            fi
+            if [ "$attempt" -lt 20 ]; then sleep 2; fi
+          done
+          echo '::error::CURRENT_ATTEMPT_ARTIFACT_NOT_STABLY_VISIBLE'
+          exit 1
       - id: deployment
         if: env.EXACT_LIVE_RESUME != 'true'
         uses: actions/deploy-pages@v4
@@ -282,6 +315,39 @@ jobs:
         with:
           path: build/patched
           name: image-final-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for exact final metadata artifact before Pages deployment
+        if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
+        env:
+          ARTIFACT_NAME: image-final-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          stable=0
+          for attempt in $(seq 1 20); do
+            # Match the deploy action's default listing as well as the full page.
+            artifacts="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts")"
+            full="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+            count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$artifacts")"
+            full_count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$full")"
+            if [ "$count" -gt 1 ] || [ "$full_count" -gt 1 ]; then
+              echo '::error::AMBIGUOUS_CURRENT_ATTEMPT_ARTIFACT'
+              exit 1
+            fi
+            if [ "$count" = 1 ] && [ "$full_count" = 1 ]; then
+              stable=$((stable+1))
+            else
+              stable=0
+            fi
+            # Immediate one-endpoint visibility failed in the actual Nov25 run.
+            # Require repeated agreement and a bounded settling interval.
+            if [ "$attempt" -ge 8 ] && [ "$stable" -ge 3 ]; then
+              echo "EXACT_ATTEMPT_ARTIFACT_STABLY_VISIBLE name=$ARTIFACT_NAME observations=$stable"
+              exit 0
+            fi
+            if [ "$attempt" -lt 20 ]; then sleep 2; fi
+          done
+          echo '::error::CURRENT_ATTEMPT_ARTIFACT_NOT_STABLY_VISIBLE'
+          exit 1
       - uses: actions/deploy-pages@v4
         if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
         with:
