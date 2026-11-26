@@ -1,8 +1,8 @@
 {
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-26",
-  "status": "BLOCKED_PUBLICATION",
-  "observed_at": "2026-11-26T02:30:18.786Z",
+  "status": "READER_VERIFIED",
+  "observed_at": "2026-11-26T02:35:08.917Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
@@ -25,18 +25,15 @@
         "error": "production_evidence:invalid_seal_clock_or_order",
         "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
       }
+    },
+    {
+      "status": "READER_VERIFIED",
+      "stage": "READER_PUBLICATION",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45743052689",
+      "observed_at": "2026-11-26T02:35:08.917Z"
     }
   ],
-  "outstanding_blocker": {
-    "stage": "SEMANTIC_PREFLIGHT",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45742811332",
-    "validator_failure": {
-      "error": "production_evidence:invalid_seal_clock_or_order",
-      "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
-    },
-    "first_observed_at": "2026-11-26T02:30:18.786Z",
-    "next_action": "Read the complete semantic validator error; repair only the same-edition cause and rerun unchanged validation before protected dispatch."
-  },
+  "outstanding_blocker": null,
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
     "stage": "SEMANTIC_PREFLIGHT",
@@ -47,7 +44,7 @@
       "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
     }
   },
-  "public_reader_verified": false,
+  "public_reader_verified": true,
   "unattended_recovery_proven": false,
   "owner_intervention": "UNKNOWN_NOT_ATTESTED_BY_GITHUB",
   "image_job_verified": false,
