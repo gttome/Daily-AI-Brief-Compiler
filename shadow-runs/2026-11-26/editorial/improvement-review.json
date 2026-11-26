@@ -1,0 +1,100 @@
+{
+  "schema_version": "daily-aar-improvement-review-v1",
+  "edition_date": "2026-11-26",
+  "register_baseline_id": "nov03-2026-v1",
+  "reviewed_at": "2026-11-26T02:35:08.917Z",
+  "reviews": [
+    {
+      "change_id": "NOV20-01",
+      "decision": "keep",
+      "result": "met_for_observation",
+      "reason": "Thirty exact-format Top 10 searches were recorded across all ten ranks, with three final candidate-bound mappings reconciled after substitutions. This does not prove better reader outcomes.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/trend-search-coverage.json",
+        "shadow-runs/2026-11-26/editorial/edition-aar.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-03",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Runtime declarations were preserved; scheduler identity, host identity, usage and billing origin remain unknown rather than inferred.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/compiler-state.json",
+        "shadow-runs/2026-11-26/editorial/edition-aar.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-04",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Sixteen complete dated-item reads were recorded separately from 36 bounded index scans, exceeding the advisory fifteen-read target.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/index-review.json",
+        "shadow-runs/2026-11-26/editorial/edition-aar.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-05",
+      "decision": "keep",
+      "result": "partially_met",
+      "reason": "All 37 registered video resources were searched and twelve substantive non-news programs across eight publisher families were reviewed. Two finals and one remaining reserve passed exact protected playback; the two-reserve target was not met after the fallback sequence consumed two previously qualified programs as finals, and no second reserve is claimed.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/video-source-sweep.json",
+        "shadow-runs/2026-11-26/editorial/video-prequalification.json",
+        "shadow-runs/2026-11-26/editorial/preseal-video-receipt.json",
+        "shadow-runs/2026-11-26/editorial/edition-aar.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-06",
+      "decision": "defer",
+      "result": "unknown_pending_image_task",
+      "reason": "The compiler published a verified six-story PUBLISHED_PENDING handoff and generated no premium images. First-pass accepts, native calls, saved-pixel margin corrections and distinct visual styles remain unknown until the separate image receipt exists.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-11-26/job.json",
+        "shadow-runs/2026-11-26/compiler/compile-receipt.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-07",
+      "decision": "keep",
+      "result": "met_for_evidence_discipline",
+      "reason": "The evidence-first Watchlist pass reviewed eight leads across six source families and published the strongest qualified new topic at its actual score of 81. The 85-point aspiration was kept separate from qualification, and limitations were retained.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/watchlist-research-receipt.json",
+        "shadow-runs/2026-11-26/edition-bundle.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-09",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Two qualified original papers were read in full and selected, satisfying the one-in-three advisory cadence without treating announcements as paper evidence.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/scientific-paper-coverage.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-10",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Live reader publication, pending image lifecycle, Top 10 mappings, Watchlist qualification, protected recovery and unknown runtime/usage evidence are reported separately.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/edition-aar.json",
+        "shadow-runs/2026-11-26/publication-health.json"
+      ]
+    },
+    {
+      "change_id": "OWNER-NOV26-WATCHLIST-RESET",
+      "decision": "keep",
+      "result": "met_for_current_cycle",
+      "reason": "The evidence-first pass was separate from the announcement sweep, traced BTOS to original dated waves, kept the separately sampled employer survey measure distinct, and published the best qualified new topic below 85 without filler.",
+      "evidence_refs": [
+        "shadow-runs/2026-11-26/editorial/watchlist-research-receipt.json",
+        "shadow-runs/2026-11-26/edition-bundle.json"
+      ]
+    }
+  ],
+  "production_quality_conclusion": "Implementation, gate completion and live publication are not proof of better reader or production outcomes. Image results, interaction evidence and longitudinal quality effects remain pending."
+}
