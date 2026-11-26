@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "Callable built-in image_gen.imagegen",
+    "evidence_ref": "native-tool:image_gen.imagegen"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "Completed PNG read via view_image",
+    "evidence_ref": "runtime:view_image"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "Available sharp completed RGB PNG buffer export, then complete-image-export strict decoding; each actual export remains to be verified",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/scripts/complete-image-export.mjs"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "Connected GitHub create_blob base64 and expected-head tree/commit/ref update",
+    "evidence_ref": "connected-tool:github_create_blob"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "Connected GitHub fetch_file encoding base64",
+    "evidence_ref": "connected-tool:github_fetch_file"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "Connected GitHub protected pull-request tools",
+    "evidence_ref": "connected-tool:github_create_pull_request"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "Existing protected release captures 1440px image regions; download actual artifact and inspect saved pixels",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/.github/workflows/external-image-only-replacement.yml"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "Existing protected release captures 320px image regions; download actual artifact and inspect saved pixels",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/scripts/capture-image-element24.mjs"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/.github/workflows/external-image-only-replacement.yml"
+  }
+}
