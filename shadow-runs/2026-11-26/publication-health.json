@@ -2,7 +2,7 @@
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-26",
   "status": "BLOCKED_PUBLICATION",
-  "observed_at": "2026-11-26T02:22:09.979Z",
+  "observed_at": "2026-11-26T02:30:18.786Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
@@ -15,19 +15,37 @@
       "stage": "PUBLICATION_PIPELINE",
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45741752660",
       "observed_at": "2026-11-26T02:22:09.979Z"
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45742811332",
+      "observed_at": "2026-11-26T02:30:18.786Z",
+      "validator_failure": {
+        "error": "production_evidence:invalid_seal_clock_or_order",
+        "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
+      }
     }
   ],
   "outstanding_blocker": {
-    "stage": "PUBLICATION_PIPELINE",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45741752660",
-    "first_observed_at": "2026-11-26T02:22:09.979Z",
-    "next_action": "Inspect first failed protected stage and retry only safe idempotent operations."
+    "stage": "SEMANTIC_PREFLIGHT",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45742811332",
+    "validator_failure": {
+      "error": "production_evidence:invalid_seal_clock_or_order",
+      "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
+    },
+    "first_observed_at": "2026-11-26T02:30:18.786Z",
+    "next_action": "Read the complete semantic validator error; repair only the same-edition cause and rerun unchanged validation before protected dispatch."
   },
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
-    "stage": "PUBLICATION_PIPELINE",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45741752660",
-    "observed_at": "2026-11-26T02:22:09.979Z"
+    "stage": "SEMANTIC_PREFLIGHT",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45742811332",
+    "observed_at": "2026-11-26T02:30:18.786Z",
+    "validator_failure": {
+      "error": "production_evidence:invalid_seal_clock_or_order",
+      "source_head": "0c0adbb2ec28b1cb72c74173030b40cd23f4eb13"
+    }
   },
   "public_reader_verified": false,
   "unattended_recovery_proven": false,
