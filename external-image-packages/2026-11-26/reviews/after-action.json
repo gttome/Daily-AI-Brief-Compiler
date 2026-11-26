@@ -4,7 +4,7 @@
   "job_sha256": "0b9969b4e7547e05ad9db9a35620d3d248c50a84b3f0973c81240b7449762535",
   "original_source_commit_sha": "6a7fbb1cdf71a3bca35ab6ebd2885534dee32f83",
   "original_bundle_sha256": "37f03ecfaf58235ac1d1d16b07c8fd4eb85e89d90c853fc29c446daf8453aff0",
-  "status": "READY_FOR_PROTECTED_RELEASE",
+  "status": "PUBLISHED_COMPLETE",
   "human_readable_path": "external-image-packages/2026-11-26/reviews/after-action.md",
   "production": {
     "actual_generation_count": 15,
@@ -32,7 +32,8 @@
       "local_browser_capture_available": false
     },
     "correction_plan_validation_gap_count": 2,
-    "correction_plan_audit_path": "external-image-packages/2026-11-26/reviews/correction-plan-audit.json"
+    "correction_plan_audit_path": "external-image-packages/2026-11-26/reviews/correction-plan-audit.json",
+    "semantic_review_completed_at": "2026-11-26T04:18:19Z"
   },
   "images": [
     {
@@ -212,11 +213,30 @@
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR_CI_AND_DEPLOYMENT"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-26T04:18:19Z",
+    "workflow_run_id": 45753285797,
+    "workflow_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797",
+    "package_pr": 428,
+    "package_pr_head": "4e6a584d5c321f67d7e50012f8012364b3114b68",
+    "package_merge_sha": "cb6f276c47673bd21c41e8cdc25e7883b74f8db2",
+    "package_merge_observed_at": "2026-11-26T04:08:13Z",
+    "exact_head_validation_run": 45753031654,
+    "independent_live_hashes": 6,
+    "dated_permanent_pairings": 12,
+    "protected_oct8_objects": 17,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "closeout_pr": 429,
+    "semantic_review_first_commit": "cbd970f37bdaae531455061c6f5f8c24f5cc37cf",
+    "semantic_review_byte_readback": "COMPLETE_REMOTE_READBACK_MATCH",
+    "homepage_pairings": 6
   },
   "visual_review": {
-    "result": "PENDING_LIVE_CONTEXTS",
-    "reviewed_targets": null
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-11-26/reviews/live/semantic-pixel-review.json",
+    "reviewed_at": "2026-11-26T04:18:19Z",
+    "capture_artifact_id": 15086936069
   },
   "usage": {
     "work_usage_percent": null,
@@ -226,13 +246,14 @@
     "Six distinct source-bound images were generated sequentially. All accepted image bytes are preserved. Fifteen calls and zero first-pass accepts miss both advisory efficiency targets; no efficiency improvement or owner aesthetic acceptance is claimed.",
     "Actual current full-size, 320px, color six-up and grayscale thumbnail pixels were inspected. Observed layouts: {\"central-cutaway\":1,\"asymmetric-inset\":1,\"branching-tree\":1,\"diagonal-depth\":1,\"vertical-stack\":1,\"horizontal-strip\":1}; largest repeated family 1; changed layout/treatment combinations versus the latest verified November25 revision: 4. Moth planned radial but observed horizontal; not relabeled as radial.",
     "Prior seven released contact sheets and actual November25 owner-layout-r2 replacements were inspected; latest three verified sets are bound in the structural review. Closest matches and specific visual differences are recorded per story.",
-    "Saved-pixel acceptance is complete; protected publication and all 24 actual live semantic contexts remain pending and are not inferred from the plan or this JSON.",
+    "Saved-pixel acceptance and actual live semantic review complete: all 24 individually opened contexts pass; fresh independent live proof confirms six hashes, twelve dated/permanent pairings and public RELEASED_VERIFIED status. Protected October8 17-object checks passed. Reporting-only closeout preserves manifest and all six accepted PNGs.",
     "Top10 impact: exact mapped stories are nov26-t1-siren-agent-boundaries and nov26-k2-svg-design-skill; the other four have no exact article mapping in the final receipt. See the existing impact table.",
-    "The original November20–22 evaluation is not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Its prior disposition is preserved; current fifteen calls and zero first-pass accepts provide additional unfavorable efficiency evidence.",
+    "The original November20\u201322 evaluation is not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Its prior disposition is preserved; current fifteen calls and zero first-pass accepts provide additional unfavorable efficiency evidence.",
     "Latest earlier combined AAR, chart data and improvement metrics were read. They showed twelve attempts, zero first-pass accepts and six rejections, plus a separate owner-negative variety finding that prompted the current silhouette control.",
     "Source review found that the live IBM page states March27,2026 rather than the immutable editorial job original-date label. Primary titles also differ from some editorial metadata. Artwork uses supported mechanisms without those dates/titles; the sealed editorial bundle was not rewritten.",
     "The initial six-spec admission passed, and all exact correction prompts were frozen before calls, but two later correction coordinate plans were not validated before their calls. Do not backdate validation or treat protected baseline CI as proof those two plans passed. Preserve accepted artwork; the observed planning/audit gap is separate from actual saved-pixel quality.",
-    "Run the existing first-pass validator on every future correction variant before calling native creation, in addition to the initial six-spec preflight."
+    "Run the existing first-pass validator on every future correction variant before calling native creation, in addition to the initial six-spec preflight.",
+    "Both actual image-only artifact deployments succeeded on attempt1. Each exact-attempt listing wait made eight probes with eight stable matches, zero missing/API-error polls and nineteen elapsed seconds. This is one observed successful new-edition deployment, not proof of long-term reliability or owner artistic adoption."
   ],
   "rollout_observation": {
     "structural_layout_count": 6,
@@ -242,8 +263,45 @@
     "attempts": 15,
     "owner_artistic_acceptance": "unknown",
     "usage_percent": null,
-    "live_qa_result": "PENDING",
-    "artifact_deployments": []
+    "live_qa_result": "PASS",
+    "artifact_deployments": [
+      {
+        "schema_version": "image-pages-artifact-visibility-v1",
+        "result": "EXACT_ATTEMPT_ARTIFACT_STABLY_VISIBLE",
+        "artifact_name": "image-pages-45753285797-1",
+        "artifact_id": 15086612675,
+        "run_id": "45753285797",
+        "run_attempt": "1",
+        "probes": 8,
+        "stable_polls": 8,
+        "not_visible_polls": 0,
+        "api_error_polls": 0,
+        "elapsed_seconds": 19,
+        "deployment_outcome": "success",
+        "workflow_conclusion": "success",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797",
+        "visibility_wait_seconds": 19,
+        "deploy_outcome": "deployed"
+      },
+      {
+        "schema_version": "image-pages-artifact-visibility-v1",
+        "result": "EXACT_ATTEMPT_ARTIFACT_STABLY_VISIBLE",
+        "artifact_name": "image-final-metadata-45753285797-1",
+        "artifact_id": 15086222938,
+        "run_id": "45753285797",
+        "run_attempt": "1",
+        "probes": 8,
+        "stable_polls": 8,
+        "not_visible_polls": 0,
+        "api_error_polls": 0,
+        "elapsed_seconds": 19,
+        "deployment_outcome": "success",
+        "workflow_conclusion": "success",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797",
+        "visibility_wait_seconds": 19,
+        "deploy_outcome": "deployed"
+      }
+    ]
   },
   "editorial_quality_review": {
     "schema_version": "image-editorial-quality-review-v1",
@@ -310,7 +368,7 @@
         "sha256": "2ad813d57ecfcee7a62580523ea91a46e1b5770a4440dd472346e4f02c14a058",
         "fullsize_pixels_inspected": true,
         "mobile_320_pixels_inspected": true,
-        "detail_observation": "The off-center gouache specimen exposes label attachment and keyboard flow; the large upper-right inset compares actual light/dark contrast marks. Separate upper accessibility and right functional outcomes carry +4.07 and −19.01 points with their correct signs and associations. The functional connection stays visibly broken despite the improved accessibility statement. The 24 matched runs/three-project caveat is detached. Window controls, chevrons and fake UI writing were removed. The artwork is an asymmetric main specimen with magnified inset, visibly different from the engraved sandbox enclosure. At 320px the tradeoff, numeric changes and scope remain legible; brush texture is subordinate.",
+        "detail_observation": "The off-center gouache specimen exposes label attachment and keyboard flow; the large upper-right inset compares actual light/dark contrast marks. Separate upper accessibility and right functional outcomes carry +4.07 and \u221219.01 points with their correct signs and associations. The functional connection stays visibly broken despite the improved accessibility statement. The 24 matched runs/three-project caveat is detached. Window controls, chevrons and fake UI writing were removed. The artwork is an asymmetric main specimen with magnified inset, visibly different from the engraved sandbox enclosure. At 320px the tradeoff, numeric changes and scope remain legible; brush texture is subordinate.",
         "text_architecture_observation": "Gouache and dry-brush educational illustration with clean sans-serif labels with source-specific label hierarchy; exact label list verified and no extra writing.",
         "mobile_observation": "Actual 320px PNG inspected; Accessibility improves and Function declines remain distinct with the opposite point changes readable. Fine keys and paint texture benefit from full-size.",
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-t2-accessible-vibe-coding.json",
@@ -388,7 +446,7 @@
         "sha256": "91d2e49a7f53d73a7874961b259d52fbc30915a577817cf7f1eaa6199a82df18",
         "fullsize_pixels_inspected": true,
         "mobile_320_pixels_inspected": true,
-        "detail_observation": "Success and Failure are explicit states on the bound lower-left trace collection. Two distinct middle leaves expose Instructions and Tool descriptions as Candidate changes. The diagonal path enters an opened evaluation folio whose interior explicitly names read-only tools, isolated production and evaluation results, with a separate review-before-promotion threshold and no outgoing automatic-promotion arrow. The upper-left preview/prompt-agent scope is detached. The 320px view preserves the diagonal progression and major labels; the tool-isolation wording is clearer in the full-size viewer. All twelve terms are source-supported facts or the article's bounded testing recommendation. Final foreground mask reaches x1159 and y588 and still meets the mandatory 40px floor; preferred 60–72px inset was not achieved on the faint outer pencil shadow.",
+        "detail_observation": "Success and Failure are explicit states on the bound lower-left trace collection. Two distinct middle leaves expose Instructions and Tool descriptions as Candidate changes. The diagonal path enters an opened evaluation folio whose interior explicitly names read-only tools, isolated production and evaluation results, with a separate review-before-promotion threshold and no outgoing automatic-promotion arrow. The upper-left preview/prompt-agent scope is detached. The 320px view preserves the diagonal progression and major labels; the tool-isolation wording is clearer in the full-size viewer. All twelve terms are source-supported facts or the article's bounded testing recommendation. Final foreground mask reaches x1159 and y588 and still meets the mandatory 40px floor; preferred 60\u201372px inset was not achieved on the faint outer pencil shadow.",
         "text_architecture_observation": "Translucent vellum and colored-pencil layers with violet graphite edges with source-specific label hierarchy; exact label list verified and no extra writing.",
         "mobile_observation": "Actual 320px PNG inspected: trace states, candidate types and isolated evaluation remain differentiated; fine evaluation interior labels benefit from the full-size viewer.",
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-a2-foundry-trace-optimization.json",
@@ -508,7 +566,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "revise",
       "result": "not_met",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -519,7 +577,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -530,7 +588,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -541,7 +599,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "revise",
       "result": "not_met",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -552,7 +610,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "revise",
       "result": "not_met",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -563,7 +621,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -574,7 +632,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"
@@ -585,7 +643,7 @@
       "reviewed_edition": "2026-11-26",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "The original November20–22 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
+      "reason": "The original November20\u201322 sample and prior dispositions are preserved, not restarted. Current work required fifteen native calls and zero first-pass accepts; actual margin, writing, detail and wording defects were corrected. Six-up variety is internally observed, while owner reception and usage remain unknown.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/after-action.json",
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44e125b53147cb0ba7ccc54dabcfac2355efc254/external-image-packages/2026-11-25/reviews/after-action.json"

@@ -1,6 +1,6 @@
 # 2026-11-26 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 4f431188c0d088b20ed9ad87123dc15215a46efd |
 | Executor observed run start | 2026-11-26T03:18:35Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-26T03:28:21Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXTS; Not recorded targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-26T04:18:19Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -122,7 +122,7 @@ Job SHA-256: 0b9969b4e7547e05ad9db9a35620d3d248c50a84b3f0973c81240b7449762535. O
 
 The actual generation start is 2026-11-26T03:28:21Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-26/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Six distinct source-bound images were generated sequentially. All accepted image bytes are preserved. Fifteen calls and zero first-pass accepts miss both advisory efficiency targets; no efficiency improvement or owner aesthetic acceptance is claimed.
 
@@ -130,7 +130,7 @@ Actual current full-size, 320px, color six-up and grayscale thumbnail pixels wer
 
 Prior seven released contact sheets and actual November25 owner-layout-r2 replacements were inspected; latest three verified sets are bound in the structural review. Closest matches and specific visual differences are recorded per story.
 
-Saved-pixel acceptance is complete; protected publication and all 24 actual live semantic contexts remain pending and are not inferred from the plan or this JSON.
+Saved-pixel acceptance and actual live semantic review complete: all 24 individually opened contexts pass; fresh independent live proof confirms six hashes, twelve dated/permanent pairings and public RELEASED_VERIFIED status. Protected October8 17-object checks passed. Reporting-only closeout preserves manifest and all six accepted PNGs.
 
 Top10 impact: exact mapped stories are nov26-t1-siren-agent-boundaries and nov26-k2-svg-design-skill; the other four have no exact article mapping in the final receipt. See the existing impact table.
 
@@ -143,5 +143,7 @@ Source review found that the live IBM page states March27,2026 rather than the i
 The initial six-spec admission passed, and all exact correction prompts were frozen before calls, but two later correction coordinate plans were not validated before their calls. Do not backdate validation or treat protected baseline CI as proof those two plans passed. Preserve accepted artwork; the observed planning/audit gap is separate from actual saved-pixel quality.
 
 Run the existing first-pass validator on every future correction variant before calling native creation, in addition to the initial six-spec preflight.
+
+Both actual image-only artifact deployments succeeded on attempt1. Each exact-attempt listing wait made eight probes with eight stable matches, zero missing/API-error polls and nineteen elapsed seconds. This is one observed successful new-edition deployment, not proof of long-term reliability or owner artistic adoption.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
