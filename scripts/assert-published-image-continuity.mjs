@@ -27,17 +27,22 @@ const slug=url=>{
   return rest+'index.html';
 };
 const approvedRevision=(historyRoot,candidateRoot,date,storyIds)=>{
-  // The owner-authorized November 18 correction is deliberately versioned: the
-  // original accepted PNGs and release receipt remain immutable while the
-  // public page points at a separately verified six-image revision.
-  if(date!=='2026-11-18')return null;
-  const revisionId='owner-quality-r2';
+  // Owner-authorized corrections are deliberately versioned: original accepted
+  // PNGs and release receipts stay immutable while public pages may point at a
+  // separately verified all-image or mixed retained/replacement revision.
+  const spec={
+    '2026-11-18':{revisionId:'owner-quality-r2',schema:'owner-nov18-image-revision-release-v1',mixed:false},
+    '2026-11-25':{revisionId:'owner-layout-r2',schema:'owner-nov25-image-revision-release-v1',mixed:true,
+      replaced:new Set(['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing'])}
+  }[date];
+  if(!spec)return null;
+  const {revisionId}=spec;
   const route=`image-revisions/${date}/${revisionId}/release.json`;
   if(!fs.existsSync(path.join(historyRoot,route)))return null;
   const oldReceipt=read(historyRoot,route),newReceipt=read(candidateRoot,route);
   if(!oldReceipt.equals(newReceipt))fail('image_revision_receipt_drift:'+date+':'+revisionId);
   const release=JSON.parse(oldReceipt.toString('utf8'));
-  if(release.schema_version!=='owner-nov18-image-revision-release-v1'||
+  if(release.schema_version!==spec.schema||
      release.edition_date!==date||release.revision_id!==revisionId||
      release.result!=='LIVE_HASH_AND_24_CAPTURES_VERIFIED'||
      release.original_accepted_images_preserved!==true||
@@ -49,7 +54,12 @@ const approvedRevision=(historyRoot,candidateRoot,date,storyIds)=>{
   if(byStory.size!==6||storyIds.some(id=>!byStory.has(id)))
     fail('image_revision_story_set_mismatch:'+date+':'+revisionId);
   for(const image of byStory.values()){
-    if(!image.route.startsWith(`briefs/images/${date}/${revisionId}/dab-edition-${date}-`)||
+    const revisedRoute=image.route.startsWith(`briefs/images/${date}/${revisionId}/dab-edition-${date}-`);
+    const retainedRoute=image.route.startsWith(`briefs/images/${date}/dab-edition-${date}-`);
+    const routeAllowed=spec.mixed?
+      (spec.replaced.has(image.story_id)?image.replaced===true&&revisedRoute:
+        image.replaced===false&&retainedRoute&&!revisedRoute):revisedRoute;
+    if(!routeAllowed||
        !image.route.endsWith('.png')||!/^[a-f0-9]{64}$/.test(image.sha256)||
        !Number.isSafeInteger(image.bytes)||image.bytes<100)
       fail('image_revision_identity_incomplete:'+date+':'+image.story_id);
