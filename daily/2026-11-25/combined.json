@@ -758,9 +758,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-26T04:18:19Z",
+      "review_record_commit_at": "2026-11-26T04:19:42.000Z",
+      "review_merge_at": "2026-11-26T04:23:46.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -768,7 +768,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-25",
   "edition_date": "2026-11-26",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -1045,7 +1045,7 @@
       "attention": "YouTube program reach and independently credited creator breadth are the main discovery input. Timed social snapshots supplement research/safety topics; no overlapping audiences summed, composite scores or channel-relative baselines invented.",
       "uncertainty": "WITL video source clock07:03Eastern and social07:02Eastern. Other tracker clocks unknown; all direct watch counters/playback unverified. Same Google DeepMind video/post belong to one family. Claim quality and Brief usefulness remain separate."
     },
-    "source_commit": "dc1728e5e0a60d1d1bdac2a2ef5280a0ac4e47c7",
+    "source_commit": "a2530176eeb1bd4965f1c2505c1eb3bb4475712a",
     "source_blob_sha": "420bcf64077aa329616083e37e860a0dae1be711",
     "report_sha256": "0567eeb8f5255dd175858e4e026b60868938d83942322f99ee25875e772ca031",
     "consumed_source_commit": "6a8ffa2d58877bb1991107c25050924657943904",
@@ -1210,7 +1210,7 @@
       },
       "previous_cycle": "2026-11-24",
       "previous_report_sha256": "a41c6322bf47cb0d57219eb6f2047376f6d323db6568eedca97fd525c8798a78",
-      "previous_aar_sha256": "c645bb3378cc46c1e82cec411d478f96753c9769afee55118e505ed7d17efc6f",
+      "previous_aar_sha256": "b93650f22e29e366c1d48a3730be434a22475b223bf2960b812493c715a74cfe",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1615,10 +1615,13 @@
   "latest_publication_health": "READER_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 15,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -1633,14 +1636,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-26T03:28:21.000Z",
   "scheduler_start_attested": false,
   "scientific_paper_coverage": {
     "status": "UNVERIFIED_RECEIPT",
@@ -1676,7 +1679,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-26/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-26/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1696,11 +1699,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dc1728e5e0a60d1d1bdac2a2ef5280a0ac4e47c7/signals/ai-topic-top10/2026-11-25.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a2530176eeb1bd4965f1c2505c1eb3bb4475712a/signals/ai-topic-top10/2026-11-25.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dc1728e5e0a60d1d1bdac2a2ef5280a0ac4e47c7/signals/ai-topic-top10/2026-11-25.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a2530176eeb1bd4965f1c2505c1eb3bb4475712a/signals/ai-topic-top10/2026-11-25.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1946,7 +1949,7 @@
   },
   "status_dimensions": {
     "publication": "VERIFIED",
-    "images": "INCOMPLETE",
+    "images": "RELEASED_AND_24_CONTEXTS_VERIFIED",
     "top10": "RECEIPTS_OBSERVED",
     "system": "PARTIAL",
     "autonomy": "UNPROVEN",
@@ -3248,7 +3251,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-12-02",
       "cumulative_review_due_today": false,
-      "finding_count": 2,
+      "finding_count": 3,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -3257,8 +3260,17 @@
           "owner": "Compiler / Recovery",
           "observation": "3 failed protected publication gates were recorded (3 unclassified causes).",
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
+          "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "9 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
