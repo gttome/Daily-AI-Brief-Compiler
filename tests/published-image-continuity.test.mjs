@@ -96,6 +96,52 @@ test('owner-approved versioned November 18 revision becomes the protected page p
     assert.throws(()=>check(f),/accepted_image_revision_bytes_changed/);
   }finally{clean(f);}
 });
+test('owner-approved mixed November 25 revision preserves retained and replacement pairings',()=>{
+  const f=make('2026-11-25');
+  try{
+    const replacedIds=new Set(['test-m10','test-m12','test-m14']);
+    const revised=f.images.map((image,index)=>{
+      const replaced=replacedIds.has(image.story_id),bytes=Buffer.alloc(230,index+101);
+      return replaced?{...image,
+        route:`briefs/images/${f.edition}/owner-layout-r2/dab-edition-${f.edition}-${f.stories[index].story_id.slice(-3)}.png`,
+        sha256:sha(bytes),bytes:bytes.length,replaced:true,old_sha256:image.sha256,_bytes:bytes}:
+        {...image,replaced:false,old_sha256:image.sha256,_bytes:null};
+    });
+    const expectedIds=['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing'];
+    for(const [row,id] of revised.filter(x=>x.replaced).map((x,i)=>[x,expectedIds[i]])){
+      const oldId=row.story_id;
+      row.story_id=id;
+      const story=f.stories.find(x=>x.story_id===oldId);
+      story.story_id=id;
+      f.images.find(x=>x.story_id===oldId).story_id=id;
+    }
+    for(const root of [f.old,f.newSite]){
+      put(root,`image-jobs/${f.edition}/job.json`,JSON.stringify({stories:f.stories}));
+      put(root,`image-jobs/${f.edition}/release.json`,JSON.stringify({
+        result:'RELEASED_VERIFIED',edition_date:f.edition,images:f.images
+      }));
+      for(const image of revised.filter(x=>x.replaced))put(root,image.route,image._bytes);
+      put(root,`image-revisions/${f.edition}/owner-layout-r2/release.json`,JSON.stringify({
+        schema_version:'owner-nov25-image-revision-release-v1',edition_date:f.edition,
+        revision_id:'owner-layout-r2',result:'LIVE_HASH_AND_24_CAPTURES_VERIFIED',
+        original_accepted_images_preserved:true,original_release_receipt_preserved:true,
+        original_bundle_unchanged:true,owner_requested:true,
+        images:revised.map(({_bytes,...image})=>image)
+      }));
+      for(let i=0;i<revised.length;i++){
+        if(!revised[i].replaced)continue;
+        const oldUrl=BASE+f.images[i].route+'?v='+f.images[i].sha256.slice(0,12);
+        const newUrl=BASE+revised[i].route+'?v='+revised[i].sha256.slice(0,12);
+        const permanent=new URL(f.stories[i].permanent_url).pathname.replace('/Daily-AI-Brief-Compiler/','')+'index.html';
+        for(const page of [`briefs/${f.edition}/index.html`,permanent]){
+          const file=path.join(root,page);
+          fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace(oldUrl,newUrl));
+        }
+      }
+    }
+    assert.equal(check(f).result,'PASS');
+  }finally{clean(f);}
+});
 test('missing PNG, altered accepted bytes, lost receipt, and missing index block deployment',()=>{
   const scenarios=[
     f=>fs.rmSync(path.join(f.newSite,'briefs/images',date,'dab-edition-'+date+'-m01.png')),
