@@ -11,8 +11,9 @@
     "image-job.json": "0b9969b4e7547e05ad9db9a35620d3d248c50a84b3f0973c81240b7449762535",
     "image-manifest.json": "c764ece0be704a5d4aafc1de175558b3df5a30e6036247c0e9204728baaf666d",
     "image-recurring-assignment.json": "b1f82ba4e2bdf9b244bf3a143fe90c94e1c4b0951f3ed651bbfb1abbcf5b6790",
+    "image-release.json": "87ed015e5cc3baadf7aeb19953a913612efe89a27b498b1d4b6e2a8efa7ae21d",
     "image-route-preflight.json": "651da3502aca9329af08e16fdc5227fb9de21a4efc268534cb661c1080bb370d",
-    "image-timing.json": "3cd4669e818543582e30b75852f8fe8fa34ac45cf70006182feadd2e458d6e03",
+    "image-timing.json": "93d5d47e19cc7fcf92972f87b59d9aa7e1755509b3679acc7ea1130d826ec771",
     "image-worker-state.json": "20beea5963d1e51ba6f0b0cef48d5601a3f2e9e4b0a9282f6883df5c79b40b18",
     "postpublish-integrity.json": "c37cdd5d842b65b824d59c619a8c13d08df2d6483317421ec1d211eadcbfb2d9",
     "postpublish-video-playback.json": "784904c69cf517b5164431003646fcab7d8cfcd99d3e814f3685a4733f603f9b",
@@ -25,12 +26,12 @@
     "top10-after-action.json": "577b9fa7924e891e518af39e42e4ae15979ab787142920f24dfa5bf9936ee630",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "ba99ec74080b85dca8f77835573980db49782d425d750390543124d06c06c8c4",
+    "top10-previous-aar.json": "c645bb3378cc46c1e82cec411d478f96753c9769afee55118e505ed7d17efc6f",
     "top10-previous-report.json": "a41c6322bf47cb0d57219eb6f2047376f6d323db6568eedca97fd525c8798a78",
-    "top10-report-source.json": "b73f38712ea800ab6dfb85af2f2d90b040fc877e7e3ac0433f068daa217d114e",
+    "top10-report-source.json": "01f1c473c96588bd932df26508ee71f0c029bf2f413ccb7dafc1e2fe11dfa1bf",
     "top10-report.json": "0567eeb8f5255dd175858e4e026b60868938d83942322f99ee25875e772ca031",
     "trend-consumed-report.json": "0567eeb8f5255dd175858e4e026b60868938d83942322f99ee25875e772ca031",
-    "trend-consumed-source.json": "dc21d713097312e7a8f85443d4fa7b001b705fad389e4f2d2f035a7ed2520e87",
+    "trend-consumed-source.json": "941c4b0a44398ee79b959bda71191025fbb49ef4cc1e20c5a8c53d6f3e975260",
     "trend-consumed-verification.json": "4a95424aa545d4822a13de71fa85d5754a7c52a85fd5025ad5b56ea6d4cb595c",
     "trend-input.json": "c4416d397dc26c2ae7365429671b095c8ac972ea26530a23901330dfa100f931",
     "trend-search-coverage.json": "acbcdb0be3e72f7e161921a9ef9c0d95d26c3f4a43ab2884346e8a706352c89d",
@@ -38,7 +39,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -233,8 +234,8 @@
     "coverage_percent": 24,
     "coverage_numerator": 43,
     "coverage_denominator": 182,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 15,
     "top10_linked_items": 3,
     "publication_failures": 3
   },
@@ -494,7 +495,95 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 9,
+    "classified": [
+      {
+        "story_id": "nov26-a1-agentic-coding-boundaries",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-a1-agentic-coding-boundaries-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov26-a1-agentic-coding-boundaries",
+        "attempt": 2,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-a1-agentic-coding-boundaries-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov26-a1-agentic-coding-boundaries",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-a1-agentic-coding-boundaries-attempt3-rejection.json"
+      },
+      {
+        "story_id": "nov26-a2-foundry-trace-optimization",
+        "attempt": 1,
+        "defect_codes": [
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-a2-foundry-trace-optimization-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov26-k1-shellbench",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-k1-shellbench-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov26-k2-svg-design-skill",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-k2-svg-design-skill-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov26-k2-svg-design-skill",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-k2-svg-design-skill-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov26-t1-siren-agent-boundaries",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-t1-siren-agent-boundaries-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov26-t2-accessible-vibe-coding",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "UNALLOWLISTED_TEXT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-26-native-primary/external-image-packages/2026-11-26/reviews/nov26-t2-accessible-vibe-coding-attempt1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,
