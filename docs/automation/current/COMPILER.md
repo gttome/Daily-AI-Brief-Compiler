@@ -1,5 +1,9 @@
 # Current Compiler contract
 
+## November 26 AAR — approved prelock publisher metadata check
+
+For the next eligible unlocked edition and thereafter, reconcile all six selected article records against their already reviewed original publisher pages **before selection lock**. Compare original publication date and original publisher title, not search-index timestamps, update dates or the Brief's editorial display headline. Preserve the legitimate display headline independently. If there is a discrepancy, record selected item ID, primary-source URL, draft and observed values, observation time/scope, and disposition in the existing editorial source-verification evidence and summarize exceptions in the AAR. Correct a supported mismatch while the edition is unlocked. If the original value is absent, ambiguous or inaccessible, record it as unverified and follow the existing source qualification or replacement rules, without inventing dates or altering historical work. Use the existing source and semantic checks, editorial producer, schedule and protected workflow; do not create a second producer, reopen November 26 or edit accepted images.
+
 ## Owner-approved November 20 actions — current precedence
 
 Read `docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md` before the next genuine role checkpoint and apply its relevant actions. All twelve actions and the broader non-news video discovery are approved. Preserve current task ownership, schedules, completed bundles and accepted images. Scientific-paper cadence is now consistently one qualified paper in three editions (effective November 17); image efficiency targets are four first-pass accepts and eight total calls, advisory without an attempt cap. Truthful source/search/runtime observations and separate completion dimensions remain required. Only the explicitly authorized protected November 20 metadata/badge/source-link correction may touch that completed reader.
