@@ -1,0 +1,23 @@
+{
+  "schema_version": "image-correction-plan-postgeneration-audit-v1",
+  "observed_at": "2026-11-26T04:04:34.350Z",
+  "original_six_spec_preflight": "SIX_FROZEN_SPECS_READY_FOR_GENERATION was genuinely saved before the first native call",
+  "correction_prompts_frozen_before_calls": true,
+  "correction_coordinate_validation": [
+    {
+      "story_id": "nov26-a2-foundry-trace-optimization",
+      "result": "FAIL",
+      "reason": "Additional Candidate changes label box overlaps the original Isolated evaluation label box in the stored correction plan; actual saved pixels have no overlap."
+    },
+    {
+      "story_id": "nov26-k1-shellbench",
+      "result": "FAIL",
+      "reason": "Additional Check both label box contains the old planned connector origin; actual saved pixels place the connector below the physical label."
+    }
+  ],
+  "other_four_final_correction_specs": "VALID",
+  "original_prompts_and_pre_generation_commits_preserved": true,
+  "actual_saved_pixel_quality": "All six source-faithful final images inspected at full size and 320px; actual glyphs, object ports and margins pass.",
+  "limitation": "The initial six-spec admission passed, and all exact correction prompts were frozen before calls, but two later correction coordinate plans were not validated before their calls. Do not backdate validation or treat protected baseline CI as proof those two plans passed. Preserve accepted artwork; the observed planning/audit gap is separate from actual saved-pixel quality.",
+  "next_action": "Run the existing first-pass validator on every future correction variant before calling native creation, in addition to the initial six-spec preflight."
+}
