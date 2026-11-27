@@ -11,8 +11,9 @@
     "image-job.json": "6252fba7de5f594b991b5895cf84f04f6b5a5d2773e01da5431fdb8bf86ddb70",
     "image-manifest.json": "071bdf1ba6b28c46758dde050b8926df57ddea3f284db3097050ca29e22eff9a",
     "image-recurring-assignment.json": "53b8b0de577682d11927957c7135052d700d05f79d1a2c47750db21c3e71c72a",
+    "image-release.json": "265e9fab68412a1437a9b3dac9853032d3c0724f2727ff223b82343eed8b8ea3",
     "image-route-preflight.json": "6396ef1d988064f610fcc1b4dc230514bfceed8d3f5066ee9610462277a135b1",
-    "image-timing.json": "3c38df09b4842feedfa7c4ae76ff42bd2513f526db79cb57d15f9ad6e10ea417",
+    "image-timing.json": "4ac646c3fd1c523d272997e620802de1b2d73a47deb93cfb8516be33bbbf6e1d",
     "image-worker-state.json": "79abd595e25e459596fae90b559822b2d1850f9a55f6cd528ca872c9974f6f66",
     "postpublish-integrity.json": "0b1d81152a90ba4b5ca9b938915a822f64348dd4562696ebe7416cf696699446",
     "postpublish-video-playback.json": "b5203fe3b45130aeaa76536dcbfcf4e18ea9e5874a99c87baf1022748d334727",
@@ -26,12 +27,12 @@
     "top10-after-action.json": "a5b5feefc422ab7ea0aa34296d0ba8ac9f5df6c3a3f88c7d1c59b04dc484f2dd",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "eebd3bdd8ea6f3bac302dd4ced8d66f26990bf380de66a4ce8636833ab4faf16",
+    "top10-previous-aar.json": "31c58e010553528d90e0499d1c4ac97a2e87157da37493f96822ce6a014ecbf8",
     "top10-previous-report.json": "0567eeb8f5255dd175858e4e026b60868938d83942322f99ee25875e772ca031",
-    "top10-report-source.json": "6186ae7c9ca2ddaa85767a99f2eae100c3b9c0a824110e6bdb8b4b3aa25555ba",
+    "top10-report-source.json": "8ab204cd4df93b615d1937458dee7f59d93f521589c08afdf42151c4108e1f42",
     "top10-report.json": "69751748c0ada6592c5695f6e9bf606c1f80e5b5d0bc93fbb28b8af60b559301",
     "trend-consumed-report.json": "69751748c0ada6592c5695f6e9bf606c1f80e5b5d0bc93fbb28b8af60b559301",
-    "trend-consumed-source.json": "6bf04fe0783b4e559987298957af1bda64ac10e5baed76a7d4b53f58e5cac598",
+    "trend-consumed-source.json": "b7031fb9829af37f8c184bff812cfbc82ef2ca34e7d457a6af11e5cc4527785c",
     "trend-consumed-verification.json": "fb507520230a135663aaf7334aa570bc839fe0a2394a43fb75a771a0bb00e593",
     "trend-input.json": "c4b14564c25f9566a8adf8f249bd6f103765ef5bdd3e8ac43e2c0f7872b8c464",
     "trend-search-coverage.json": "06b3f9a6c53b5869b7eb9545a5c1d2795aab71936d862210557d64a971739168",
@@ -39,7 +40,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -236,8 +237,8 @@
     "coverage_percent": 23,
     "coverage_numerator": 42,
     "coverage_denominator": 182,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 15,
     "top10_linked_items": 1,
     "publication_failures": 0
   },
@@ -460,7 +461,93 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 9,
+    "classified": [
+      {
+        "story_id": "nov27-t1-rust-migration-verifiers",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "LAYOUT",
+          "UNALLOWLISTED_TEXT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-t1-rust-migration-verifiers-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-t1-rust-migration-verifiers",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-t1-rust-migration-verifiers-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov27-t2-agent-search-endpoint",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-t2-agent-search-endpoint-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-t2-agent-search-endpoint",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-t2-agent-search-endpoint-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov27-a1-pax-composable-harness",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-a1-pax-composable-harness-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-a2-scientist-agent-boundaries",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-a2-scientist-agent-boundaries-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-e1-social-reasoning-eval",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-e1-social-reasoning-eval-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-e2-healthcare-workplace-ai-gap",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-e2-healthcare-workplace-ai-gap-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov27-e2-healthcare-workplace-ai-gap",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-27-native-primary/external-image-packages/2026-11-27/reviews/nov27-e2-healthcare-workplace-ai-gap-attempt2-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,
