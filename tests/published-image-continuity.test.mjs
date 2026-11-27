@@ -96,10 +96,14 @@ test('owner-approved versioned November 18 revision becomes the protected page p
     assert.throws(()=>check(f),/accepted_image_revision_bytes_changed/);
   }finally{clean(f);}
 });
-test('owner-approved mixed November 25 revision preserves retained and replacement pairings',()=>{
-  const f=make('2026-11-25');
+for(const [day,slotsToReplace,expectedIds] of [
+  ['25',['m10','m12','m14'],['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing']],
+  ['27',['m01','m02','m12','m14'],['nov27-t1-rust-migration-verifiers','nov27-t2-agent-search-endpoint',
+    'nov27-e1-social-reasoning-eval','nov27-e2-healthcare-workplace-ai-gap']]
+])test(`owner-approved mixed November ${day} revision preserves retained and replacement pairings`,()=>{
+  const f=make(`2026-11-${day}`);
   try{
-    const replacedIds=new Set(['test-m10','test-m12','test-m14']);
+    const replacedIds=new Set(slotsToReplace.map(slot=>`test-${slot}`));
     const revised=f.images.map((image,index)=>{
       const replaced=replacedIds.has(image.story_id),bytes=Buffer.alloc(230,index+101);
       return replaced?{...image,
@@ -107,7 +111,6 @@ test('owner-approved mixed November 25 revision preserves retained and replaceme
         sha256:sha(bytes),bytes:bytes.length,replaced:true,old_sha256:image.sha256,_bytes:bytes}:
         {...image,replaced:false,old_sha256:image.sha256,_bytes:null};
     });
-    const expectedIds=['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing'];
     for(const [row,id] of revised.filter(x=>x.replaced).map((x,i)=>[x,expectedIds[i]])){
       const oldId=row.story_id;
       row.story_id=id;
@@ -122,7 +125,7 @@ test('owner-approved mixed November 25 revision preserves retained and replaceme
       }));
       for(const image of revised.filter(x=>x.replaced))put(root,image.route,image._bytes);
       put(root,`image-revisions/${f.edition}/owner-layout-r2/release.json`,JSON.stringify({
-        schema_version:'owner-nov25-image-revision-release-v1',edition_date:f.edition,
+        schema_version:`owner-nov${day}-image-revision-release-v1`,edition_date:f.edition,
         revision_id:'owner-layout-r2',result:'LIVE_HASH_AND_24_CAPTURES_VERIFIED',
         original_accepted_images_preserved:true,original_release_receipt_preserved:true,
         original_bundle_unchanged:true,owner_requested:true,
@@ -140,6 +143,9 @@ test('owner-approved mixed November 25 revision preserves retained and replaceme
       }
     }
     assert.equal(check(f).result,'PASS');
+    const replaced=revised.find(x=>x.replaced);
+    put(f.newSite,replaced.route,Buffer.alloc(replaced.bytes,0));
+    assert.throws(()=>check(f),/accepted_image_revision_bytes_changed/);
   }finally{clean(f);}
 });
 test('missing PNG, altered accepted bytes, lost receipt, and missing index block deployment',()=>{

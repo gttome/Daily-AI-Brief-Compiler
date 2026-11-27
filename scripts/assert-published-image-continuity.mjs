@@ -33,7 +33,10 @@ const approvedRevision=(historyRoot,candidateRoot,date,storyIds)=>{
   const spec={
     '2026-11-18':{revisionId:'owner-quality-r2',schema:'owner-nov18-image-revision-release-v1',mixed:false},
     '2026-11-25':{revisionId:'owner-layout-r2',schema:'owner-nov25-image-revision-release-v1',mixed:true,
-      replaced:new Set(['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing'])}
+      replaced:new Set(['nov25-a1-agentic-eval-chain','nov25-g1-workspace-mcp','nov25-g2-switchcraft-routing'])},
+    '2026-11-27':{revisionId:'owner-layout-r2',schema:'owner-nov27-image-revision-release-v1',mixed:true,
+      replaced:new Set(['nov27-t1-rust-migration-verifiers','nov27-t2-agent-search-endpoint',
+        'nov27-e1-social-reasoning-eval','nov27-e2-healthcare-workplace-ai-gap'])}
   }[date];
   if(!spec)return null;
   const {revisionId}=spec;
