@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-11-26",
-  "updated_at": "2026-11-26T01:33:30.000Z",
+  "edition_date": "2026-11-27",
+  "updated_at": "2026-11-27T01:46:00.000Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -55,7 +55,7 @@
           "publisher": "workspace.google.com",
           "publication_date": "2026-10-01",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-1"
         }
       ],
@@ -148,7 +148,7 @@
           "publisher": "news.mit.edu",
           "publication_date": "2026-10-01",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-2"
         }
       ],
@@ -220,7 +220,7 @@
           "publisher": "huggingface.co",
           "publication_date": "2026-09-11",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-3"
         }
       ],
@@ -400,7 +400,7 @@
           "publisher": "blogs.microsoft.com",
           "publication_date": "2026-10-19",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-4"
         },
         {
@@ -501,7 +501,7 @@
           "publisher": "huggingface.co",
           "publication_date": "2026-09-11",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-5"
         }
       ],
@@ -600,7 +600,7 @@
           "publisher": "salesforce.com",
           "publication_date": "2026-09-16",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-6"
         }
       ],
@@ -700,7 +700,7 @@
           "publisher": "developer.nvidia.com",
           "publication_date": "2026-09-16",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-7"
         }
       ],
@@ -785,7 +785,7 @@
           "publisher": "huggingface.co",
           "publication_date": "2026-09-11",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-8"
         }
       ],
@@ -995,7 +995,7 @@
           "publisher": "opencode.ai",
           "publication_date": "2026-10-17",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-9"
         }
       ],
@@ -1106,7 +1106,7 @@
           "publisher": "aws.amazon.com",
           "publication_date": "2026-09-29",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-10"
         }
       ],
@@ -1228,7 +1228,7 @@
           "publisher": "atlassian.com",
           "publication_date": "2026-09-18",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-26",
+          "checked_at": "2026-11-27",
           "development_id": "compiler-carried_forward-11"
         }
       ],
@@ -1279,12 +1279,12 @@
       "name": "AI harness engineering becomes a first-class layer",
       "audience": "Agent builders and AI engineering teams",
       "summary": "Treat the harness around a model—repository structure, tools, constraints, state, validation, and control loops—as an engineering system in its own right.",
-      "why_now": "GitHub now exposes Copilot code review through REST and GraphQL APIs with per-request effort controls, turning AI review into a programmable harness component that can be triggered from existing workflows.",
-      "practical_value": "Helps teams separate model capability from the surrounding controls that determine what an agent can observe, access, execute, and verify.",
+      "why_now": "Anthropic now reports a production API migration whose agent harness combined local hypothesis tests, deterministic input comparison, production-shadow traffic, memory rules and human review at loop boundaries.",
+      "practical_value": "Teams can separate code generation from parity evidence and assign humans to disputed equivalence and rollout decisions rather than every mechanical change.",
       "limitations": "API availability does not by itself prove review quality, low false-positive rates or safe autonomous merge decisions.",
       "next_action": "Measure review quality, latency, cost and false positives when AI review is invoked programmatically inside real CI and approval workflows.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-02T12:00:00Z",
+      "updated_at": "2026-11-27T12:00:00Z",
       "status": "gaining_evidence",
       "confidence": "strong",
       "evidence": [
@@ -1427,6 +1427,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-12"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+          "title": "harness engineering",
+          "publisher": "anthropic.com",
+          "publication_date": "2026-11-25",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-updated-1"
         }
       ],
       "external_attention": [],
@@ -1454,28 +1464,28 @@
         },
         "evidence": {
           "score": 4,
-          "reason": "Direct publisher evidence plus two new preprints."
+          "reason": "The dated operator report documents production verification loops, measured resource changes and rollout controls, while acknowledging that the publisher evaluated its own system."
         },
         "independence": {
           "score": 4,
-          "reason": "Developments come from Salesforce and separate research teams."
+          "reason": "The production report complements separately authored harness research already tracked under this identity, although the new deployment evidence itself comes from Anthropic."
         },
         "momentum": {
-          "score": 4,
-          "reason": "Several developments appeared within days."
+          "score": null,
+          "reason": "No two dated observations use the same harness metric, denominator and collection method, so numeric momentum remains unknown rather than inferred from publication frequency."
         },
         "relevance": {
           "score": 5,
-          "reason": "Highly relevant to reliable agents, evaluation, and workflow design."
+          "reason": "The evidence gives engineering teams a concrete way to separate generated code from parity checks, rollout controls and human decisions at disputed boundaries."
         },
         "durability": {
           "score": 5,
-          "reason": "Harness engineering is likely to remain central as models become more interchangeable."
+          "reason": "Repository structure, tools, constraints, state, validation and control loops remain durable engineering concerns even as the underlying language models change."
         }
       },
       "trial_story_ids": [],
       "verification_observed_at": "2026-10-05T02:33:36.000Z",
-      "research_score": 89
+      "research_score": 77
     },
     {
       "topic_id": "dab-topic-agentic-edge-inference",
@@ -1520,6 +1530,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-13"
+        },
+        {
+          "kind": "primary",
+          "url": "https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/",
+          "title": "agentic edge inference",
+          "publisher": "developer.nvidia.com",
+          "publication_date": "2026-09-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-12"
         }
       ],
       "external_attention": [],
@@ -1638,6 +1658,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-14"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.coreweave.com/news/coreweave-forge-launches-turning-the-ai-loop-production-run-into-a-better-model-and-agent",
+          "title": "model lifecycle governance",
+          "publisher": "coreweave.com",
+          "publication_date": "2026-09-30",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-13"
         }
       ],
       "external_attention": [],
@@ -1716,6 +1746,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-15"
+        },
+        {
+          "kind": "primary",
+          "url": "https://arxiv.org/abs/2609.20812v1",
+          "title": "agent overclaiming",
+          "publisher": "arxiv.org",
+          "publication_date": "2026-09-17",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-14"
         }
       ],
       "external_attention": [],
@@ -1817,6 +1857,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-16"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/strands",
+          "title": "system one decision models",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-15"
         }
       ],
       "external_attention": [],
@@ -1921,6 +1971,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-17"
+        },
+        {
+          "kind": "primary",
+          "url": "https://github.blog/latest/",
+          "title": "source aware agent verification",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-16"
         }
       ],
       "external_attention": [],
@@ -2009,6 +2069,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-18"
+        },
+        {
+          "kind": "primary",
+          "url": "https://stackoverflow.co/company/press/archive/stack-internal-trusted-enterprise-ai",
+          "title": "trusted enterprise context",
+          "publisher": "stackoverflow.co",
+          "publication_date": "2026-09-30",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-17"
         }
       ],
       "external_attention": [],
@@ -2081,6 +2151,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-19"
+        },
+        {
+          "kind": "primary",
+          "url": "https://newsroom.eclipse.org/news/announcements",
+          "title": "sovereign open ai",
+          "publisher": "newsroom.eclipse.org",
+          "publication_date": "2026-10-01",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-18"
         }
       ],
       "external_attention": [],
@@ -2153,6 +2233,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-20"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.tavus.io/griffin",
+          "title": "human interaction models",
+          "publisher": "tavus.io",
+          "publication_date": "2026-10-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-19"
         }
       ],
       "external_attention": [],
@@ -2225,6 +2315,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-21"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link",
+          "title": "open agent hardware",
+          "publisher": "theverge.com",
+          "publication_date": "2026-10-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-20"
         }
       ],
       "external_attention": [],
@@ -2294,6 +2394,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-22"
+        },
+        {
+          "kind": "primary",
+          "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
+          "title": "advisory ai pull request security scanning",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-21"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2362,6 +2472,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-23"
+        },
+        {
+          "kind": "primary",
+          "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+          "title": "code scanning agent repair loops",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-22"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2430,6 +2550,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-24"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/publicsector/how-sanoma-learning-built-the-ai-teacher-assistant-sanna-guided-by-teachers-and-supported-by-aws/",
+          "title": "curriculum grounded professional assistants",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-23"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2518,6 +2648,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-25"
+        },
+        {
+          "kind": "primary",
+          "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini",
+          "title": "audited long form business reasoning",
+          "publisher": "cloud.google.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-24"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2756,6 +2896,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-26"
+        },
+        {
+          "kind": "primary",
+          "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers",
+          "title": "consumer agent task permissions",
+          "publisher": "corporate.walmart.com",
+          "publication_date": "2026-10-21",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-25"
         }
       ],
       "limitations": "The published controls describe a limited beta. The available sources give no comparable figures for usage, unauthorized orders, or how often the controls prevent a mistake.",
@@ -2827,6 +2977,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-27"
+        },
+        {
+          "kind": "primary",
+          "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/",
+          "title": "cross language agent tool contracts",
+          "publisher": "cloud.google.com",
+          "publication_date": "2026-10-13",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-26"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3082,6 +3242,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-28"
+        },
+        {
+          "kind": "primary",
+          "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+          "title": "autonomous wet lab agent control",
+          "publisher": "research.google",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-27"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3150,6 +3320,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-29"
+        },
+        {
+          "kind": "primary",
+          "url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+          "title": "license aware coding agent dependencies",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-28"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3317,6 +3497,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-30"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+          "title": "reusable agent skills become observable",
+          "publisher": "anthropic.com",
+          "publication_date": "2026-10-22",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-29"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3391,6 +3581,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-31"
+        },
+        {
+          "kind": "primary",
+          "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+          "title": "agent safeguards tailored to the task",
+          "publisher": "research.google",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-30"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3802,6 +4002,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-32"
+        },
+        {
+          "kind": "primary",
+          "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+          "title": "provider aware ai failover",
+          "publisher": "developers.openai.com",
+          "publication_date": "2026-10-14",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-31"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3949,6 +4159,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-33"
+        },
+        {
+          "kind": "primary",
+          "url": "https://alignment.anthropic.com/2026/graft/",
+          "title": "localized reward hack removal",
+          "publisher": "alignment.anthropic.com",
+          "publication_date": "2026-10-19",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-32"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4175,6 +4395,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-34"
+        },
+        {
+          "kind": "primary",
+          "url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+          "title": "thin orchestration boundaries",
+          "publisher": "engineering.fb.com",
+          "publication_date": "2026-10-19",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-33"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4698,6 +4928,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-35"
+        },
+        {
+          "kind": "primary",
+          "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+          "title": "agent restriction respect evaluation",
+          "publisher": "deploymentsafety.openai.com",
+          "publication_date": "2026-10-26",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-34"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -5029,6 +5269,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-36"
+        },
+        {
+          "kind": "primary",
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "title": "task scoped virtual model routing",
+          "publisher": "vercel.com",
+          "publication_date": "2026-10-28",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-35"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -5340,6 +5590,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-37"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "title": "synthetic enterprise evaluation environments",
+          "publisher": "microsoft.com",
+          "publication_date": "2026-10-30",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-36"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -5560,6 +5820,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-38"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "title": "frontier model misalignment monitoring",
+          "publisher": "openai.com",
+          "publication_date": "2026-10-29",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-37"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -5770,6 +6040,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-39"
+        },
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/protostar",
+          "title": "ai ready public science artifacts",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-10-29",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-38"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -5970,6 +6250,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-40"
+        },
+        {
+          "kind": "primary",
+          "url": "https://gdpx.semianalysis.com/",
+          "title": "professional task agent benchmarks",
+          "publisher": "gdpx.semianalysis.com",
+          "publication_date": "2026-11-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-39"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6160,6 +6450,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-41"
+        },
+        {
+          "kind": "primary",
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+          "title": "weight space model repair",
+          "publisher": "rikiyat.github.io",
+          "publication_date": "2026-11-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-40"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6340,6 +6640,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-42"
+        },
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "title": "long horizon state tracking benchmarks",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-11-03",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-41"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6410,6 +6720,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-43"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+          "title": "aligned cybersecurity agents",
+          "publisher": "openai.com",
+          "publication_date": "2026-11-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-42"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6580,6 +6900,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-44"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+          "title": "wet lab agent evaluation",
+          "publisher": "openai.com",
+          "publication_date": "2026-11-06",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-43"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6740,6 +7070,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-45"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.anthropic.com/research/components-of-agent-memory",
+          "title": "offline agent memory correction",
+          "publisher": "anthropic.com",
+          "publication_date": "2026-11-06",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-44"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -6890,6 +7230,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-46"
+        },
+        {
+          "kind": "primary",
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "title": "persistent command approvals",
+          "publisher": "apiiro.com",
+          "publication_date": "2026-11-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-45"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7040,6 +7390,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-47"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.dwarkesh.com/p/clocktower",
+          "title": "multi agent deception benchmarks",
+          "publisher": "dwarkesh.com",
+          "publication_date": "2026-11-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-46"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7180,6 +7540,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-48"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "title": "frontier model serving modes",
+          "publisher": "anthropic.com",
+          "publication_date": "2026-11-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-47"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7320,6 +7690,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-49"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+          "title": "scheduled prompt operations",
+          "publisher": "smartsheet.com",
+          "publication_date": "2026-11-04",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-48"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7450,6 +7830,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-50"
+        },
+        {
+          "kind": "primary",
+          "url": "https://google-deepmind.github.io/code-verification/",
+          "title": "agent assisted formal code verification",
+          "publisher": "google-deepmind.github.io",
+          "publication_date": "2026-11-10",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-49"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7580,6 +7970,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-51"
+        },
+        {
+          "kind": "primary",
+          "url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+          "title": "reusable workspace skills",
+          "publisher": "workspaceupdates.googleblog.com",
+          "publication_date": "2026-11-10",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-50"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7700,6 +8100,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-52"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aclanthology.org/2026.aacl-long.119/",
+          "title": "retrieval aware numerical hallucination evaluation",
+          "publisher": "aclanthology.org",
+          "publication_date": "2026-11-06",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-51"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7881,6 +8291,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-53"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/introducing-chatgpt-wallet/",
+          "title": "agent payment authorization records",
+          "publisher": "openai.com",
+          "publication_date": "2026-11-13",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-52"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -7991,6 +8411,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-58"
+        },
+        {
+          "kind": "primary",
+          "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+          "title": "machine checked multi agent research campaigns",
+          "publisher": "deepmind.google",
+          "publication_date": "2026-11-23",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-57"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -8081,6 +8511,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-54"
+        },
+        {
+          "kind": "primary",
+          "url": "https://arxiv.org/abs/2611.14320",
+          "title": "evidence linked agent memory",
+          "publisher": "arxiv.org",
+          "publication_date": "2026-11-10",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-53"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -8161,6 +8601,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-55"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
+          "title": "supervised computer use agents in healthcare",
+          "publisher": "openai.com",
+          "publication_date": "2026-11-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-54"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -8251,6 +8701,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-56"
+        },
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/openrouter",
+          "title": "open weight inference shifts inside managed routing ma",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-11-19",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-55"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -8352,6 +8812,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-26",
           "development_id": "compiler-carried_forward-57"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.gallup.com/workplace/716585/ai-changing-employees-spend-time-work.aspx",
+          "title": "workplace ai changes task time before meeting load",
+          "publisher": "gallup.com",
+          "publication_date": "2026-11-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-carried_forward-56"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -8476,6 +8946,66 @@
             "observed_at": "2026-11-15T00:00:00Z"
           }
         ]
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-user-mediated-social-reasoning-evaluation",
+      "name": "user-mediated social reasoning evaluation",
+      "summary": "Evaluate whether assistants distinguish observations from a user’s framing when interpreting another person’s possible motives.",
+      "why_now": "Google Research released an open framework and dataset showing that subjective mediation, framing and underused clarification questions reduce model accuracy despite constructed ground truth.",
+      "practical_value": "Readers can ask assistants to separate observations from interpretations, request clarifying questions and compare plausible motives without treating the output as a diagnosis.",
+      "first_detected": "2026-11-27",
+      "updated_at": "2026-11-27T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+          "title": "user-mediated social reasoning evaluation",
+          "publisher": "research.google",
+          "publication_date": "2026-11-25",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-27",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 65,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The framework scores social interpretation through a user-mediated narrative with hidden constructed motives."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The original report supplies an open framework, dataset and cross-model findings with stated limitations."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Multiple evaluated models provide comparison, but independent replication of the framework remains unavailable."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No comparable social-reasoning metric has two dated observations using the same method."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "The pattern directly affects everyday requests for advice about another person’s intent."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Separating facts, framing and clarifying questions remains useful across assistant products."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No comparable social-reasoning metric has two dated observations using the same method.",
+        "metric": null,
+        "observations": []
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     }
