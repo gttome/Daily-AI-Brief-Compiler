@@ -47,6 +47,34 @@ test('audits layout, silhouettes, exact artwork and the recent verified edition 
  for(const i of [2,3])e.stories[i].observed_treatment='watercolor';
  assert.throws(()=>verifyImageLayoutAudit(m),/fewer_than_three_changed/);
 });
+test('future plans and actual color/grayscale reviews reject look-alikes despite distinct layouts',()=>{
+ const m=manifest('2026-11-28'),a=m.set_review.structural_layout_review;
+ const treatment=['line-diagram','ink-map','relief-object','relief-object','engraved-section','editorial-type'];
+ const labels=['direct-type','leader-callouts','badges-or-plaques','on-surface','leader-callouts','typographic-hierarchy'];
+ const specifications=a.stories.map((x,i)=>{
+  x.observed_visual_treatment_family=treatment[i];
+  x.observed_label_architecture=labels[i];
+  return {story_id:x.story_id,pre_generation_checks:{structural_layout_plan:{
+   layout_family:x.planned_layout,silhouette:x.planned_silhouette,
+   visual_treatment_family:treatment[i],label_architecture:labels[i]}}};
+ });
+ const pairs=a.stories.flatMap((a,i)=>m.images.slice(i+1).map(b=>({
+  story_ids:[a.story_id,b.story_id],same_visual_grammar:false,
+  observation:'The dominant media and label surfaces are different at thumbnail width.'})));
+ a.visible_similarity_review={method:'saved_color_and_grayscale_320',contact_sheet_sha256:a.contact_sheet_sha256,pairs};
+ assert.equal(verifyImageLayoutAudit(m,{specifications}).visible_contrast.pairs_reviewed,15);
+ a.stories[0].observed_visual_treatment_family='relief-object';
+ assert.throws(()=>verifyImageLayoutAudit(m,{specifications}),/observed_visual_grammar_repetition/);
+ a.stories[0].observed_visual_treatment_family=treatment[0];
+ specifications[0].pre_generation_checks.structural_layout_plan.label_architecture='leader-callouts';
+ assert.throws(()=>verifyImageLayoutAudit(m,{specifications}),/planned_visual_grammar_repetition/);
+ specifications[0].pre_generation_checks.structural_layout_plan.label_architecture=labels[0];
+ pairs[0].same_visual_grammar=true;
+ assert.throws(()=>verifyImageLayoutAudit(m,{specifications}),/unresolved_same_visual_grammar_pair/);
+ pairs[0].same_visual_grammar=false;
+ pairs[1].story_ids=[...pairs[0].story_ids].reverse();
+ assert.throws(()=>verifyImageLayoutAudit(m,{specifications}),/visible_similarity_pair_duplicate/);
+});
 test('reports the first seven eligible editions and distinguishes missing from zeros',t=>{
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'brief-rollout-'));t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
  const save=(p,data)=>{const name=path.join(root,p);fs.mkdirSync(path.dirname(name),{recursive:true});fs.writeFileSync(name,JSON.stringify(data));};

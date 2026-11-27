@@ -1,5 +1,9 @@
 # Current Image task contract
 
+## November 27 owner-approved visual quality correction — next unfrozen edition
+
+Apply [the four follow-through changes](../NOV27_APPROVED_IMAGE_FOLLOWUP.md) before any new edition plan freeze. Inspect actual visible treatment and how labels are drawn, as well as layout. The initial November 27 set passed the existing layout audit but the owner still found it too similar. Record the separate owner-directed revision as a comparison, never as unattended output or owner aesthetic acceptance. Preserve accepted originals, existing 320/1440 live QA, ownership and schedules.
+
 ## November 26 AAR — five approved image actions
 
 Apply on the next eligible new edition and every subsequent eligible run. Do not reopen November 26. Preserve existing quality gates, accepted bytes, worker ownership, schedules and the stricter existing advisory targets.
