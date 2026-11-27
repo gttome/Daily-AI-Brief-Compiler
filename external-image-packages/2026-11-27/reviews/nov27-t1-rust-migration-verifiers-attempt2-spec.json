@@ -1,0 +1,420 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-27",
+  "story_id": "nov27-t1-rust-migration-verifiers",
+  "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+  "visual_thesis": "A generated replacement needs behavioral parity checks against the changing production service.",
+  "mechanism_metaphor": "A paired open-section engraving of two abstract API routing channels with meaningful nested validation, prompt and token paths. Use smooth unmarked planes and small unnumbered token shapes, no literal industrial machinery. Place the two APIs side by side; shared replay above, comparison aperture between them, difference tray below. No gears, rollers, tools, stamps, seal, drawer knob, rivets, fake document writing, decorative piping or duplicated labels.",
+  "story_anchors": [
+    "Replay and input comparison expose behavioral differences between Python and Rust services.",
+    "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient."
+  ],
+  "required_labels": [
+    "Same requests",
+    "Python API",
+    "Rust API",
+    "Compare inputs",
+    "Validation",
+    "Prompt construction",
+    "Tokenization",
+    "Shadow traffic",
+    "Behavioral differences",
+    "Human review"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+      "supporting_source_excerpt": "Running requests through old and new code",
+      "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+      "supporting_source_excerpt": "parity was a moving target",
+      "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Same requests",
+      "to": "Compare inputs",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+    "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+  ],
+  "composition_signature": {
+    "grammar": "Mirrored API parity section",
+    "metaphor": "Mirrored API parity section",
+    "layout": "A paired open-section engraving of two abstract API routing channels with meaningful nested validation, prompt and token paths. Use smooth unmarked planes and small unnumbered token shapes, no literal industrial machinery. Place the two APIs side by side; shared replay above, comparison aperture between them, difference tray below. No gears, rollers, tools, stamps, seal, drawer knob, rivets, fake document writing, decorative piping or duplicated labels.",
+    "palette": "Burnt sienna and graphite",
+    "hierarchy": "Two equal implementations share one input and one subordinate divergence tray",
+    "perspective": "Paired oblique sections",
+    "annotation": "Open-margin engraved callouts"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "replay request packet",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "replay request packet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "shared request split",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "shared request split as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "Python validation stage",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Python validation stage as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "Rust validation stage",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Rust validation stage as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "Python prompt construction",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Python prompt construction as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "Rust prompt construction",
+        "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Rust prompt construction as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "tokenization correspondence",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "tokenization correspondence as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "comparison aperture",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "comparison aperture as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "shadow-traffic trace",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "shadow-traffic trace as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "behavioral difference tray",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "behavioral difference tray as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "agent fix association",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "agent fix association as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      },
+      {
+        "object": "human rollout review",
+        "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "human rollout review as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November27 image worker",
+    "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Same requests",
+        "region_id": "input",
+        "region": "input source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 430,
+          "y": 75,
+          "width": 340,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Python API",
+        "region_id": "left",
+        "region": "left source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 130,
+          "y": 155,
+          "width": 300,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Rust API",
+        "region_id": "right",
+        "region": "right source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 760,
+          "y": 155,
+          "width": 300,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Compare inputs",
+        "region_id": "compare",
+        "region": "compare source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 445,
+          "y": 290,
+          "width": 330,
+          "height": 45
+        },
+        "minimum_font_px": 34
+      },
+      {
+        "label": "Validation",
+        "region_id": "left",
+        "region": "left source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 140,
+          "y": 235,
+          "width": 230,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Prompt construction",
+        "region_id": "left",
+        "region": "left source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 125,
+          "y": 355,
+          "width": 310,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Tokenization",
+        "region_id": "right",
+        "region": "right source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 775,
+          "y": 355,
+          "width": 270,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Shadow traffic",
+        "region_id": "right",
+        "region": "right source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 750,
+          "y": 465,
+          "width": 315,
+          "height": 45
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Behavioral differences",
+        "region_id": "compare",
+        "region": "compare source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 390,
+          "y": 420,
+          "width": 380,
+          "height": 45
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Human review",
+        "region_id": "limit",
+        "region": "limit source-specific side-by-side region",
+        "bounding_box_px": {
+          "x": 95,
+          "y": 500,
+          "width": 280,
+          "height": 45
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "source_caveat_detached": true,
+    "source_caveat": "Human review",
+    "mechanism_canvas_percent": 74,
+    "explanatory_substage_labels": [
+      "Same requests",
+      "Python API"
+    ],
+    "thumbnail_priority_labels": [
+      "Same requests",
+      "Python API",
+      "Rust API"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "allowed_path": "Same requests to Compare inputs",
+        "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Same requests",
+        "to": "Compare inputs",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "origin_region": "input physical object port clear of words",
+        "target_region": "compare physical object port clear of words",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "structural_layout_plan": {
+      "layout_family": "side-by-side",
+      "silhouette": "S.S/DDD/.S."
+    },
+    "editorial_style_plan": {
+      "format_family": "Mirrored API parity section",
+      "dominant_grammar": "Mirrored API parity section",
+      "medium_treatment": "Copperplate engraving in rust and graphite",
+      "perspective": "Paired oblique sections",
+      "information_hierarchy": "Two equal implementations share one input and one subordinate divergence tray",
+      "palette_family": "Burnt sienna and graphite",
+      "subject_specific_visual_thesis": "A generated replacement needs behavioral parity checks against the changing production service. Visible at 320px: Same requests compared with Python API. Full size reveals replay request packet, shared request split, Python validation stage, Rust validation stage.",
+      "difference_from_earlier_story_images": "nov26-t1-siren-agent-boundaries: the prior enclosing sandbox and outside lure become two equal implementation channels with shared replay and an integrated difference aperture.",
+      "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "input",
+          "description": "input source-bound mechanism region within side-by-side",
+          "bounding_box_px": {
+            "x": 400,
+            "y": 60,
+            "width": 400,
+            "height": 90
+          }
+        },
+        {
+          "id": "left",
+          "description": "left source-bound mechanism region within side-by-side",
+          "bounding_box_px": {
+            "x": 75,
+            "y": 145,
+            "width": 390,
+            "height": 280
+          }
+        },
+        {
+          "id": "right",
+          "description": "right source-bound mechanism region within side-by-side",
+          "bounding_box_px": {
+            "x": 735,
+            "y": 145,
+            "width": 390,
+            "height": 380
+          }
+        },
+        {
+          "id": "compare",
+          "description": "compare source-bound mechanism region within side-by-side",
+          "bounding_box_px": {
+            "x": 380,
+            "y": 250,
+            "width": 420,
+            "height": 235
+          }
+        },
+        {
+          "id": "limit",
+          "description": "limit source-bound mechanism region within side-by-side",
+          "bounding_box_px": {
+            "x": 75,
+            "y": 480,
+            "width": 330,
+            "height": 80
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Same requests",
+          "to": "Compare inputs",
+          "support_claim_id": "claim-1",
+          "from_region_id": "input",
+          "to_region_id": "compare",
+          "origin_px": {
+            "x": 600,
+            "y": 135
+          },
+          "target_px": {
+            "x": 600,
+            "y": 360
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing image worker exact source and geometry review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "13da3d0a14686c5217c52538e469635a864aa644e7e27e0ea92f30631870b2aa"
+      }
+    }
+  },
+  "native_generation_prompt": "Edit this failed engraving as ONE premium source-faithful conceptual illustration at 1200x630. Preserve the good copperplate craft, paired Python API/Rust API structure, central parity comparison and large readable typography. REMOVE every gear, wrench, roller, seal, wax stamp, drawer knob, fake writing stroke and repeated label. Redesign machinery as clean layered routing channels, exposing validation, prompt and unnumbered token shapes without extra characters. Shrink and recompose all foreground inside a preferred 72px inset and an absolute 40px floor; the previous output touches all edges. Render each allowed exact phrase ONCE ONLY: [\"Same requests\",\"Python API\",\"Rust API\",\"Compare inputs\",\"Validation\",\"Prompt construction\",\"Tokenization\",\"Shadow traffic\",\"Behavioral differences\",\"Human review\"]. In particular Validation and Prompt construction must each appear once, with nondirectional comparison guides associating their paired stages. Keep all other surfaces smooth and unmarked. The single replay arrow must end at the physical comparison aperture below its label, never on lettering. No other arrowheads. Human review is plain detached text, no approval seal. The lower tray represents behavioral differences and has no decorative contents; use two different unnumbered token patterns as mismatched evidence, not spare parts. Source facts: production replay and deterministic input comparison find parity differences; human judgment handles disputed equivalence and rollout. No performance numbers or guarantees. Priority text at least36px and secondary28px at final export. White background. No panels, people, logos, photo, fake code, tiny writing, simulated bars or extra words. A paired open-section engraving of two abstract API routing channels with meaningful nested validation, prompt and token paths. Use smooth unmarked planes and small unnumbered token shapes, no literal industrial machinery. Place the two APIs side by side; shared replay above, comparison aperture between them, difference tray below. No gears, rollers, tools, stamps, seal, drawer knob, rivets, fake document writing, decorative piping or duplicated labels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"input\",\"description\":\"input source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":400,\"y\":60,\"width\":400,\"height\":90}},{\"id\":\"left\",\"description\":\"left source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":75,\"y\":145,\"width\":390,\"height\":280}},{\"id\":\"right\",\"description\":\"right source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":735,\"y\":145,\"width\":390,\"height\":380}},{\"id\":\"compare\",\"description\":\"compare source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":380,\"y\":250,\"width\":420,\"height\":235}},{\"id\":\"limit\",\"description\":\"limit source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":75,\"y\":480,\"width\":330,\"height\":80}}],\"labels\":[{\"label\":\"Same requests\",\"region_id\":\"input\",\"region\":\"input source-specific side-by-side region\",\"bounding_box_px\":{\"x\":430,\"y\":75,\"width\":340,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Python API\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":130,\"y\":155,\"width\":300,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Rust API\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":760,\"y\":155,\"width\":300,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Compare inputs\",\"region_id\":\"compare\",\"region\":\"compare source-specific side-by-side region\",\"bounding_box_px\":{\"x\":445,\"y\":290,\"width\":330,\"height\":45},\"minimum_font_px\":34},{\"label\":\"Validation\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":140,\"y\":235,\"width\":230,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Prompt construction\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":125,\"y\":355,\"width\":310,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Tokenization\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":775,\"y\":355,\"width\":270,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Shadow traffic\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":750,\"y\":465,\"width\":315,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Behavioral differences\",\"region_id\":\"compare\",\"region\":\"compare source-specific side-by-side region\",\"bounding_box_px\":{\"x\":390,\"y\":420,\"width\":380,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Human review\",\"region_id\":\"limit\",\"region\":\"limit source-specific side-by-side region\",\"bounding_box_px\":{\"x\":95,\"y\":500,\"width\":280,\"height\":45},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Same requests\",\"to\":\"Compare inputs\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"input\",\"to_region_id\":\"compare\",\"origin_px\":{\"x\":600,\"y\":135},\"target_px\":{\"x\":600,\"y\":360}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}
