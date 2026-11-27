@@ -954,9 +954,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-27T04:17:45Z",
+      "review_record_commit_at": "2026-11-27T04:20:16.000Z",
+      "review_merge_at": "2026-11-27T04:23:02.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -964,7 +964,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-26",
   "edition_date": "2026-11-27",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -1239,7 +1239,7 @@
       "attention": "YouTube reach and comparable same-program snapshots are main inputs; two event-specific social announcements supplement the mix. No raw audience sums or exact composite score.",
       "uncertainty": "One attention publisher per retained topic; all ten weaken upon family removal. Direct counters/playback unavailable. Tracker clocks preserved separately from observation. WITL header refreshed later than counter check; actual video measurement uses 06:58 Eastern, not 07:05 update or 17:08 page header."
     },
-    "source_commit": "f38e954a3ebf96191140ab98f570ab0c5bc88e97",
+    "source_commit": "a187f3d151256265c3a267d8028212eba6e3ad05",
     "source_blob_sha": "0757ad50259bc45ece9e11610dffbb04c19f375e",
     "report_sha256": "69751748c0ada6592c5695f6e9bf606c1f80e5b5d0bc93fbb28b8af60b559301",
     "consumed_source_commit": "ed17c425a36add7bd02b1b2fe3c77f8232d6c1c1",
@@ -1387,7 +1387,7 @@
       },
       "previous_cycle": "2026-11-25",
       "previous_report_sha256": "0567eeb8f5255dd175858e4e026b60868938d83942322f99ee25875e772ca031",
-      "previous_aar_sha256": "31c58e010553528d90e0499d1c4ac97a2e87157da37493f96822ce6a014ecbf8",
+      "previous_aar_sha256": "0f3f19f1151cc11148c3c81b07ed10ab341f32521f5a8a544cb6fc1a46fda6f4",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1811,10 +1811,13 @@
   "latest_publication_health": "LIVE_READER_VERIFIED_IMAGE_HANDOFF_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 15,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -1829,14 +1832,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-27T03:29:35.000Z",
   "scheduler_start_attested": false,
   "scientific_paper_coverage": {
     "status": "PRODUCER_REPORTED_BUNDLE_MATCH",
@@ -1874,7 +1877,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-27/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-27/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1894,11 +1897,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f38e954a3ebf96191140ab98f570ab0c5bc88e97/signals/ai-topic-top10/2026-11-26.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a187f3d151256265c3a267d8028212eba6e3ad05/signals/ai-topic-top10/2026-11-26.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f38e954a3ebf96191140ab98f570ab0c5bc88e97/signals/ai-topic-top10/2026-11-26.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a187f3d151256265c3a267d8028212eba6e3ad05/signals/ai-topic-top10/2026-11-26.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -2144,7 +2147,7 @@
   },
   "status_dimensions": {
     "publication": "VERIFIED",
-    "images": "INCOMPLETE",
+    "images": "RELEASED_AND_24_CONTEXTS_VERIFIED",
     "top10": "RECEIPTS_OBSERVED",
     "system": "PARTIAL",
     "autonomy": "UNPROVEN",
@@ -3446,9 +3449,18 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-12-02",
       "cumulative_review_due_today": false,
-      "finding_count": 1,
+      "finding_count": 2,
       "open_production_blockers": 0,
       "findings": [
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "9 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
+        },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
           "priority": "P2",
