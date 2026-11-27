@@ -60,7 +60,6 @@ Source failure categories: PARSER_OR_OTHER 2, RESPONSE_SIZE_LIMIT 7, ACCESS_BLOC
 
 Original-paper cadence: one qualified paper within 3 editions when available. Current review timing NOT_RECORDED; postpublication review is not evidence of preselection reading.
 
-- recurring federal measures of business AI use: published 81, unchanged-rubric calculation 81, retained original source links 1.
 
 IMG19 artistic changes retain their existing November 22 three-eligible-edition evaluation. Missing pixels, owner feedback and usage remain unknown; no retrospective source, query or artwork acceptance is invented.
 
@@ -138,7 +137,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
 | Cross-media topic diversity | **FOUR_DISTINCT_EVENTS_REVIEW_RECORDED** | Four video/podcast events and six pairwise original-source comparisons; editorial claims remain producer-attested |
 | Video discovery source attempts | **37 / 37** | Attempt evidence across enabled and qualification-only leads; REPORTED_ALL_ATTEMPTED. Not a claim of full content review or player verification | 
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Verified postpublication video corrections | **NOT_RECORDED** | Incident register tracks correction PR, actual playback evidence and reader preservation |
@@ -467,8 +466,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-26/shadow-runs/2026-11-26/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-26/shadow-runs/2026-11-26/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-26/shadow-runs/2026-11-26/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a2530176eeb1bd4965f1c2505c1eb3bb4475712a/signals/ai-topic-top10/2026-11-25.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a2530176eeb1bd4965f1c2505c1eb3bb4475712a/signals/ai-topic-top10/2026-11-25.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a49a800dcbe9ecbd14c4bf7a98e604947fcbfd51/signals/ai-topic-top10/2026-11-25.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a49a800dcbe9ecbd14c4bf7a98e604947fcbfd51/signals/ai-topic-top10/2026-11-25.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-26/shadow-runs/2026-11-26/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-26/shadow-runs/2026-11-26/editorial/trend-search-coverage.json) |
 
