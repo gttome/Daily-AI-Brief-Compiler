@@ -3,34 +3,67 @@
   "edition_date": "2026-11-27",
   "execution_id": "daily-ai-brief-compiler-2026-11-27",
   "branch": "shadow/2026-11-27",
-  "state": "RESEARCH",
-  "stage": "RESEARCH",
-  "started_at": "2026-11-27T00:00:00Z",
-  "updated_at": "2026-11-27T01:25:21Z",
-  "base_commit": "4b0d3407d0f0e4cdc32a77b24442c98ebf2e18ca",
-  "editorial_bundle": {"status": "in_progress", "digest": null},
-  "images": {"required": 6, "accepted": [], "mode": "images_pending", "placeholder_id": "illustration-pending-1200x630-v1"},
-  "bundle": {"status": "NOT_READY", "digest": null},
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
+  "started_at": "2026-11-27T01:18:16.000Z",
+  "updated_at": "2026-11-27T02:19:24.217Z",
+  "editorial_bundle": {
+    "status": "complete",
+    "digest": "019ecb9c56e3a7a4b75c2421fc93463608dc7ca7a484c54a48e3391529533a66"
+  },
+  "images": {
+    "required": 6,
+    "accepted": [],
+    "mode": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1"
+  },
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "019ecb9c56e3a7a4b75c2421fc93463608dc7ca7a484c54a48e3391529533a66"
+  },
   "last_error": null,
-  "retryable": true,
-  "selection_locked_at": null,
-  "sealed_at": null,
+  "retryable": false,
+  "selection_locked_at": "2026-11-27T02:19:24.217Z",
+  "sealed_at": "2026-11-27T02:19:24.217Z",
+  "base_commit": "4b0d3407d0f0e4cdc32a77b24442c98ebf2e18ca",
   "bundle_path": "shadow-runs/2026-11-27/edition-bundle.json",
-  "bundle_sha256": null,
-  "semantic_sha256": null,
+  "bundle_sha256": "019ecb9c56e3a7a4b75c2421fc93463608dc7ca7a484c54a48e3391529533a66",
+  "semantic_sha256": "019ecb9c56e3a7a4b75c2421fc93463608dc7ca7a484c54a48e3391529533a66",
   "blocker": null,
   "evidence": {
     "trend_input": "shadow-runs/2026-11-27/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-27/editorial/trend-search-coverage.json",
     "execution_milestones": "shadow-runs/2026-11-27/execution-milestones.json",
-    "source_route_coverage": "shadow-runs/2026-11-27/editorial/source-route-coverage.json",
+    "index_review": "shadow-runs/2026-11-27/editorial/index-review.json",
     "video_receipt": "shadow-runs/2026-11-27/editorial/preseal-video-receipt.json"
   },
-  "publication": {"bundle_ready": false, "protected_workflow_dispatched": false, "public_reader_verified": false},
-  "unknowns": {"scheduler_invocation_identity": null, "host_identity": null, "usage_metrics": null},
+  "publication": {
+    "bundle_ready": true,
+    "protected_workflow_dispatched": false,
+    "public_reader_verified": false
+  },
+  "unknowns": {
+    "scheduler_invocation_identity": null,
+    "host_identity": null,
+    "usage_metrics": null,
+    "billing_origin": null
+  },
   "continuation": {
     "owner": "sole existing editorial task",
-    "next_action": "Complete dated-item research, select the 2/2/2 bundle, qualify videos and reserves, then run protected preseal and semantic gates.",
+    "next_action": "Run protected semantic, archive, reader and playback gates, dispatch the protected-main compiler, then verify live reader and immutable image handoff.",
     "recovery_guard": null
+  },
+  "preview": {
+    "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/",
+    "bundle_digest": "019ecb9c56e3a7a4b75c2421fc93463608dc7ca7a484c54a48e3391529533a66"
+  },
+  "reader_parity": {
+    "result": "PASS",
+    "image_representation": "images_pending",
+    "october8_public_objects_preserved": 17,
+    "contract": "reader-surface-parity-v2",
+    "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
+    "semantic_rework": 0,
+    "accepted_image_regenerations": 0
   }
 }

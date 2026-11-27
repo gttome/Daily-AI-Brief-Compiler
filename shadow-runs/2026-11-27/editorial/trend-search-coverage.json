@@ -1,0 +1,443 @@
+{
+  "schema_version": "daily-ai-topic-top10-search-coverage-v1",
+  "cycle_date": "2026-11-26",
+  "edition_date": "2026-11-27",
+  "source_commit": "ed17c425a36add7bd02b1b2fe3c77f8232d6c1c1",
+  "report_sha256": "69751748c0ada6592c5695f6e9bf606c1f80e5b5d0bc93fbb28b8af60b559301",
+  "observation_contract": {
+    "writer": "operations/trend-receipt-writer.mjs",
+    "allowed_attempt_outcomes": [
+      "searched",
+      "selected",
+      "rejected",
+      "qualified_not_selected",
+      "not_found",
+      "unavailable"
+    ],
+    "source_urls_required_even_for_no_candidate": true,
+    "selected_mapping_requires_actual_candidate": true,
+    "no_automatic_outcome_conversion": true
+  },
+  "searches": [
+    {
+      "topic_id": "claude-alpoge-riemann-proof-announcement-nov20",
+      "format": "article",
+      "query": "mathematics proof verification critique original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:40Z",
+      "source_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10981185/"
+      ],
+      "candidate_ids": [
+        "TREND-ART-01-PROOF-REVIEW"
+      ],
+      "outcome": "rejected",
+      "reason": "The complete result discusses proof peer review generally but does not independently inspect the Alpoge Lean archive or its claimed theorem."
+    },
+    {
+      "topic_id": "claude-alpoge-riemann-proof-announcement-nov20",
+      "format": "video",
+      "query": "mathematics proof verification critique original full program demonstration",
+      "attempted_at": "2026-11-27T02:03:10Z",
+      "source_urls": [
+        "https://postsingularityinstitute.org/en/syntheses/UCTTD_yZX30rNMNSuYSzLLkQ_S3PF4DrX0KU/"
+      ],
+      "candidate_ids": [
+        "TREND-VID-01-RIEMANN"
+      ],
+      "outcome": "rejected",
+      "reason": "A full-program lead was found, but its original-player identity and signed-out playback were not independently established before selection."
+    },
+    {
+      "topic_id": "claude-alpoge-riemann-proof-announcement-nov20",
+      "format": "podcast",
+      "query": "mathematics proof verification critique interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:20Z",
+      "source_urls": [
+        "https://podcasts.apple.com/us/podcast/the-riemann-hypothesis-levent-alp%C3%B6ge-claude-and-a/id1836311251?i=1000803213134"
+      ],
+      "candidate_ids": [
+        "TREND-POD-01-RIEMANN"
+      ],
+      "outcome": "rejected",
+      "reason": "The exact episode disclosed that it was AI-generated, so it was rejected as insufficiently reliable editorial audio."
+    },
+    {
+      "topic_id": "anthropic-messages-rust-migration-nov25",
+      "format": "article",
+      "query": "Anthropic Messages API Rust migration verification loops original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:41Z",
+      "source_urls": [
+        "https://www.anthropic.com/research/migrating-api-to-rust"
+      ],
+      "candidate_ids": [
+        "nov27-t1-rust-migration-verifiers"
+      ],
+      "outcome": "selected",
+      "reason": "The original dated engineering report was read in full and selected for its shadow-traffic parity method and measured CPU result."
+    },
+    {
+      "topic_id": "anthropic-messages-rust-migration-nov25",
+      "format": "video",
+      "query": "Anthropic Messages API Rust migration verification loops original full program demonstration",
+      "attempted_at": "2026-11-27T02:03:11Z",
+      "source_urls": [
+        "https://www.anthropic.com/research/migrating-api-to-rust"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The exact original article was found, but the format search produced no distinct publisher-authored full video program about the migration."
+    },
+    {
+      "topic_id": "anthropic-messages-rust-migration-nov25",
+      "format": "podcast",
+      "query": "Anthropic Messages API Rust migration verification loops interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:21Z",
+      "source_urls": [
+        "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in"
+      ],
+      "candidate_ids": [
+        "TREND-POD-02-ANTHROPIC"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The 1:49 interview directly covers the Rust rewrite and qualified, but its length and story duplication made it a weaker podcast selection."
+    },
+    {
+      "topic_id": "ibm-vibe-agentic-coding-explainer-nov23",
+      "format": "article",
+      "query": "IBM vibe coding agentic coding planning validation original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:42Z",
+      "source_urls": [
+        "https://link.springer.com/article/10.1007/s41019-026-00371-9"
+      ],
+      "candidate_ids": [
+        "TREND-ART-03-CODING-SURVEY"
+      ],
+      "outcome": "rejected",
+      "reason": "The paper is a useful coding-assistant survey but is not an exact independent analysis of the IBM program or its contrasted workflows."
+    },
+    {
+      "topic_id": "ibm-vibe-agentic-coding-explainer-nov23",
+      "format": "video",
+      "query": "IBM vibe coding agentic coding planning validation original full program demonstration",
+      "attempted_at": "2026-11-27T02:03:12Z",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=o7AzbObl8Tk"
+      ],
+      "candidate_ids": [
+        "TREND-VID-03-IBM"
+      ],
+      "outcome": "rejected",
+      "reason": "An exact IBM video result was found, but it was not the protected-request candidate and therefore lacked exact signed-out playback evidence."
+    },
+    {
+      "topic_id": "ibm-vibe-agentic-coding-explainer-nov23",
+      "format": "podcast",
+      "query": "IBM vibe coding agentic coding planning validation interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:22Z",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=h4tHDFCPmQE"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The exact IBM video was found, but the format search did not locate a distinct podcast episode covering this specific comparison."
+    },
+    {
+      "topic_id": "dex-horthy-software-factory-rules-upload-nov23",
+      "format": "article",
+      "query": "Dex Horthy Factory twelve rules software factory slop original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:43Z",
+      "source_urls": [
+        "https://ai.engineer/talks/-NFMsM2y0Vk-12-rules-software-factory-that-doesnt-ship-slop"
+      ],
+      "candidate_ids": [
+        "TREND-ART-04-DEX-TALK"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The exact speaker page and full transcript were reviewed; the talk qualified but the edition already had stronger original operational evidence."
+    },
+    {
+      "topic_id": "dex-horthy-software-factory-rules-upload-nov23",
+      "format": "video",
+      "query": "Dex Horthy Factory twelve rules software factory slop original full program demonstration",
+      "attempted_at": "2026-11-27T02:03:13Z",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=-NFMsM2y0Vk",
+        "https://ai.engineer/code/2026/talks/dex-horthy"
+      ],
+      "candidate_ids": [
+        "TREND-VID-04-DEX"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The original 20:24 conference program and transcript qualified, but it exceeded the preferred duration and was not selected."
+    },
+    {
+      "topic_id": "dex-horthy-software-factory-rules-upload-nov23",
+      "format": "podcast",
+      "query": "Dex Horthy Factory twelve rules software factory slop interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:23Z",
+      "source_urls": [
+        "https://podcastintel.ai/e/1298352/12-rules-for-a-software-factory-that-doesn-t-ship-slop-dex-horthy-factory"
+      ],
+      "candidate_ids": [
+        "TREND-POD-04-DEX"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The 20:24 audio mirror of the original talk qualified, but the final audio selections added more subject and publisher variety."
+    },
+    {
+      "topic_id": "hermes-vps-explainer-nov26",
+      "format": "article",
+      "query": "Hermes Agent Wes Roth November 26 VPS deployment original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:44Z",
+      "source_urls": [
+        "https://ai-tldr.dev/releases/wes-roth-hermes-agent-leveled-up-nov26/"
+      ],
+      "candidate_ids": [
+        "TREND-ART-05-HERMES"
+      ],
+      "outcome": "rejected",
+      "reason": "The exact walkthrough record disclosed a Hostinger sponsorship and affiliate code, making promotional risk too high for editorial selection."
+    },
+    {
+      "topic_id": "hermes-vps-explainer-nov26",
+      "format": "video",
+      "query": "Hermes Agent Wes Roth November 26 VPS deployment original full program demonstration",
+      "attempted_at": "2026-11-27T02:04:10Z",
+      "source_urls": [
+        "https://ai-tldr.dev/releases/wes-roth-hermes-agent-leveled-up-nov26/"
+      ],
+      "candidate_ids": [
+        "TREND-VID-05-HERMES"
+      ],
+      "outcome": "rejected",
+      "reason": "The 28:26 walkthrough was reviewed and rejected for duration plus disclosed Hostinger sponsorship and affiliate promotion."
+    },
+    {
+      "topic_id": "hermes-vps-explainer-nov26",
+      "format": "podcast",
+      "query": "Hermes Agent Wes Roth November 26 VPS deployment interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:24Z",
+      "source_urls": [
+        "https://podcasts.apple.com/us/podcast/wes-roth/id6806726491"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The publisher feed was inspected, but no independently identified podcast episode specific to the Hermes walkthrough was found."
+    },
+    {
+      "topic_id": "obsidian-official-agent-connectors-nov25",
+      "format": "article",
+      "query": "Obsidian official connectors agents local notes privacy original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:45Z",
+      "source_urls": [
+        "https://obsidian.md/help/connectors"
+      ],
+      "candidate_ids": [
+        "TREND-ART-06-OBSIDIAN"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The original connector documentation was reviewed and qualified as practical documentation, but it did not displace the stronger six-story mix."
+    },
+    {
+      "topic_id": "obsidian-official-agent-connectors-nov25",
+      "format": "video",
+      "query": "Obsidian official connectors agents local notes privacy original full program demonstration",
+      "attempted_at": "2026-11-27T02:04:11Z",
+      "source_urls": [
+        "https://obsidian.md/help/connectors"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The official documentation was located, but no exact original full video program for the connector release was found in this search."
+    },
+    {
+      "topic_id": "obsidian-official-agent-connectors-nov25",
+      "format": "podcast",
+      "query": "Obsidian official connectors agents local notes privacy interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:25Z",
+      "source_urls": [
+        "https://obsidian.md/help/connectors"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The official connector documentation was checked, but no exact podcast episode about the release was located."
+    },
+    {
+      "topic_id": "codex-svg3d-original-demo-nov24",
+      "format": "article",
+      "query": "Codex SVG 3D design plugin reference editable graphics original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:46Z",
+      "source_urls": [
+        "https://learn.chatgpt.com/guides/svg-3d-design"
+      ],
+      "candidate_ids": [
+        "TREND-ART-07-CODEX-SVG"
+      ],
+      "outcome": "rejected",
+      "reason": "The official guide matched the demo but the exact SVG and 3D topic had already appeared in the November 26 edition."
+    },
+    {
+      "topic_id": "codex-svg3d-original-demo-nov24",
+      "format": "video",
+      "query": "Codex SVG 3D design plugin reference editable graphics original full program demonstration",
+      "attempted_at": "2026-11-27T02:04:12Z",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=1u0hTd86_HU"
+      ],
+      "candidate_ids": [
+        "TREND-VID-07-CODEX-SVG"
+      ],
+      "outcome": "rejected",
+      "reason": "The exact 4:56 original demo was found, but the same topic had already been published in the November 26 edition."
+    },
+    {
+      "topic_id": "codex-svg3d-original-demo-nov24",
+      "format": "podcast",
+      "query": "Codex SVG 3D design plugin reference editable graphics interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:26Z",
+      "source_urls": [
+        "https://www.podpulse.app/e/1580400"
+      ],
+      "candidate_ids": [
+        "TREND-POD-07-CODEX-SVG"
+      ],
+      "outcome": "rejected",
+      "reason": "An audio rendering of the exact demo was found, but the topic was a November 26 repeat and did not qualify for reuse."
+    },
+    {
+      "topic_id": "claude-code-hallie-recap-nov24",
+      "format": "article",
+      "query": "Lydia Hallie rethinking Claude Code rules permissions verification November original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:47Z",
+      "source_urls": [
+        "https://ai.engineer/code/2026/talks/lydia-hallie"
+      ],
+      "candidate_ids": [
+        "TREND-ART-08-HALLIE"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The original talk page and limitations were reviewed; it qualified but overlapped the edition harness theme and was not selected."
+    },
+    {
+      "topic_id": "claude-code-hallie-recap-nov24",
+      "format": "video",
+      "query": "Lydia Hallie rethinking Claude Code rules permissions verification November original full program demonstration",
+      "attempted_at": "2026-11-27T02:04:13Z",
+      "source_urls": [
+        "https://ai.engineer/talks/vlfCjWuv4es-rethinking-claude-code-best-practices"
+      ],
+      "candidate_ids": [
+        "TREND-VID-08-HALLIE"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The original 17:32 practitioner talk qualified, but the final pair provided broader publisher and subject variety."
+    },
+    {
+      "topic_id": "claude-code-hallie-recap-nov24",
+      "format": "podcast",
+      "query": "Lydia Hallie rethinking Claude Code rules permissions verification November interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:27Z",
+      "source_urls": [
+        "https://podwise.ai/episodes/9475088"
+      ],
+      "candidate_ids": [
+        "TREND-POD-08-HALLIE"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The 18-minute episode mirror of the original practitioner talk qualified, but it was not selected over the two final audio programs."
+    },
+    {
+      "topic_id": "muse-uk-privacy-explainer-nov24",
+      "format": "article",
+      "query": "Meta Muse UK personal agent privacy permissions November 23 original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:48Z",
+      "source_urls": [
+        "https://about.fb.com/news/2026/11/muse-now-available-in-the-uk-muse-does-the-work-you-stay-in-control/",
+        "https://competitionandmarkets.blog.gov.uk/2026/11/24/cma-statement-on-uk-launch-of-meta-muse/"
+      ],
+      "candidate_ids": [
+        "TREND-ART-09-MUSE"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "The vendor launch and independent regulator statement were read together; the lead qualified but did not outrank the selected evidence set."
+    },
+    {
+      "topic_id": "muse-uk-privacy-explainer-nov24",
+      "format": "video",
+      "query": "Meta Muse UK personal agent privacy permissions November 23 original full program demonstration",
+      "attempted_at": "2026-11-27T02:05:10Z",
+      "source_urls": [
+        "https://www.newsisc.com/videos/metas-muse-ai-promises-to-change-your-life-if-it-can-access-your-most-valuable-data-bbc-news/"
+      ],
+      "candidate_ids": [
+        "TREND-VID-09-MUSE-BBC"
+      ],
+      "outcome": "rejected",
+      "reason": "The exact BBC explainer was found but rejected because the rolling-five-date policy requires both current selections to be non-news."
+    },
+    {
+      "topic_id": "muse-uk-privacy-explainer-nov24",
+      "format": "podcast",
+      "query": "Meta Muse UK personal agent privacy permissions November 23 interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:28Z",
+      "source_urls": [
+        "https://about.fb.com/news/2026/11/muse-now-available-in-the-uk-muse-does-the-work-you-stay-in-control/"
+      ],
+      "candidate_ids": [],
+      "outcome": "not_found",
+      "reason": "The original release and regulator coverage were checked, but no exact substantive independent podcast episode was found."
+    },
+    {
+      "topic_id": "gemini4-developer-tips-program-nov25",
+      "format": "article",
+      "query": "Google Developers five developer tips Gemini 4 intent original evidence methods limitations",
+      "attempted_at": "2026-11-27T02:02:49Z",
+      "source_urls": [
+        "https://cloud.google.com/blog/topics/developers-practitioners/five-best-practices-for-using-ai-coding-assistants/"
+      ],
+      "candidate_ids": [
+        "TREND-ART-10-GEMINI-TIPS"
+      ],
+      "outcome": "rejected",
+      "reason": "The practitioner guidance was useful but was not the exact dated Gemini 4 program and could not support a candidate-bound match."
+    },
+    {
+      "topic_id": "gemini4-developer-tips-program-nov25",
+      "format": "video",
+      "query": "Google Developers five developer tips Gemini 4 intent original full program demonstration",
+      "attempted_at": "2026-11-27T02:05:11Z",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=WN5O4vWCa54"
+      ],
+      "candidate_ids": [
+        "VID27-GOOGLE-GEMINI-TIPS"
+      ],
+      "outcome": "rejected",
+      "reason": "The exact original program was reviewed, but protected signed-out YouTube playback failed and the workflow pivoted to native players."
+    },
+    {
+      "topic_id": "gemini4-developer-tips-program-nov25",
+      "format": "podcast",
+      "query": "Google Developers five developer tips Gemini 4 intent interview podcast episode transcript",
+      "attempted_at": "2026-11-27T02:05:29Z",
+      "source_urls": [
+        "https://www.podpulse.app/e/1589078"
+      ],
+      "candidate_ids": [
+        "TREND-POD-10-GEMINI"
+      ],
+      "outcome": "qualified_not_selected",
+      "reason": "An exact audio program record was found and qualified, but the selected podcasts had stronger complete-episode editorial value."
+    }
+  ],
+  "selected_mappings": [
+    {
+      "topic_id": "anthropic-messages-rust-migration-nov25",
+      "format": "article",
+      "item_id": "nov27-t1-rust-migration-verifiers",
+      "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+      "reason": "The original report supplied the selected migration story and was encountered in the exact candidate-bound article search.",
+      "candidate_id": "nov27-t1-rust-migration-verifiers"
+    }
+  ]
+}
