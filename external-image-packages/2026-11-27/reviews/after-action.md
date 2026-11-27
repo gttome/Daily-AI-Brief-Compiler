@@ -1,6 +1,6 @@
 # 2026-11-27 premium image after-action report
 
-**Status: GENERATED_REVIEWED_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 5233cdb6459c2b94ac60969ce851ae5c782c1e76 |
 | Executor observed run start | 2026-11-27T03:20:01Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-27T03:29:35Z (observed before tool call) |
-| Public release | NOT_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_REVIEW; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-27T04:12:21.927Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -135,5 +135,9 @@ The native Pax correction returned a taller canvas. Export removed only empty wh
 Supplementary direct HTTP source retrieval later encountered403 on Anthropic,Cloudflare and JAMA, while connected web source text remained available. Native facts/labels came from the bound publisher mechanism and limitations already reviewed; no later observation was backdated.
 
 Latest earlier combined AAR, chart data, improvement metrics and original rejection receipts informed source-specific label, connector, internal-detail and margin corrections. No billing or scheduler-origin proof was invented.
+
+Actual protected release and independent public-status readback succeeded. All 24 saved desktop/mobile contexts were individually opened and inspected after capture; automated capture proof remains separate. Both exact-attempt artifact waits had eight stable probes, zero missing/error polls and 19 observed seconds; both deployments succeeded.
+
+Final outcome: six distinct observed layout families, maximum repetition one, three conservative layout-and-treatment changes versus November 26. The final 24-context visual result is PASS. Fifteen native calls and zero first-pass accepts missed both advisory efficiency goals; implementation does not establish improved outcomes or owner artistic acceptance.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
