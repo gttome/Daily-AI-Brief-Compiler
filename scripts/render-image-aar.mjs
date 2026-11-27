@@ -58,6 +58,14 @@ export function renderImageAar({aar,job,manifest}){
  ...layout.stories.flatMap(x=>x.prior_matches.map(m=>'- '+cell(x.story_id)+' vs '+m.edition_date+
   ' ('+m.image_sha256.slice(0,12)+'): '+cell(m.visual_comparison))), ''
  ]:[]),
+ ...(layout?.visible_contrast?[
+ '## Visible treatment and label contrast','',
+ 'Treatment families: '+Object.entries(layout.visible_contrast.treatment_families).map(([k,v])=>k+' '+v).join(', ')+'.',
+ 'Label architectures: '+Object.entries(layout.visible_contrast.label_architectures).map(([k,v])=>k+' '+v).join(', ')+'.',
+ 'Actual color and grayscale pairs reviewed: '+layout.visible_contrast.pairs_reviewed+
+ '. Unresolved same-grammar pairs: '+layout.visible_contrast.unresolved_same_grammar_pairs+'.',
+ 'The validator checks evidence and counts, not the visual judgment or owner acceptance.',''
+ ]:[]),
  ...(editorial?[editorial,'']:[]),
  '## Corrections','', '| Stage | Issue | Correction |','|---|---|---|',
  ...aar.errors.map(e=>'| '+cell(e.phase)+' | '+cell(e.issue)+' | '+cell(e.correction)+' |'),'',

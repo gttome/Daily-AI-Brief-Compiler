@@ -3,6 +3,10 @@ export const LAYOUT_AUDIT_EFFECTIVE='2026-11-26';
 export const LAYOUT_FAMILIES=Object.freeze(['horizontal-strip','vertical-stack','central-cutaway',
  'radial-loop','branching-tree','asymmetric-inset','continuous-scene','diagonal-depth','side-by-side']);
 const families=new Set(LAYOUT_FAMILIES);
+export const VISIBLE_CONTRAST_EFFECTIVE='2026-11-28';
+const treatments=new Set(['line-diagram','editorial-type','ink-map','relief-object','engraved-section',
+ 'matte-print','field-illustration','documentary-collage']);
+const labels=new Set(['direct-type','leader-callouts','on-surface','badges-or-plaques','typographic-hierarchy']);
 const hex=s=>typeof s==='string'&&/^[a-f0-9]{64}$/.test(s);
 const date=s=>typeof s==='string'&&/^\d{4}-\d\d-\d\d$/.test(s);
 const note=s=>typeof s==='string'&&s.trim().length>=20;
@@ -14,6 +18,30 @@ const layoutCounts=(rows,key)=>{
  for(const row of rows)counts[row[key]]=(counts[row[key]]??0)+1;
  return counts;
 };
+function verifyContrastDistribution(rows,treatmentKey,labelKey,phase){
+ if(rows.some(x=>!treatments.has(x[treatmentKey])||!labels.has(x[labelKey])))fail(phase+'_visual_grammar_missing');
+ const treatment=layoutCounts(rows,treatmentKey),label=layoutCounts(rows,labelKey);
+ if(Object.keys(treatment).length<4||Math.max(...Object.values(treatment))>2||Math.max(...Object.values(label))>2)
+  fail(phase+'_visual_grammar_repetition');
+ return {treatment_families:treatment,label_architectures:label};
+}
+function verifyVisibleContrast(a){
+ const observed=verifyContrastDistribution(a.stories,'observed_visual_treatment_family','observed_label_architecture','observed');
+ const p=a.visible_similarity_review,ids=new Set(a.stories.map(x=>x.story_id));
+ if(p?.method!=='saved_color_and_grayscale_320'||p.contact_sheet_sha256!==a.contact_sheet_sha256||
+  !Array.isArray(p.pairs)||p.pairs.length!==15)fail('visible_similarity_review_missing');
+ const seen=new Set();
+ for(const pair of p.pairs){
+  if(!Array.isArray(pair?.story_ids)||pair.story_ids.length!==2||pair.story_ids[0]===pair.story_ids[1]||
+   pair.story_ids.some(id=>!ids.has(id))||!note(pair.observation)||typeof pair.same_visual_grammar!=='boolean')
+   fail('visible_similarity_pair_incomplete');
+  const key=JSON.stringify([...pair.story_ids].sort());
+  if(seen.has(key))fail('visible_similarity_pair_duplicate');
+  seen.add(key);
+  if(pair.same_visual_grammar)fail('unresolved_same_visual_grammar_pair');
+ }
+ return {...observed,pairs_reviewed:seen.size,unresolved_same_grammar_pairs:0};
+}
 export function verifyFrozenLayoutPlan(specifications,edition){
  if(edition<LAYOUT_AUDIT_EFFECTIVE)return null;
  const rows=specifications.map(s=>({story_id:s.story_id,...s.pre_generation_checks?.structural_layout_plan}));
@@ -21,6 +49,7 @@ export function verifyFrozenLayoutPlan(specifications,edition){
   rows.some(x=>!families.has(x.layout_family)||!grid(x.silhouette)))fail('frozen_silhouettes_required');
  const counts=layoutCounts(rows,'layout_family');
  if(Object.keys(counts).length<4||Math.max(...Object.values(counts))>2)fail('frozen_layout_repetition');
+ if(edition>=VISIBLE_CONTRAST_EFFECTIVE)verifyContrastDistribution(rows,'visual_treatment_family','label_architecture','planned');
  return new Map(rows.map(x=>[x.story_id,x]));
 }
 export function verifyImageLayoutAudit(manifest,{index,specifications}={}){
@@ -73,5 +102,6 @@ export function verifyImageLayoutAudit(manifest,{index,specifications}={}){
   if(changed<3)fail('fewer_than_three_changed_layout_and_treatment_combinations');
  }
  return {planned,observed,largest_repeated_layout:Math.max(...Object.values(observed)),prior_editions:dates,
-  changed_vs_preceding:dates.length?changed:null,stories:a.stories};
+  changed_vs_preceding:dates.length?changed:null,stories:a.stories,
+  visible_contrast:edition>=VISIBLE_CONTRAST_EFFECTIVE?verifyVisibleContrast(a):null};
 }

@@ -33,6 +33,7 @@ export function reportImageLayoutRollout({repo,site,through}){
    edition, evidence_status: layout&&imgs?'AVAILABLE':'PARTIAL_OR_NOT_RECORDED',
    distinct_layouts:layout?Object.keys(layout.observed).length:null,
    maximum_repeat:layout?.largest_repeated_layout??null,changed_combinations:layout?.changed_vs_preceding??null,
+   visible_contrast:layout?.visible_contrast??null,
    first_pass_accepts:attempts===null?null:imgs.filter(i=>i.generation_attempts===1).length,native_attempts:attempts,
    owner_intervention:safeRef(obs?.intervention_evidence_ref)&&['owner_directed','none_observed'].includes(obs.owner_intervention)?obs.owner_intervention:null,
    work_usage_percent:metric(matched?a.usage?.work_usage_percent:null,0,100),
