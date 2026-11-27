@@ -1,0 +1,2525 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-t1-rust-migration-verifiers",
+    "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+    "visual_thesis": "A generated replacement needs behavioral parity checks against the changing production service.",
+    "mechanism_metaphor": "One continuous double-channel engraved assembly, with Python API and Rust API side by side, sharing Same requests above. Expose validation, prompt construction and tokenization in each channel through nested internal parts, not separate panels. A single arrow from an actual replay request packet to the comparison aperture means production traffic is replayed to detect differences. At the bottom a small difference tray names Behavioral differences and Agent fixes; a detached Human review note makes the rollout decision explicit. Compare inputs sits across the two internal prompt paths. Shadow traffic is a separate overlaid tracing strand, not a second model run or a billing stream. Do not claim duplicate execution or universal correctness. The foremost parity distinction should dominate at phone width. No three-station left-center-right sequence.",
+    "story_anchors": [
+      "Replay and input comparison expose behavioral differences between Python and Rust services.",
+      "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient."
+    ],
+    "required_labels": [
+      "Same requests",
+      "Python API",
+      "Rust API",
+      "Compare inputs",
+      "Validation",
+      "Prompt construction",
+      "Tokenization",
+      "Shadow traffic",
+      "Behavioral differences",
+      "Human review"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+        "supporting_source_excerpt": "Running requests through old and new code",
+        "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+        "supporting_source_excerpt": "parity was a moving target",
+        "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Same requests",
+        "to": "Compare inputs",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Mirrored API parity section",
+      "metaphor": "Mirrored API parity section",
+      "layout": "One continuous double-channel engraved assembly, with Python API and Rust API side by side, sharing Same requests above. Expose validation, prompt construction and tokenization in each channel through nested internal parts, not separate panels. A single arrow from an actual replay request packet to the comparison aperture means production traffic is replayed to detect differences. At the bottom a small difference tray names Behavioral differences and Agent fixes; a detached Human review note makes the rollout decision explicit. Compare inputs sits across the two internal prompt paths. Shadow traffic is a separate overlaid tracing strand, not a second model run or a billing stream. Do not claim duplicate execution or universal correctness. The foremost parity distinction should dominate at phone width. No three-station left-center-right sequence.",
+      "palette": "Burnt sienna and graphite",
+      "hierarchy": "Two equal implementations share one input and one subordinate divergence tray",
+      "perspective": "Paired oblique sections",
+      "annotation": "Open-margin engraved callouts"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "replay request packet",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "replay request packet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "shared request split",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "shared request split as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Python validation stage",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "Python validation stage as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Rust validation stage",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "Rust validation stage as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Python prompt construction",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "Python prompt construction as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Rust prompt construction",
+          "visible_fact": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "Rust prompt construction as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "tokenization correspondence",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "tokenization correspondence as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "comparison aperture",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "comparison aperture as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "shadow-traffic trace",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "shadow-traffic trace as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "behavioral difference tray",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "behavioral difference tray as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "agent fix association",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "agent fix association as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "human rollout review",
+          "visible_fact": "Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "human rollout review as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://www.anthropic.com/research/migrating-api-to-rust",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Same requests",
+          "region_id": "input",
+          "region": "input source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 75,
+            "width": 340,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Python API",
+          "region_id": "left",
+          "region": "left source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 130,
+            "y": 155,
+            "width": 300,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Rust API",
+          "region_id": "right",
+          "region": "right source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 760,
+            "y": 155,
+            "width": 300,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Compare inputs",
+          "region_id": "compare",
+          "region": "compare source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 445,
+            "y": 290,
+            "width": 330,
+            "height": 45
+          },
+          "minimum_font_px": 34
+        },
+        {
+          "label": "Validation",
+          "region_id": "left",
+          "region": "left source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 140,
+            "y": 235,
+            "width": 230,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Prompt construction",
+          "region_id": "left",
+          "region": "left source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 125,
+            "y": 355,
+            "width": 310,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Tokenization",
+          "region_id": "right",
+          "region": "right source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 775,
+            "y": 355,
+            "width": 270,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Shadow traffic",
+          "region_id": "right",
+          "region": "right source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 465,
+            "width": 315,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Behavioral differences",
+          "region_id": "compare",
+          "region": "compare source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 420,
+            "width": 380,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Human review",
+          "region_id": "limit",
+          "region": "limit source-specific side-by-side region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 500,
+            "width": 280,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "Human review",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "Same requests",
+        "Python API"
+      ],
+      "thumbnail_priority_labels": [
+        "Same requests",
+        "Python API",
+        "Rust API"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Replay and input comparison expose behavioral differences between Python and Rust services.",
+          "allowed_path": "Same requests to Compare inputs",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Same requests",
+          "to": "Compare inputs",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "input physical object port clear of words",
+          "target_region": "compare physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "side-by-side",
+        "silhouette": "S.S/DDD/.S."
+      },
+      "editorial_style_plan": {
+        "format_family": "Mirrored API parity section",
+        "dominant_grammar": "Mirrored API parity section",
+        "medium_treatment": "Copperplate engraving in rust and graphite",
+        "perspective": "Paired oblique sections",
+        "information_hierarchy": "Two equal implementations share one input and one subordinate divergence tray",
+        "palette_family": "Burnt sienna and graphite",
+        "subject_specific_visual_thesis": "A generated replacement needs behavioral parity checks against the changing production service. Visible at 320px: Same requests compared with Python API. Full size reveals replay request packet, shared request split, Python validation stage, Rust validation stage.",
+        "difference_from_earlier_story_images": "nov26-t1-siren-agent-boundaries: the prior enclosing sandbox and outside lure become two equal implementation channels with shared replay and an integrated difference aperture.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "input",
+            "description": "input source-bound mechanism region within side-by-side",
+            "bounding_box_px": {
+              "x": 400,
+              "y": 60,
+              "width": 400,
+              "height": 90
+            }
+          },
+          {
+            "id": "left",
+            "description": "left source-bound mechanism region within side-by-side",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 145,
+              "width": 390,
+              "height": 280
+            }
+          },
+          {
+            "id": "right",
+            "description": "right source-bound mechanism region within side-by-side",
+            "bounding_box_px": {
+              "x": 735,
+              "y": 145,
+              "width": 390,
+              "height": 380
+            }
+          },
+          {
+            "id": "compare",
+            "description": "compare source-bound mechanism region within side-by-side",
+            "bounding_box_px": {
+              "x": 380,
+              "y": 250,
+              "width": 420,
+              "height": 235
+            }
+          },
+          {
+            "id": "limit",
+            "description": "limit source-bound mechanism region within side-by-side",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 480,
+              "width": 330,
+              "height": 80
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Same requests",
+            "to": "Compare inputs",
+            "support_claim_id": "claim-1",
+            "from_region_id": "input",
+            "to_region_id": "compare",
+            "origin_px": {
+              "x": 600,
+              "y": 135
+            },
+            "target_px": {
+              "x": 600,
+              "y": 360
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "ea38b0d792e780e6d37505dfb837cc0d64a5a53f26f43737cce35b5c965ae9d3"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: A generated replacement needs behavioral parity checks against the changing production service.\nMedium: Copperplate engraving in rust and graphite. Palette: Burnt sienna and graphite. View: Paired oblique sections.\nComposition: One continuous double-channel engraved assembly, with Python API and Rust API side by side, sharing Same requests above. Expose validation, prompt construction and tokenization in each channel through nested internal parts, not separate panels. A single arrow from an actual replay request packet to the comparison aperture means production traffic is replayed to detect differences. At the bottom a small difference tray names Behavioral differences and Agent fixes; a detached Human review note makes the rollout decision explicit. Compare inputs sits across the two internal prompt paths. Shadow traffic is a separate overlaid tracing strand, not a second model run or a billing stream. Do not claim duplicate execution or universal correctness. The foremost parity distinction should dominate at phone width. No three-station left-center-right sequence.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"Same requests\",\"Python API\",\"Rust API\",\"Compare inputs\",\"Validation\",\"Prompt construction\",\"Tokenization\",\"Shadow traffic\",\"Behavioral differences\",\"Human review\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: Replay and input comparison expose behavioral differences between Python and Rust services. Production verification retains human judgment over equivalence and rollout; generated code alone is insufficient.\nMeaningful object detail: replay request packet; shared request split; Python validation stage; Rust validation stage; Python prompt construction; Rust prompt construction; tokenization correspondence; comparison aperture; shadow-traffic trace; behavioral difference tray; agent fix association; human rollout review.\nDraw only ONE causal arrow: Same requests to Compare inputs, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"input\",\"description\":\"input source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":400,\"y\":60,\"width\":400,\"height\":90}},{\"id\":\"left\",\"description\":\"left source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":75,\"y\":145,\"width\":390,\"height\":280}},{\"id\":\"right\",\"description\":\"right source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":735,\"y\":145,\"width\":390,\"height\":380}},{\"id\":\"compare\",\"description\":\"compare source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":380,\"y\":250,\"width\":420,\"height\":235}},{\"id\":\"limit\",\"description\":\"limit source-bound mechanism region within side-by-side\",\"bounding_box_px\":{\"x\":75,\"y\":480,\"width\":330,\"height\":80}}],\"labels\":[{\"label\":\"Same requests\",\"region_id\":\"input\",\"region\":\"input source-specific side-by-side region\",\"bounding_box_px\":{\"x\":430,\"y\":75,\"width\":340,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Python API\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":130,\"y\":155,\"width\":300,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Rust API\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":760,\"y\":155,\"width\":300,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Compare inputs\",\"region_id\":\"compare\",\"region\":\"compare source-specific side-by-side region\",\"bounding_box_px\":{\"x\":445,\"y\":290,\"width\":330,\"height\":45},\"minimum_font_px\":34},{\"label\":\"Validation\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":140,\"y\":235,\"width\":230,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Prompt construction\",\"region_id\":\"left\",\"region\":\"left source-specific side-by-side region\",\"bounding_box_px\":{\"x\":125,\"y\":355,\"width\":310,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Tokenization\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":775,\"y\":355,\"width\":270,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Shadow traffic\",\"region_id\":\"right\",\"region\":\"right source-specific side-by-side region\",\"bounding_box_px\":{\"x\":750,\"y\":465,\"width\":315,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Behavioral differences\",\"region_id\":\"compare\",\"region\":\"compare source-specific side-by-side region\",\"bounding_box_px\":{\"x\":390,\"y\":420,\"width\":380,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Human review\",\"region_id\":\"limit\",\"region\":\"limit source-specific side-by-side region\",\"bounding_box_px\":{\"x\":95,\"y\":500,\"width\":280,\"height\":45},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Same requests\",\"to\":\"Compare inputs\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"input\",\"to_region_id\":\"compare\",\"origin_px\":{\"x\":600,\"y\":135},\"target_px\":{\"x\":600,\"y\":360}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-t2-agent-search-endpoint",
+    "source_url": "https://blog.cloudflare.com/search-for-agents",
+    "visual_thesis": "Domain metadata advertises a search endpoint whose output is retrieved content, not a generated answer.",
+    "mechanism_metaphor": "A continuous folded-paper domain fabric fills the center, with three content leaves at left connected by nondirectional paper folds to a larger Search index. Above, Page metadata is a small exposed folded header that advertises Search endpoint at the upper-right edge of the same fabric. A single query arrow travels from a small Query fold at right to the physical endpoint port; no other arrowheads. From the endpoint a wide continuous fold opens downward into Retrieved Markdown, whose front leaf explicitly says Source references. This is retrieved evidence, not an answer-composing machine. Lower left Domain rules bounds the fabric without a security shield; the detached bottom-right qualifier says Not a generated answer. All content leaves that signify a collection share one informative front leaf, Website content. Keep the entire scene unframed, with many folds exposing collection, indexing, discovery and return relationships; never turn semantic regions into panels.",
+    "story_anchors": [
+      "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+      "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits."
+    ],
+    "required_labels": [
+      "Page metadata",
+      "Search endpoint",
+      "Query",
+      "Website content",
+      "Search index",
+      "Retrieved Markdown",
+      "Source references",
+      "Domain rules",
+      "Not a generated answer"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+        "supporting_source_excerpt": "advertises the search endpoint",
+        "source_url": "https://blog.cloudflare.com/search-for-agents",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+        "supporting_source_excerpt": "not a generated answer",
+        "source_url": "https://blog.cloudflare.com/search-for-agents",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Query",
+        "to": "Search endpoint",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Domain-owned retrieval landscape",
+      "metaphor": "Domain-owned retrieval landscape",
+      "layout": "A continuous folded-paper domain fabric fills the center, with three content leaves at left connected by nondirectional paper folds to a larger Search index. Above, Page metadata is a small exposed folded header that advertises Search endpoint at the upper-right edge of the same fabric. A single query arrow travels from a small Query fold at right to the physical endpoint port; no other arrowheads. From the endpoint a wide continuous fold opens downward into Retrieved Markdown, whose front leaf explicitly says Source references. This is retrieved evidence, not an answer-composing machine. Lower left Domain rules bounds the fabric without a security shield; the detached bottom-right qualifier says Not a generated answer. All content leaves that signify a collection share one informative front leaf, Website content. Keep the entire scene unframed, with many folds exposing collection, indexing, discovery and return relationships; never turn semantic regions into panels.",
+      "palette": "Cobalt and warm coral",
+      "hierarchy": "A single domain fabric carries discoverability above retrieval and a small detached limit",
+      "perspective": "Overhead shallow paper relief",
+      "annotation": "Words printed directly on folded surfaces"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "website content collection",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "website content collection as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "informative front content leaf",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "informative front content leaf as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "crawler fold",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "crawler fold as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Markdown conversion fold",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "Markdown conversion fold as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "search index interior",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "search index interior as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "page metadata header",
+          "visible_fact": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "page metadata header as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "domain-owned endpoint port",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "domain-owned endpoint port as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "query input fold",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "query input fold as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "keyword/natural query encoding",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "keyword/natural query encoding as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "retrieved content leaf",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "retrieved content leaf as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "source-reference association",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "source-reference association as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "domain-rule boundary",
+          "visible_fact": "The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "domain-rule boundary as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://blog.cloudflare.com/search-for-agents",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Page metadata",
+          "region_id": "discovery",
+          "region": "discovery source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 455,
+            "y": 75,
+            "width": 330,
+            "height": 45
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Search endpoint",
+          "region_id": "endpoint",
+          "region": "endpoint source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 770,
+            "y": 190,
+            "width": 330,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Query",
+          "region_id": "endpoint",
+          "region": "endpoint source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 900,
+            "y": 95,
+            "width": 160,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Website content",
+          "region_id": "content",
+          "region": "content source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 200,
+            "width": 320,
+            "height": 45
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Search index",
+          "region_id": "index",
+          "region": "index source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 290,
+            "width": 290,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Retrieved Markdown",
+          "region_id": "result",
+          "region": "result source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 600,
+            "y": 415,
+            "width": 430,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Source references",
+          "region_id": "result",
+          "region": "result source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 660,
+            "y": 485,
+            "width": 360,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Domain rules",
+          "region_id": "content",
+          "region": "content source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 440,
+            "width": 280,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Not a generated answer",
+          "region_id": "content",
+          "region": "content source-specific continuous-scene region",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 520,
+            "width": 475,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "Not a generated answer",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "Page metadata",
+        "Search endpoint"
+      ],
+      "thumbnail_priority_labels": [
+        "Page metadata",
+        "Search endpoint",
+        "Search index"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Page metadata enables visiting agents to discover and query a domain-owned search endpoint.",
+          "allowed_path": "Query to Search endpoint",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Query",
+          "to": "Search endpoint",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "endpoint physical object port clear of words",
+          "target_region": "endpoint physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "continuous-scene",
+        "silhouette": "SDS/DDD/S.S"
+      },
+      "editorial_style_plan": {
+        "format_family": "Domain-owned retrieval landscape",
+        "dominant_grammar": "Domain-owned retrieval landscape",
+        "medium_treatment": "Layered cut-paper relief with sharply folded edges",
+        "perspective": "Overhead shallow paper relief",
+        "information_hierarchy": "A single domain fabric carries discoverability above retrieval and a small detached limit",
+        "palette_family": "Cobalt and warm coral",
+        "subject_specific_visual_thesis": "Domain metadata advertises a search endpoint whose output is retrieved content, not a generated answer. Visible at 320px: Page metadata compared with Search endpoint. Full size reveals website content collection, informative front content leaf, crawler fold, Markdown conversion fold.",
+        "difference_from_earlier_story_images": "nov26-a2-foundry-trace-optimization: the prior three ascending vellum groups are replaced with one continuous overhead folded domain fabric and embedded endpoint discovery.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "discovery",
+            "description": "discovery source-bound mechanism region within continuous-scene",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 60,
+              "width": 400,
+              "height": 100
+            }
+          },
+          {
+            "id": "endpoint",
+            "description": "endpoint source-bound mechanism region within continuous-scene",
+            "bounding_box_px": {
+              "x": 760,
+              "y": 75,
+              "width": 365,
+              "height": 205
+            }
+          },
+          {
+            "id": "content",
+            "description": "content source-bound mechanism region within continuous-scene",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 180,
+              "width": 500,
+              "height": 390
+            }
+          },
+          {
+            "id": "index",
+            "description": "index source-bound mechanism region within continuous-scene",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 250,
+              "width": 330,
+              "height": 150
+            }
+          },
+          {
+            "id": "result",
+            "description": "result source-bound mechanism region within continuous-scene",
+            "bounding_box_px": {
+              "x": 585,
+              "y": 400,
+              "width": 510,
+              "height": 150
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Query",
+            "to": "Search endpoint",
+            "support_claim_id": "claim-1",
+            "from_region_id": "endpoint",
+            "to_region_id": "endpoint",
+            "origin_px": {
+              "x": 980,
+              "y": 155
+            },
+            "target_px": {
+              "x": 880,
+              "y": 255
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "69d3d44cfaceb2c5c1b45118efc97beecc400e25ddcb951a74614466b449136e"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: Domain metadata advertises a search endpoint whose output is retrieved content, not a generated answer.\nMedium: Layered cut-paper relief with sharply folded edges. Palette: Cobalt and warm coral. View: Overhead shallow paper relief.\nComposition: A continuous folded-paper domain fabric fills the center, with three content leaves at left connected by nondirectional paper folds to a larger Search index. Above, Page metadata is a small exposed folded header that advertises Search endpoint at the upper-right edge of the same fabric. A single query arrow travels from a small Query fold at right to the physical endpoint port; no other arrowheads. From the endpoint a wide continuous fold opens downward into Retrieved Markdown, whose front leaf explicitly says Source references. This is retrieved evidence, not an answer-composing machine. Lower left Domain rules bounds the fabric without a security shield; the detached bottom-right qualifier says Not a generated answer. All content leaves that signify a collection share one informative front leaf, Website content. Keep the entire scene unframed, with many folds exposing collection, indexing, discovery and return relationships; never turn semantic regions into panels.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"Page metadata\",\"Search endpoint\",\"Query\",\"Website content\",\"Search index\",\"Retrieved Markdown\",\"Source references\",\"Domain rules\",\"Not a generated answer\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: Page metadata enables visiting agents to discover and query a domain-owned search endpoint. The endpoint returns source content in Markdown instead of composing an answer, subject to domain configurations and usage limits.\nMeaningful object detail: website content collection; informative front content leaf; crawler fold; Markdown conversion fold; search index interior; page metadata header; domain-owned endpoint port; query input fold; keyword/natural query encoding; retrieved content leaf; source-reference association; domain-rule boundary.\nDraw only ONE causal arrow: Query to Search endpoint, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"discovery\",\"description\":\"discovery source-bound mechanism region within continuous-scene\",\"bounding_box_px\":{\"x\":420,\"y\":60,\"width\":400,\"height\":100}},{\"id\":\"endpoint\",\"description\":\"endpoint source-bound mechanism region within continuous-scene\",\"bounding_box_px\":{\"x\":760,\"y\":75,\"width\":365,\"height\":205}},{\"id\":\"content\",\"description\":\"content source-bound mechanism region within continuous-scene\",\"bounding_box_px\":{\"x\":75,\"y\":180,\"width\":500,\"height\":390}},{\"id\":\"index\",\"description\":\"index source-bound mechanism region within continuous-scene\",\"bounding_box_px\":{\"x\":410,\"y\":250,\"width\":330,\"height\":150}},{\"id\":\"result\",\"description\":\"result source-bound mechanism region within continuous-scene\",\"bounding_box_px\":{\"x\":585,\"y\":400,\"width\":510,\"height\":150}}],\"labels\":[{\"label\":\"Page metadata\",\"region_id\":\"discovery\",\"region\":\"discovery source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":455,\"y\":75,\"width\":330,\"height\":45},\"minimum_font_px\":38},{\"label\":\"Search endpoint\",\"region_id\":\"endpoint\",\"region\":\"endpoint source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":770,\"y\":190,\"width\":330,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Query\",\"region_id\":\"endpoint\",\"region\":\"endpoint source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":900,\"y\":95,\"width\":160,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Website content\",\"region_id\":\"content\",\"region\":\"content source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":90,\"y\":200,\"width\":320,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Search index\",\"region_id\":\"index\",\"region\":\"index source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":430,\"y\":290,\"width\":290,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Retrieved Markdown\",\"region_id\":\"result\",\"region\":\"result source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":600,\"y\":415,\"width\":430,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Source references\",\"region_id\":\"result\",\"region\":\"result source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":660,\"y\":485,\"width\":360,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Domain rules\",\"region_id\":\"content\",\"region\":\"content source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":95,\"y\":440,\"width\":280,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Not a generated answer\",\"region_id\":\"content\",\"region\":\"content source-specific continuous-scene region\",\"bounding_box_px\":{\"x\":90,\"y\":520,\"width\":475,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Query\",\"to\":\"Search endpoint\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"endpoint\",\"to_region_id\":\"endpoint\",\"origin_px\":{\"x\":980,\"y\":155},\"target_px\":{\"x\":880,\"y\":255}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-a1-pax-composable-harness",
+    "source_url": "https://pydantic.dev/articles/pax-harness-beta",
+    "visual_thesis": "A coding harness can be assembled from replaceable capabilities; Agent Skills is one capability rather than the entire agent.",
+    "mechanism_metaphor": "An asymmetrical radial letterpress rosette with a large open Harness ring at center. Six unequal detachable lobes name Coding, Sandbox, MCP, Tracing, Memory and Agent Skills. Each is visibly separable with a clean gap and no toggle or knob. Agent Skills is a large lower-left booklet lobe with exactly Tools and Instructions on its front meaningful surfaces; do not invent code or simulated lettering. A single arrow travels from the physical Agent Skills lobe into the harness attachment port to indicate adding the capability. All other module connections are plain nondirectional fitted joints. A small outer Model leaf at top-right attaches through a nondirectional stem. The detached bottom-right caveat is Beta; single-run benchmarks. Show the core loop open through the ring, a file/shell workspace edge as an unmarked fitted interface, and a tracing spine without decorative metrics. No unsupported automatic restart in Pax or claim of superior performance. No cream plaque board, no six equal boxes, no generic dashboard.",
+    "story_anchors": [
+      "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+      "The beta supports replaceable models and harnesses; performance evidence is single first-party runs."
+    ],
+    "required_labels": [
+      "Harness",
+      "Coding",
+      "Sandbox",
+      "MCP",
+      "Agent Skills",
+      "Tools",
+      "Instructions",
+      "Model",
+      "Tracing",
+      "Memory",
+      "Beta; single-run benchmarks"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+        "supporting_source_excerpt": "everything in Pax is a plugin",
+        "source_url": "https://pydantic.dev/articles/pax-harness-beta",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+        "supporting_source_excerpt": "Single runs from November",
+        "source_url": "https://pydantic.dev/articles/pax-harness-beta",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Agent Skills",
+        "to": "Harness",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Detachable capability rosette",
+      "metaphor": "Detachable capability rosette",
+      "layout": "An asymmetrical radial letterpress rosette with a large open Harness ring at center. Six unequal detachable lobes name Coding, Sandbox, MCP, Tracing, Memory and Agent Skills. Each is visibly separable with a clean gap and no toggle or knob. Agent Skills is a large lower-left booklet lobe with exactly Tools and Instructions on its front meaningful surfaces; do not invent code or simulated lettering. A single arrow travels from the physical Agent Skills lobe into the harness attachment port to indicate adding the capability. All other module connections are plain nondirectional fitted joints. A small outer Model leaf at top-right attaches through a nondirectional stem. The detached bottom-right caveat is Beta; single-run benchmarks. Show the core loop open through the ring, a file/shell workspace edge as an unmarked fitted interface, and a tracing spine without decorative metrics. No unsupported automatic restart in Pax or claim of superior performance. No cream plaque board, no six equal boxes, no generic dashboard.",
+      "palette": "Ochre and deep magenta with charcoal",
+      "hierarchy": "One harness ring surrounded by unequal capability lobes",
+      "perspective": "Flat frontal rosette with shallow print relief",
+      "annotation": "Integrated stamped module names"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "open harness core",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "open harness core as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "coding lobe",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "coding lobe as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "sandbox lobe",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "sandbox lobe as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "MCP lobe",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "MCP lobe as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "tracing lobe",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "tracing lobe as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "memory lobe",
+          "visible_fact": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "memory lobe as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "Agent Skills booklet",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "Agent Skills booklet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "tools surface",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "tools surface as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "instructions surface",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "instructions surface as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "model leaf",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "model leaf as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "replaceable attachment gap",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "replaceable attachment gap as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "workspace interface",
+          "visible_fact": "The beta supports replaceable models and harnesses; performance evidence is single first-party runs.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "workspace interface as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://pydantic.dev/articles/pax-harness-beta",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Harness",
+          "region_id": "core",
+          "region": "core source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 480,
+            "y": 245,
+            "width": 260,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Coding",
+          "region_id": "upper",
+          "region": "upper source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 445,
+            "y": 95,
+            "width": 220,
+            "height": 42
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Sandbox",
+          "region_id": "left",
+          "region": "left source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 165,
+            "width": 250,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "MCP",
+          "region_id": "left",
+          "region": "left source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 120,
+            "y": 290,
+            "width": 160,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Agent Skills",
+          "region_id": "left",
+          "region": "left source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 425,
+            "width": 300,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Tools",
+          "region_id": "left",
+          "region": "left source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 485,
+            "width": 135,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Instructions",
+          "region_id": "left",
+          "region": "left source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 250,
+            "y": 485,
+            "width": 225,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Model",
+          "region_id": "right",
+          "region": "right source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 850,
+            "y": 110,
+            "width": 200,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Tracing",
+          "region_id": "right",
+          "region": "right source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 875,
+            "y": 260,
+            "width": 220,
+            "height": 45
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Memory",
+          "region_id": "right",
+          "region": "right source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 830,
+            "y": 395,
+            "width": 220,
+            "height": 45
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Beta; single-run benchmarks",
+          "region_id": "limit",
+          "region": "limit source-specific radial-loop region",
+          "bounding_box_px": {
+            "x": 580,
+            "y": 510,
+            "width": 500,
+            "height": 46
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "Beta; single-run benchmarks",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "Harness",
+        "Coding"
+      ],
+      "thumbnail_priority_labels": [
+        "Harness",
+        "Sandbox",
+        "Agent Skills"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing.",
+          "allowed_path": "Agent Skills to Harness",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Agent Skills",
+          "to": "Harness",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "left physical object port clear of words",
+          "target_region": "core physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "radial-loop",
+        "silhouette": ".S./SDS/S.S"
+      },
+      "editorial_style_plan": {
+        "format_family": "Detachable capability rosette",
+        "dominant_grammar": "Detachable capability rosette",
+        "medium_treatment": "Bold risograph and letterpress impression",
+        "perspective": "Flat frontal rosette with shallow print relief",
+        "information_hierarchy": "One harness ring surrounded by unequal capability lobes",
+        "palette_family": "Ochre and deep magenta with charcoal",
+        "subject_specific_visual_thesis": "A coding harness can be assembled from replaceable capabilities; Agent Skills is one capability rather than the entire agent. Visible at 320px: Harness compared with Coding. Full size reveals open harness core, coding lobe, sandbox lobe, MCP lobe.",
+        "difference_from_earlier_story_images": "nov25-a1-agentic-eval-chain owner-layout-r2: both use a circular skeleton, but this rosette has detached printed lobes rather than a continuous evidence ribbon and magnifying lens.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "core",
+            "description": "core source-bound mechanism region within radial-loop",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 200,
+              "width": 370,
+              "height": 220
+            }
+          },
+          {
+            "id": "upper",
+            "description": "upper source-bound mechanism region within radial-loop",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 75,
+              "width": 320,
+              "height": 105
+            }
+          },
+          {
+            "id": "left",
+            "description": "left source-bound mechanism region within radial-loop",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 130,
+              "width": 420,
+              "height": 420
+            }
+          },
+          {
+            "id": "right",
+            "description": "right source-bound mechanism region within radial-loop",
+            "bounding_box_px": {
+              "x": 805,
+              "y": 85,
+              "width": 320,
+              "height": 380
+            }
+          },
+          {
+            "id": "limit",
+            "description": "limit source-bound mechanism region within radial-loop",
+            "bounding_box_px": {
+              "x": 560,
+              "y": 495,
+              "width": 550,
+              "height": 75
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Agent Skills",
+            "to": "Harness",
+            "support_claim_id": "claim-1",
+            "from_region_id": "left",
+            "to_region_id": "core",
+            "origin_px": {
+              "x": 385,
+              "y": 410
+            },
+            "target_px": {
+              "x": 455,
+              "y": 350
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "743483f97445512fec345124b919909d3937bdf995a3392d14660dc2aae1d541"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: A coding harness can be assembled from replaceable capabilities; Agent Skills is one capability rather than the entire agent.\nMedium: Bold risograph and letterpress impression. Palette: Ochre and deep magenta with charcoal. View: Flat frontal rosette with shallow print relief.\nComposition: An asymmetrical radial letterpress rosette with a large open Harness ring at center. Six unequal detachable lobes name Coding, Sandbox, MCP, Tracing, Memory and Agent Skills. Each is visibly separable with a clean gap and no toggle or knob. Agent Skills is a large lower-left booklet lobe with exactly Tools and Instructions on its front meaningful surfaces; do not invent code or simulated lettering. A single arrow travels from the physical Agent Skills lobe into the harness attachment port to indicate adding the capability. All other module connections are plain nondirectional fitted joints. A small outer Model leaf at top-right attaches through a nondirectional stem. The detached bottom-right caveat is Beta; single-run benchmarks. Show the core loop open through the ring, a file/shell workspace edge as an unmarked fitted interface, and a tracing spine without decorative metrics. No unsupported automatic restart in Pax or claim of superior performance. No cream plaque board, no six equal boxes, no generic dashboard.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"Harness\",\"Coding\",\"Sandbox\",\"MCP\",\"Agent Skills\",\"Tools\",\"Instructions\",\"Model\",\"Tracing\",\"Memory\",\"Beta; single-run benchmarks\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: Reusable capabilities provide tools, instructions and hooks; Pax composes plugins including Agent Skills, coding, workspace and tracing. The beta supports replaceable models and harnesses; performance evidence is single first-party runs.\nMeaningful object detail: open harness core; coding lobe; sandbox lobe; MCP lobe; tracing lobe; memory lobe; Agent Skills booklet; tools surface; instructions surface; model leaf; replaceable attachment gap; workspace interface.\nDraw only ONE causal arrow: Agent Skills to Harness, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"core\",\"description\":\"core source-bound mechanism region within radial-loop\",\"bounding_box_px\":{\"x\":420,\"y\":200,\"width\":370,\"height\":220}},{\"id\":\"upper\",\"description\":\"upper source-bound mechanism region within radial-loop\",\"bounding_box_px\":{\"x\":410,\"y\":75,\"width\":320,\"height\":105}},{\"id\":\"left\",\"description\":\"left source-bound mechanism region within radial-loop\",\"bounding_box_px\":{\"x\":75,\"y\":130,\"width\":420,\"height\":420}},{\"id\":\"right\",\"description\":\"right source-bound mechanism region within radial-loop\",\"bounding_box_px\":{\"x\":805,\"y\":85,\"width\":320,\"height\":380}},{\"id\":\"limit\",\"description\":\"limit source-bound mechanism region within radial-loop\",\"bounding_box_px\":{\"x\":560,\"y\":495,\"width\":550,\"height\":75}}],\"labels\":[{\"label\":\"Harness\",\"region_id\":\"core\",\"region\":\"core source-specific radial-loop region\",\"bounding_box_px\":{\"x\":480,\"y\":245,\"width\":260,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Coding\",\"region_id\":\"upper\",\"region\":\"upper source-specific radial-loop region\",\"bounding_box_px\":{\"x\":445,\"y\":95,\"width\":220,\"height\":42},\"minimum_font_px\":32},{\"label\":\"Sandbox\",\"region_id\":\"left\",\"region\":\"left source-specific radial-loop region\",\"bounding_box_px\":{\"x\":100,\"y\":165,\"width\":250,\"height\":45},\"minimum_font_px\":36},{\"label\":\"MCP\",\"region_id\":\"left\",\"region\":\"left source-specific radial-loop region\",\"bounding_box_px\":{\"x\":120,\"y\":290,\"width\":160,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Agent Skills\",\"region_id\":\"left\",\"region\":\"left source-specific radial-loop region\",\"bounding_box_px\":{\"x\":95,\"y\":425,\"width\":300,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Tools\",\"region_id\":\"left\",\"region\":\"left source-specific radial-loop region\",\"bounding_box_px\":{\"x\":100,\"y\":485,\"width\":135,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Instructions\",\"region_id\":\"left\",\"region\":\"left source-specific radial-loop region\",\"bounding_box_px\":{\"x\":250,\"y\":485,\"width\":225,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Model\",\"region_id\":\"right\",\"region\":\"right source-specific radial-loop region\",\"bounding_box_px\":{\"x\":850,\"y\":110,\"width\":200,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Tracing\",\"region_id\":\"right\",\"region\":\"right source-specific radial-loop region\",\"bounding_box_px\":{\"x\":875,\"y\":260,\"width\":220,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Memory\",\"region_id\":\"right\",\"region\":\"right source-specific radial-loop region\",\"bounding_box_px\":{\"x\":830,\"y\":395,\"width\":220,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Beta; single-run benchmarks\",\"region_id\":\"limit\",\"region\":\"limit source-specific radial-loop region\",\"bounding_box_px\":{\"x\":580,\"y\":510,\"width\":500,\"height\":46},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Agent Skills\",\"to\":\"Harness\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"left\",\"to_region_id\":\"core\",\"origin_px\":{\"x\":385,\"y\":410},\"target_px\":{\"x\":455,\"y\":350}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-a2-scientist-agent-boundaries",
+    "source_url": "https://allenai.org/blog/where-scientists-draw-the-line-on-ai-agents",
+    "visual_thesis": "Scientific-agent trust depends on inspectable method and access as well as a correct result.",
+    "mechanism_metaphor": "A single long translucent research-record prism rises diagonally from lower left to upper right. Expose its internal five unequal facets rather than three disconnected stations. Validation at lower left faces Source papers, Objectivity at lower center faces Conflicting evidence, Transparency near the middle opens to Method record, Privacy on the right shows an Authorized files compartment beside an inaccessible compartment with no arrow crossing, and Accountability at upper right faces Human responsibility. No human icon or checkmark. A single source-supported arrow travels from the Source papers object to the Method record object, representing evidence verification as part of inspectable research, not a claim of automatic truth. Noncausal callout leaders have no heads. A detached upper-left note reads 17 interviews; exploratory. Every content surface has an exact informative term or a distinct access state; no fake scientific text or anonymous layers counted as evidence. Meaning at mobile width: inspect how the result was made and which files were accessed, not just the result.",
+    "story_anchors": [
+      "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+      "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus."
+    ],
+    "required_labels": [
+      "17 interviews; exploratory",
+      "Validation",
+      "Source papers",
+      "Objectivity",
+      "Conflicting evidence",
+      "Transparency",
+      "Method record",
+      "Privacy",
+      "Authorized files",
+      "Accountability",
+      "Human responsibility"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+        "supporting_source_excerpt": "which sources an agent omitted",
+        "source_url": "https://allenai.org/blog/where-scientists-draw-the-line-on-ai-agents",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+        "supporting_source_excerpt": "interviews with 17 US-based scientists",
+        "source_url": "https://allenai.org/blog/where-scientists-draw-the-line-on-ai-agents",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Source papers",
+        "to": "Method record",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Scientific trust evidence prism",
+      "metaphor": "Scientific trust evidence prism",
+      "layout": "A single long translucent research-record prism rises diagonally from lower left to upper right. Expose its internal five unequal facets rather than three disconnected stations. Validation at lower left faces Source papers, Objectivity at lower center faces Conflicting evidence, Transparency near the middle opens to Method record, Privacy on the right shows an Authorized files compartment beside an inaccessible compartment with no arrow crossing, and Accountability at upper right faces Human responsibility. No human icon or checkmark. A single source-supported arrow travels from the Source papers object to the Method record object, representing evidence verification as part of inspectable research, not a claim of automatic truth. Noncausal callout leaders have no heads. A detached upper-left note reads 17 interviews; exploratory. Every content surface has an exact informative term or a distinct access state; no fake scientific text or anonymous layers counted as evidence. Meaning at mobile width: inspect how the result was made and which files were accessed, not just the result.",
+      "palette": "Prussian blue and pale turquoise",
+      "hierarchy": "One long research record with exposed trust facets and a separate scope inset",
+      "perspective": "Diagonal axonometric specimen section",
+      "annotation": "Direct white-margin scientific labels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "research-record prism",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "research-record prism as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "validation facet",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "validation facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "source-paper front detail",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "source-paper front detail as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "objectivity facet",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "objectivity facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "conflicting-evidence leaf",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "conflicting-evidence leaf as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "transparency facet",
+          "visible_fact": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "transparency facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "method record",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "method record as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "privacy facet",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "privacy facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "authorized-file compartment",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "authorized-file compartment as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "inaccessible compartment",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "inaccessible compartment as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "accountability facet",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "accountability facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "human responsibility association",
+          "visible_fact": "Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "human responsibility association as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://allenai.org/blog/where-scientists-draw-the-line-on-ai-agents",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "17 interviews; exploratory",
+          "region_id": "scope",
+          "region": "scope source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 75,
+            "width": 460,
+            "height": 48
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Validation",
+          "region_id": "evidence",
+          "region": "evidence source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 430,
+            "width": 240,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Source papers",
+          "region_id": "evidence",
+          "region": "evidence source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 500,
+            "width": 280,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Objectivity",
+          "region_id": "evidence",
+          "region": "evidence source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 365,
+            "y": 365,
+            "width": 245,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Conflicting evidence",
+          "region_id": "evidence",
+          "region": "evidence source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 365,
+            "y": 430,
+            "width": 340,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Transparency",
+          "region_id": "method",
+          "region": "method source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 490,
+            "y": 250,
+            "width": 310,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Method record",
+          "region_id": "method",
+          "region": "method source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 500,
+            "y": 310,
+            "width": 290,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Privacy",
+          "region_id": "access",
+          "region": "access source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 830,
+            "y": 245,
+            "width": 200,
+            "height": 45
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Authorized files",
+          "region_id": "access",
+          "region": "access source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 820,
+            "y": 310,
+            "width": 290,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Accountability",
+          "region_id": "account",
+          "region": "account source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 790,
+            "y": 100,
+            "width": 310,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Human responsibility",
+          "region_id": "account",
+          "region": "account source-specific diagonal-depth region",
+          "bounding_box_px": {
+            "x": 755,
+            "y": 165,
+            "width": 355,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "17 interviews; exploratory",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "17 interviews; exploratory",
+        "Validation"
+      ],
+      "thumbnail_priority_labels": [
+        "Validation",
+        "Transparency",
+        "Accountability"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence.",
+          "allowed_path": "Source papers to Method record",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Source papers",
+          "to": "Method record",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "evidence physical object port clear of words",
+          "target_region": "method physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "diagonal-depth",
+        "silhouette": "..D/.DS/DS."
+      },
+      "editorial_style_plan": {
+        "format_family": "Scientific trust evidence prism",
+        "dominant_grammar": "Scientific trust evidence prism",
+        "medium_treatment": "Translucent cyanotype technical wash with white pencil section detail",
+        "perspective": "Diagonal axonometric specimen section",
+        "information_hierarchy": "One long research record with exposed trust facets and a separate scope inset",
+        "palette_family": "Prussian blue and pale turquoise",
+        "subject_specific_visual_thesis": "Scientific-agent trust depends on inspectable method and access as well as a correct result. Visible at 320px: 17 interviews; exploratory compared with Validation. Full size reveals research-record prism, validation facet, source-paper front detail, objectivity facet.",
+        "difference_from_earlier_story_images": "nov26-a2-foundry-trace-optimization: the previous open vellum folios climb diagonally, while this is one cyanotype prism exposing five trust facets and a blocked file compartment.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "scope",
+            "description": "scope source-bound mechanism region within diagonal-depth",
+            "bounding_box_px": {
+              "x": 70,
+              "y": 60,
+              "width": 500,
+              "height": 100
+            }
+          },
+          {
+            "id": "evidence",
+            "description": "evidence source-bound mechanism region within diagonal-depth",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 350,
+              "width": 650,
+              "height": 215
+            }
+          },
+          {
+            "id": "method",
+            "description": "method source-bound mechanism region within diagonal-depth",
+            "bounding_box_px": {
+              "x": 470,
+              "y": 230,
+              "width": 340,
+              "height": 125
+            }
+          },
+          {
+            "id": "access",
+            "description": "access source-bound mechanism region within diagonal-depth",
+            "bounding_box_px": {
+              "x": 800,
+              "y": 230,
+              "width": 325,
+              "height": 150
+            }
+          },
+          {
+            "id": "account",
+            "description": "account source-bound mechanism region within diagonal-depth",
+            "bounding_box_px": {
+              "x": 730,
+              "y": 80,
+              "width": 395,
+              "height": 135
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Source papers",
+            "to": "Method record",
+            "support_claim_id": "claim-1",
+            "from_region_id": "evidence",
+            "to_region_id": "method",
+            "origin_px": {
+              "x": 320,
+              "y": 490
+            },
+            "target_px": {
+              "x": 550,
+              "y": 355
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "25f932a9c0df3fa67058d4b2ec965f2153ad1ac8404832c869315b11e7f80618"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: Scientific-agent trust depends on inspectable method and access as well as a correct result.\nMedium: Translucent cyanotype technical wash with white pencil section detail. Palette: Prussian blue and pale turquoise. View: Diagonal axonometric specimen section.\nComposition: A single long translucent research-record prism rises diagonally from lower left to upper right. Expose its internal five unequal facets rather than three disconnected stations. Validation at lower left faces Source papers, Objectivity at lower center faces Conflicting evidence, Transparency near the middle opens to Method record, Privacy on the right shows an Authorized files compartment beside an inaccessible compartment with no arrow crossing, and Accountability at upper right faces Human responsibility. No human icon or checkmark. A single source-supported arrow travels from the Source papers object to the Method record object, representing evidence verification as part of inspectable research, not a claim of automatic truth. Noncausal callout leaders have no heads. A detached upper-left note reads 17 interviews; exploratory. Every content surface has an exact informative term or a distinct access state; no fake scientific text or anonymous layers counted as evidence. Meaning at mobile width: inspect how the result was made and which files were accessed, not just the result.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"17 interviews; exploratory\",\"Validation\",\"Source papers\",\"Objectivity\",\"Conflicting evidence\",\"Transparency\",\"Method record\",\"Privacy\",\"Authorized files\",\"Accountability\",\"Human responsibility\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: Scientists want original-source verification, methods transparency and scrutiny of omitted contradictory evidence. Privacy, authorized scope and named responsibility matter alongside correctness; the interviews establish exploratory priorities rather than consensus.\nMeaningful object detail: research-record prism; validation facet; source-paper front detail; objectivity facet; conflicting-evidence leaf; transparency facet; method record; privacy facet; authorized-file compartment; inaccessible compartment; accountability facet; human responsibility association.\nDraw only ONE causal arrow: Source papers to Method record, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"scope\",\"description\":\"scope source-bound mechanism region within diagonal-depth\",\"bounding_box_px\":{\"x\":70,\"y\":60,\"width\":500,\"height\":100}},{\"id\":\"evidence\",\"description\":\"evidence source-bound mechanism region within diagonal-depth\",\"bounding_box_px\":{\"x\":75,\"y\":350,\"width\":650,\"height\":215}},{\"id\":\"method\",\"description\":\"method source-bound mechanism region within diagonal-depth\",\"bounding_box_px\":{\"x\":470,\"y\":230,\"width\":340,\"height\":125}},{\"id\":\"access\",\"description\":\"access source-bound mechanism region within diagonal-depth\",\"bounding_box_px\":{\"x\":800,\"y\":230,\"width\":325,\"height\":150}},{\"id\":\"account\",\"description\":\"account source-bound mechanism region within diagonal-depth\",\"bounding_box_px\":{\"x\":730,\"y\":80,\"width\":395,\"height\":135}}],\"labels\":[{\"label\":\"17 interviews; exploratory\",\"region_id\":\"scope\",\"region\":\"scope source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":85,\"y\":75,\"width\":460,\"height\":48},\"minimum_font_px\":28},{\"label\":\"Validation\",\"region_id\":\"evidence\",\"region\":\"evidence source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":90,\"y\":430,\"width\":240,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Source papers\",\"region_id\":\"evidence\",\"region\":\"evidence source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":95,\"y\":500,\"width\":280,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Objectivity\",\"region_id\":\"evidence\",\"region\":\"evidence source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":365,\"y\":365,\"width\":245,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Conflicting evidence\",\"region_id\":\"evidence\",\"region\":\"evidence source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":365,\"y\":430,\"width\":340,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Transparency\",\"region_id\":\"method\",\"region\":\"method source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":490,\"y\":250,\"width\":310,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Method record\",\"region_id\":\"method\",\"region\":\"method source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":500,\"y\":310,\"width\":290,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Privacy\",\"region_id\":\"access\",\"region\":\"access source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":830,\"y\":245,\"width\":200,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Authorized files\",\"region_id\":\"access\",\"region\":\"access source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":820,\"y\":310,\"width\":290,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Accountability\",\"region_id\":\"account\",\"region\":\"account source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":790,\"y\":100,\"width\":310,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Human responsibility\",\"region_id\":\"account\",\"region\":\"account source-specific diagonal-depth region\",\"bounding_box_px\":{\"x\":755,\"y\":165,\"width\":355,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Source papers\",\"to\":\"Method record\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"evidence\",\"to_region_id\":\"method\",\"origin_px\":{\"x\":320,\"y\":490},\"target_px\":{\"x\":550,\"y\":355}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-e1-social-reasoning-eval",
+    "source_url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+    "visual_thesis": "An assistant infers motives through a subjective retelling; constructed hidden motives make evaluation possible, not real-world certainty.",
+    "mechanism_metaphor": "A porcelain relief whose main mass is an asymmetric branching fork. At upper center an Event record is refracted through a single tilted Subjective retelling prism; its two facets are marked Observed facts and User framing. A single downward arrow exits the retelling object into a lower open Competing motives cradle containing distinct alternative forms, neither marked correct. An Ask for details small side branch returns a question-shaped cavity without an arrowhead or question glyph, showing the source-recommended clarification option without asserting improvement. Off to the left a separate sealed Hidden motive capsule aligns with Evaluation only through a thin nondirectional comparison brace; it has no data path into the assistant. The lower-right detached scope note reads Synthetic interactions. No people, speech-bubble pseudo-text, guaranteed diagnosis, false certainty or extra motive examples. The two internal visible distinctions are facts versus framing, and candidate inference versus constructed evaluation ground truth.",
+    "story_anchors": [
+      "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+      "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result."
+    ],
+    "required_labels": [
+      "Event record",
+      "Subjective retelling",
+      "Observed facts",
+      "User framing",
+      "Competing motives",
+      "Ask for details",
+      "Hidden motive",
+      "Evaluation only",
+      "Synthetic interactions"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+        "supporting_source_excerpt": "user-mediated reality",
+        "source_url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+        "supporting_source_excerpt": "verifiable ground truth by construction",
+        "source_url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Subjective retelling",
+        "to": "Competing motives",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Framing-sensitive hypothesis fork",
+      "metaphor": "Framing-sensitive hypothesis fork",
+      "layout": "A porcelain relief whose main mass is an asymmetric branching fork. At upper center an Event record is refracted through a single tilted Subjective retelling prism; its two facets are marked Observed facts and User framing. A single downward arrow exits the retelling object into a lower open Competing motives cradle containing distinct alternative forms, neither marked correct. An Ask for details small side branch returns a question-shaped cavity without an arrowhead or question glyph, showing the source-recommended clarification option without asserting improvement. Off to the left a separate sealed Hidden motive capsule aligns with Evaluation only through a thin nondirectional comparison brace; it has no data path into the assistant. The lower-right detached scope note reads Synthetic interactions. No people, speech-bubble pseudo-text, guaranteed diagnosis, false certainty or extra motive examples. The two internal visible distinctions are facts versus framing, and candidate inference versus constructed evaluation ground truth.",
+      "palette": "Cobalt and plum on warm white",
+      "hierarchy": "One retelling prism forks into alternative hypotheses while hidden ground truth remains separate",
+      "perspective": "Frontal ceramic relief with deep recesses",
+      "annotation": "Inlaid text on meaningful ceramic surfaces"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "event record",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "event record as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "retelling prism",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "retelling prism as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "observed-fact facet",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "observed-fact facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "framing facet",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "framing facet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "mediated account path",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "mediated account path as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "inference cradle",
+          "visible_fact": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "inference cradle as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "first candidate form",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "first candidate form as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "second candidate form",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "second candidate form as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "clarification recess",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "clarification recess as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "sealed motive capsule",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "sealed motive capsule as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "evaluation-only brace",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "evaluation-only brace as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "synthetic-scope limit",
+          "visible_fact": "Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "synthetic-scope limit as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Event record",
+          "region_id": "event",
+          "region": "event source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 450,
+            "y": 75,
+            "width": 310,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Subjective retelling",
+          "region_id": "retelling",
+          "region": "retelling source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 370,
+            "y": 180,
+            "width": 425,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Observed facts",
+          "region_id": "retelling",
+          "region": "retelling source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 320,
+            "y": 255,
+            "width": 280,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "User framing",
+          "region_id": "retelling",
+          "region": "retelling source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 660,
+            "y": 255,
+            "width": 270,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Competing motives",
+          "region_id": "hypotheses",
+          "region": "hypotheses source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 420,
+            "y": 410,
+            "width": 410,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Ask for details",
+          "region_id": "hypotheses",
+          "region": "hypotheses source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 865,
+            "y": 365,
+            "width": 260,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Hidden motive",
+          "region_id": "truth",
+          "region": "truth source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 200,
+            "width": 280,
+            "height": 45
+          },
+          "minimum_font_px": 34
+        },
+        {
+          "label": "Evaluation only",
+          "region_id": "truth",
+          "region": "truth source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 335,
+            "width": 280,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Synthetic interactions",
+          "region_id": "limit",
+          "region": "limit source-specific branching-tree region",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 510,
+            "width": 430,
+            "height": 45
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "Synthetic interactions",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "Event record",
+        "Subjective retelling"
+      ],
+      "thumbnail_priority_labels": [
+        "Event record",
+        "Subjective retelling",
+        "Competing motives"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference.",
+          "allowed_path": "Subjective retelling to Competing motives",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Subjective retelling",
+          "to": "Competing motives",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "retelling physical object port clear of words",
+          "target_region": "hypotheses physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "branching-tree",
+        "silhouette": ".D./SDS/S.S"
+      },
+      "editorial_style_plan": {
+        "format_family": "Framing-sensitive hypothesis fork",
+        "dominant_grammar": "Framing-sensitive hypothesis fork",
+        "medium_treatment": "Sculpted matte porcelain with cobalt inlay",
+        "perspective": "Frontal ceramic relief with deep recesses",
+        "information_hierarchy": "One retelling prism forks into alternative hypotheses while hidden ground truth remains separate",
+        "palette_family": "Cobalt and plum on warm white",
+        "subject_specific_visual_thesis": "An assistant infers motives through a subjective retelling; constructed hidden motives make evaluation possible, not real-world certainty. Visible at 320px: Event record compared with Subjective retelling. Full size reveals event record, retelling prism, observed-fact facet, framing facet.",
+        "difference_from_earlier_story_images": "nov26-a1-agentic-coding-boundaries: the prior open red linocut tree uses paired oversight leaves; this porcelain fork exposes a refracting retelling and separates inaccessible evaluation truth.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "event",
+            "description": "event source-bound mechanism region within branching-tree",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 60,
+              "width": 390,
+              "height": 90
+            }
+          },
+          {
+            "id": "retelling",
+            "description": "retelling source-bound mechanism region within branching-tree",
+            "bounding_box_px": {
+              "x": 300,
+              "y": 165,
+              "width": 660,
+              "height": 150
+            }
+          },
+          {
+            "id": "hypotheses",
+            "description": "hypotheses source-bound mechanism region within branching-tree",
+            "bounding_box_px": {
+              "x": 400,
+              "y": 340,
+              "width": 730,
+              "height": 145
+            }
+          },
+          {
+            "id": "truth",
+            "description": "truth source-bound mechanism region within branching-tree",
+            "bounding_box_px": {
+              "x": 70,
+              "y": 175,
+              "width": 315,
+              "height": 220
+            }
+          },
+          {
+            "id": "limit",
+            "description": "limit source-bound mechanism region within branching-tree",
+            "bounding_box_px": {
+              "x": 70,
+              "y": 490,
+              "width": 470,
+              "height": 75
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Subjective retelling",
+            "to": "Competing motives",
+            "support_claim_id": "claim-1",
+            "from_region_id": "retelling",
+            "to_region_id": "hypotheses",
+            "origin_px": {
+              "x": 600,
+              "y": 315
+            },
+            "target_px": {
+              "x": 620,
+              "y": 390
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "b1c96e1e2bb08abff8413d3e653b579998db8eb773414d1052d6c9c1fa6a1130"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: An assistant infers motives through a subjective retelling; constructed hidden motives make evaluation possible, not real-world certainty.\nMedium: Sculpted matte porcelain with cobalt inlay. Palette: Cobalt and plum on warm white. View: Frontal ceramic relief with deep recesses.\nComposition: A porcelain relief whose main mass is an asymmetric branching fork. At upper center an Event record is refracted through a single tilted Subjective retelling prism; its two facets are marked Observed facts and User framing. A single downward arrow exits the retelling object into a lower open Competing motives cradle containing distinct alternative forms, neither marked correct. An Ask for details small side branch returns a question-shaped cavity without an arrowhead or question glyph, showing the source-recommended clarification option without asserting improvement. Off to the left a separate sealed Hidden motive capsule aligns with Evaluation only through a thin nondirectional comparison brace; it has no data path into the assistant. The lower-right detached scope note reads Synthetic interactions. No people, speech-bubble pseudo-text, guaranteed diagnosis, false certainty or extra motive examples. The two internal visible distinctions are facts versus framing, and candidate inference versus constructed evaluation ground truth.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"Event record\",\"Subjective retelling\",\"Observed facts\",\"User framing\",\"Competing motives\",\"Ask for details\",\"Hidden motive\",\"Evaluation only\",\"Synthetic interactions\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: An assistant infers hidden motives from user-mediated accounts, whose framing can distort the inference. Hidden motives give synthetic evaluation ground truth, while clarification is underused and real relationships remain outside the established result.\nMeaningful object detail: event record; retelling prism; observed-fact facet; framing facet; mediated account path; inference cradle; first candidate form; second candidate form; clarification recess; sealed motive capsule; evaluation-only brace; synthetic-scope limit.\nDraw only ONE causal arrow: Subjective retelling to Competing motives, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"event\",\"description\":\"event source-bound mechanism region within branching-tree\",\"bounding_box_px\":{\"x\":420,\"y\":60,\"width\":390,\"height\":90}},{\"id\":\"retelling\",\"description\":\"retelling source-bound mechanism region within branching-tree\",\"bounding_box_px\":{\"x\":300,\"y\":165,\"width\":660,\"height\":150}},{\"id\":\"hypotheses\",\"description\":\"hypotheses source-bound mechanism region within branching-tree\",\"bounding_box_px\":{\"x\":400,\"y\":340,\"width\":730,\"height\":145}},{\"id\":\"truth\",\"description\":\"truth source-bound mechanism region within branching-tree\",\"bounding_box_px\":{\"x\":70,\"y\":175,\"width\":315,\"height\":220}},{\"id\":\"limit\",\"description\":\"limit source-bound mechanism region within branching-tree\",\"bounding_box_px\":{\"x\":70,\"y\":490,\"width\":470,\"height\":75}}],\"labels\":[{\"label\":\"Event record\",\"region_id\":\"event\",\"region\":\"event source-specific branching-tree region\",\"bounding_box_px\":{\"x\":450,\"y\":75,\"width\":310,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Subjective retelling\",\"region_id\":\"retelling\",\"region\":\"retelling source-specific branching-tree region\",\"bounding_box_px\":{\"x\":370,\"y\":180,\"width\":425,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Observed facts\",\"region_id\":\"retelling\",\"region\":\"retelling source-specific branching-tree region\",\"bounding_box_px\":{\"x\":320,\"y\":255,\"width\":280,\"height\":42},\"minimum_font_px\":28},{\"label\":\"User framing\",\"region_id\":\"retelling\",\"region\":\"retelling source-specific branching-tree region\",\"bounding_box_px\":{\"x\":660,\"y\":255,\"width\":270,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Competing motives\",\"region_id\":\"hypotheses\",\"region\":\"hypotheses source-specific branching-tree region\",\"bounding_box_px\":{\"x\":420,\"y\":410,\"width\":410,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Ask for details\",\"region_id\":\"hypotheses\",\"region\":\"hypotheses source-specific branching-tree region\",\"bounding_box_px\":{\"x\":865,\"y\":365,\"width\":260,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Hidden motive\",\"region_id\":\"truth\",\"region\":\"truth source-specific branching-tree region\",\"bounding_box_px\":{\"x\":85,\"y\":200,\"width\":280,\"height\":45},\"minimum_font_px\":34},{\"label\":\"Evaluation only\",\"region_id\":\"truth\",\"region\":\"truth source-specific branching-tree region\",\"bounding_box_px\":{\"x\":85,\"y\":335,\"width\":280,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Synthetic interactions\",\"region_id\":\"limit\",\"region\":\"limit source-specific branching-tree region\",\"bounding_box_px\":{\"x\":80,\"y\":510,\"width\":430,\"height\":45},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Subjective retelling\",\"to\":\"Competing motives\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"retelling\",\"to_region_id\":\"hypotheses\",\"origin_px\":{\"x\":600,\"y\":315},\"target_px\":{\"x\":620,\"y\":390}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-27",
+    "story_id": "nov27-e2-healthcare-workplace-ai-gap",
+    "source_url": "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2857253",
+    "visual_thesis": "Lower adjusted AI use in health occupations differs by task, with medical care an exception; adoption is not measured productivity.",
+    "mechanism_metaphor": "One large irregular folded task specimen occupies the left two thirds. Four meaningful exposed layers are labeled Ideas, Administration, Summaries and Data analysis, grouped beneath General tasks and Lower adjusted use. At upper right a magnified smaller part of the same specimen isolates Medical care with Higher adjusted use. A small Survey evidence packet at lower right points with one arrow to the physical task-comparison specimen, representing analysis of survey observations rather than a causal claim that occupations change use. Never draw bars, percentages, slopes, ticks or measured distances; layer size is illustrative and not proportional to prevalence. A detached lower-right qualifier reads Use is not productivity and a lower-left scope note reads Combined roles; survey limits. Distinguish the exception through location, material and exact words, not color alone. The drawing should reveal the four task categories and the exceptional clinical task at 320px without implying which specific job roles drive the gap.",
+    "story_anchors": [
+      "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+      "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects."
+    ],
+    "required_labels": [
+      "General tasks",
+      "Lower adjusted use",
+      "Ideas",
+      "Administration",
+      "Summaries",
+      "Data analysis",
+      "Medical care",
+      "Higher adjusted use",
+      "Survey evidence",
+      "Use is not productivity",
+      "Combined roles; survey limits"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+        "supporting_source_excerpt": "Medical care was the only task",
+        "source_url": "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2857253",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+        "supporting_source_excerpt": "did not assess objective productivity",
+        "source_url": "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2857253",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Survey evidence",
+        "to": "Lower adjusted use",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal correctness, security, health, adoption or productivity guarantee. No unsupported product controls, figures, data charts, simulated lettering or extra arrows.",
+      "No people, humanoids, logos, brands as decoration, photorealism, generic card boards or panel collages. Only exact allowlisted phrases once each; all other surfaces unmarked."
+    ],
+    "composition_signature": {
+      "grammar": "Task-level adoption specimen comparison",
+      "metaphor": "Task-level adoption specimen comparison",
+      "layout": "One large irregular folded task specimen occupies the left two thirds. Four meaningful exposed layers are labeled Ideas, Administration, Summaries and Data analysis, grouped beneath General tasks and Lower adjusted use. At upper right a magnified smaller part of the same specimen isolates Medical care with Higher adjusted use. A small Survey evidence packet at lower right points with one arrow to the physical task-comparison specimen, representing analysis of survey observations rather than a causal claim that occupations change use. Never draw bars, percentages, slopes, ticks or measured distances; layer size is illustrative and not proportional to prevalence. A detached lower-right qualifier reads Use is not productivity and a lower-left scope note reads Combined roles; survey limits. Distinguish the exception through location, material and exact words, not color alone. The drawing should reveal the four task categories and the exceptional clinical task at 320px without implying which specific job roles drive the gap.",
+      "palette": "Forest green and muted apricot",
+      "hierarchy": "General-purpose work dominates the left; a smaller clinical-task exception sits at upper right",
+      "perspective": "Large off-center folded specimen and small magnified exception",
+      "annotation": "Pencil margin labels and integrated task terms"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_information_map": [
+        {
+          "object": "general-task specimen",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "general-task specimen as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "ideas layer",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "ideas layer as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "administration layer",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "administration layer as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "summaries layer",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "summaries layer as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "data-analysis layer",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "data-analysis layer as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "lower-use grouping",
+          "visible_fact": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "support_claim_id": "claim-1",
+          "visual_encoding": "lower-use grouping as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "medical-care magnification",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "medical-care magnification as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "higher-use exception grouping",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "higher-use exception grouping as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "survey packet",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "survey packet as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "adjusted-comparison relationship",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "adjusted-comparison relationship as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "combined-role scope",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "combined-role scope as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        },
+        {
+          "object": "unmeasured-productivity limit",
+          "visible_fact": "Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.",
+          "support_claim_id": "claim-2",
+          "visual_encoding": "unmeasured-productivity limit as explicitly described in this source-bound illustration; meaningful labels or distinct states, never simulated writing."
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing November27 image worker",
+      "source_url": "https://jamanetwork.com/journals/jama-health-forum/fullarticle/2857253",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "General tasks",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 75,
+            "width": 370,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Lower adjusted use",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 145,
+            "width": 440,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Ideas",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 105,
+            "y": 235,
+            "width": 180,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Administration",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 305,
+            "width": 310,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Summaries",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 105,
+            "y": 375,
+            "width": 260,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Data analysis",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 445,
+            "width": 295,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Medical care",
+          "region_id": "exception",
+          "region": "exception source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 780,
+            "y": 105,
+            "width": 310,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Higher adjusted use",
+          "region_id": "exception",
+          "region": "exception source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 730,
+            "y": 180,
+            "width": 380,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Survey evidence",
+          "region_id": "survey",
+          "region": "survey source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 765,
+            "y": 330,
+            "width": 340,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Use is not productivity",
+          "region_id": "limit",
+          "region": "limit source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 640,
+            "y": 470,
+            "width": 475,
+            "height": 48
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Combined roles; survey limits",
+          "region_id": "general",
+          "region": "general source-specific asymmetric-inset region",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 525,
+            "width": 520,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "source_caveat_detached": true,
+      "source_caveat": "Use is not productivity",
+      "mechanism_canvas_percent": 74,
+      "explanatory_substage_labels": [
+        "General tasks",
+        "Lower adjusted use"
+      ],
+      "thumbnail_priority_labels": [
+        "General tasks",
+        "Lower adjusted use",
+        "Medical care"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception.",
+          "allowed_path": "Survey evidence to Lower adjusted use",
+          "blocked_path": "No other causal edge, automatic approval, unsupported feedback or link from the detached caveat.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Survey evidence",
+          "to": "Lower adjusted use",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "survey physical object port clear of words",
+          "target_region": "general physical object port clear of words",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "structural_layout_plan": {
+        "layout_family": "asymmetric-inset",
+        "silhouette": "DDS/DD./.SS"
+      },
+      "editorial_style_plan": {
+        "format_family": "Task-level adoption specimen comparison",
+        "dominant_grammar": "Task-level adoption specimen comparison",
+        "medium_treatment": "Colored-pencil specimen drawing with chalk cross-sections",
+        "perspective": "Large off-center folded specimen and small magnified exception",
+        "information_hierarchy": "General-purpose work dominates the left; a smaller clinical-task exception sits at upper right",
+        "palette_family": "Forest green and muted apricot",
+        "subject_specific_visual_thesis": "Lower adjusted AI use in health occupations differs by task, with medical care an exception; adoption is not measured productivity. Visible at 320px: General tasks compared with Lower adjusted use. Full size reveals general-task specimen, ideas layer, administration layer, summaries layer.",
+        "difference_from_earlier_story_images": "nov26-t2-accessible-vibe-coding: both have asymmetric magnification, but a pencil task specimen and one clinical exception replace the large purple painted interface and functional-break comparison.",
+        "first_pass_risk_mitigation": "Inset all meaningful foreground and glyphs by 60–72px where feasible; preserve the mandatory 40px floor. Use informative exact labels on the named surfaces only, remove simulated writing, and anchor the sole planned arrow on physical ports away from words. Inspect saved pixels at 1200x630 and 320px."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "general",
+            "description": "general source-bound mechanism region within asymmetric-inset",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 60,
+              "width": 560,
+              "height": 515
+            }
+          },
+          {
+            "id": "exception",
+            "description": "exception source-bound mechanism region within asymmetric-inset",
+            "bounding_box_px": {
+              "x": 710,
+              "y": 85,
+              "width": 415,
+              "height": 200
+            }
+          },
+          {
+            "id": "survey",
+            "description": "survey source-bound mechanism region within asymmetric-inset",
+            "bounding_box_px": {
+              "x": 740,
+              "y": 305,
+              "width": 385,
+              "height": 115
+            }
+          },
+          {
+            "id": "limit",
+            "description": "limit source-bound mechanism region within asymmetric-inset",
+            "bounding_box_px": {
+              "x": 625,
+              "y": 450,
+              "width": 500,
+              "height": 90
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Survey evidence",
+            "to": "Lower adjusted use",
+            "support_claim_id": "claim-1",
+            "from_region_id": "survey",
+            "to_region_id": "general",
+            "origin_px": {
+              "x": 755,
+              "y": 390
+            },
+            "target_px": {
+              "x": 575,
+              "y": 290
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image worker exact source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "ae3fe32c771b88d852340a86c07e2fbdf54679f7fddcbdb16c8e7369edbfc900"
+        }
+      }
+    },
+    "native_generation_prompt": "Create ONE premium static educational editorial illustration, final landscape 1200x630 aspect ratio. White background. This is finished conceptual artwork, not engineering source or a numerical chart.\nVisual thesis: Lower adjusted AI use in health occupations differs by task, with medical care an exception; adoption is not measured productivity.\nMedium: Colored-pencil specimen drawing with chalk cross-sections. Palette: Forest green and muted apricot. View: Large off-center folded specimen and small magnified exception.\nComposition: One large irregular folded task specimen occupies the left two thirds. Four meaningful exposed layers are labeled Ideas, Administration, Summaries and Data analysis, grouped beneath General tasks and Lower adjusted use. At upper right a magnified smaller part of the same specimen isolates Medical care with Higher adjusted use. A small Survey evidence packet at lower right points with one arrow to the physical task-comparison specimen, representing analysis of survey observations rather than a causal claim that occupations change use. Never draw bars, percentages, slopes, ticks or measured distances; layer size is illustrative and not proportional to prevalence. A detached lower-right qualifier reads Use is not productivity and a lower-left scope note reads Combined roles; survey limits. Distinguish the exception through location, material and exact words, not color alone. The drawing should reveal the four task categories and the exceptional clinical task at 320px without implying which specific job roles drive the gap.\nONLY VISIBLE WORDS (exactly once each, no article prose): [\"General tasks\",\"Lower adjusted use\",\"Ideas\",\"Administration\",\"Summaries\",\"Data analysis\",\"Medical care\",\"Higher adjusted use\",\"Survey evidence\",\"Use is not productivity\",\"Combined roles; survey limits\"]. All other surfaces are smooth and unmarked. Large readable typography: priority labels at least 36px, secondary at least 28px at 1200x630. Leave a 60–72px foreground inset, mandatory 40px all sides.\nSupported source facts: Adjusted survey comparisons show lower use for general-purpose tasks in health occupations and higher medical-care use as the exception. Occupational categories combine roles and survey limitations prevent claims about objective productivity or causal effects.\nMeaningful object detail: general-task specimen; ideas layer; administration layer; summaries layer; data-analysis layer; lower-use grouping; medical-care magnification; higher-use exception grouping; survey packet; adjusted-comparison relationship; combined-role scope; unmeasured-productivity limit.\nDraw only ONE causal arrow: Survey evidence to Lower adjusted use, using the physical ports below, never label boxes. Other specified joins and guides are nondirectional with NO arrowheads. Keep the caveat detached. No extra text, invented marks, checks, logo, human, robot, photo, decorative machinery, UI chrome, fake bars or tiny writing. Semantic regions are NOT framed panels.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"general\",\"description\":\"general source-bound mechanism region within asymmetric-inset\",\"bounding_box_px\":{\"x\":75,\"y\":60,\"width\":560,\"height\":515}},{\"id\":\"exception\",\"description\":\"exception source-bound mechanism region within asymmetric-inset\",\"bounding_box_px\":{\"x\":710,\"y\":85,\"width\":415,\"height\":200}},{\"id\":\"survey\",\"description\":\"survey source-bound mechanism region within asymmetric-inset\",\"bounding_box_px\":{\"x\":740,\"y\":305,\"width\":385,\"height\":115}},{\"id\":\"limit\",\"description\":\"limit source-bound mechanism region within asymmetric-inset\",\"bounding_box_px\":{\"x\":625,\"y\":450,\"width\":500,\"height\":90}}],\"labels\":[{\"label\":\"General tasks\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":95,\"y\":75,\"width\":370,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Lower adjusted use\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":100,\"y\":145,\"width\":440,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Ideas\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":105,\"y\":235,\"width\":180,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Administration\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":100,\"y\":305,\"width\":310,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Summaries\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":105,\"y\":375,\"width\":260,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Data analysis\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":100,\"y\":445,\"width\":295,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Medical care\",\"region_id\":\"exception\",\"region\":\"exception source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":780,\"y\":105,\"width\":310,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Higher adjusted use\",\"region_id\":\"exception\",\"region\":\"exception source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":730,\"y\":180,\"width\":380,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Survey evidence\",\"region_id\":\"survey\",\"region\":\"survey source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":765,\"y\":330,\"width\":340,\"height\":45},\"minimum_font_px\":30},{\"label\":\"Use is not productivity\",\"region_id\":\"limit\",\"region\":\"limit source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":640,\"y\":470,\"width\":475,\"height\":48},\"minimum_font_px\":28},{\"label\":\"Combined roles; survey limits\",\"region_id\":\"general\",\"region\":\"general source-specific asymmetric-inset region\",\"bounding_box_px\":{\"x\":95,\"y\":525,\"width\":520,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Survey evidence\",\"to\":\"Lower adjusted use\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"survey\",\"to_region_id\":\"general\",\"origin_px\":{\"x\":755,\"y\":390},\"target_px\":{\"x\":575,\"y\":290}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]

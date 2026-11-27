@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "callable image_gen.imagegen native tool; no API fallback",
+    "evidence_ref": "same-invocation: image_gen.imagegen exposed"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "view_image opens exact completed local PNG and mobile rendition",
+    "evidence_ref": "same-invocation: view_image reference PNGs inspected"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "sharp completed PNG buffer through completeImageExport",
+    "evidence_ref": "same-invocation: sharp installed and complete-image-export.mjs read"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "connected GitHub create_blob base64 and tree commit with expected-head ref update",
+    "evidence_ref": "same-invocation: connected authenticated claim commit 7251273aeb3eef4f60e5f9371fad3fe3e836394d"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "connected fetch_file encoding base64; immutable git-show byte comparison fallback",
+    "evidence_ref": "same-invocation: authenticated fetch_file and public git fetch observed"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "existing GitHub create_pull_request and expected-head merge tools; required CI enforced",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/428"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing protected release workflow 1440px capture artifact then actual view_image inspection",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing protected release workflow 320px capture artifact then actual view_image inspection",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45753285797"
+  }
+}
