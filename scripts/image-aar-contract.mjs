@@ -65,3 +65,105 @@ export function validateImageAfterAction({aar,job,manifest}){
  }
  return {result:'PASS',actual_generation_count:p.actual_generation_count,accepted_count:6,rejected_count:p.rejected_count,visual_qa_not_inferred:true};
 }
+
+export const IMAGE_NOV28_FOLLOWUP_EFFECTIVE='2026-11-29';
+const hash=x=>/^[a-f0-9]{64}$/.test(x||'');
+const note=x=>typeof x==='string'&&x.trim()?x.trim():null;
+const whole=x=>Number.isSafeInteger(x)&&x>=0;
+const insets=['left','top','right','bottom'];
+const byTarget=(targets,id)=>Array.isArray(targets)?targets.filter(t=>t?.target_id===id):[];
+
+export function summarizeImageFirstExports({edition,aar,manifest}){
+ if(edition<IMAGE_NOV28_FOLLOWUP_EFFECTIVE)return null;
+ const candidates=manifest?.edition_date===edition?manifest.images:null;
+ const images=Array.isArray(candidates)&&candidates.length===6&&
+  new Set(candidates.map(i=>i?.story_id)).size===6&&candidates.every(i=>note(i?.story_id)&&hash(i?.sha256))?candidates:[];
+ const reviewed=aar?.edition_date===edition&&hash(aar.job_sha256)&&aar.job_sha256===manifest?.job_sha256;
+ const attempts=reviewed&&Array.isArray(aar.images)&&aar.images.length===6&&images.length===6&&
+  images.every(i=>aar.images.filter(a=>a.story_id===i.story_id&&a.sha256===i.sha256&&
+    Number.isSafeInteger(a.generation_attempts)&&a.generation_attempts>=1).length===1)?aar.images:null;
+ const calls=attempts?.reduce((n,i)=>n+i.generation_attempts,0);
+ const production=aar?.production;
+ const reliable=calls!==undefined&&calls===production?.actual_generation_count&&production.accepted_count===6&&production.rejected_count===calls-6;
+ const input=reviewed&&Array.isArray(aar.first_export_observations)?aar.first_export_observations:[];
+ const root='external-image-packages/'+edition+'/reviews/';
+ const rows=images.map(i=>{
+  const matches=input.filter(a=>a?.story_id===i.story_id),a=matches[0];
+  const ref=a?.evidence_path;
+  const bound=matches.length===1&&hash(a?.first_export_sha256)&&typeof ref==='string'&&ref.startsWith(root)&&
+   !ref.slice(root.length).split('/').some(s=>!s||s==='..'||s==='.')&&/^[\w./-]+$/.test(ref);
+  if(!bound)return {story_id:i.story_id,first_export_sha256:null,insets_px:null,mobile_320:'UNKNOWN',export_only_reexports:null,evidence_path:null};
+  const geometry=insets.every(k=>whole(a.insets_px?.[k]))&&a.insets_px.left+a.insets_px.right<1200&&a.insets_px.top+a.insets_px.bottom<630;
+  return {story_id:i.story_id,first_export_sha256:a.first_export_sha256,
+   insets_px:geometry?Object.fromEntries(insets.map(k=>[k,a.insets_px[k]])):null,
+   mobile_320:['PASS','ISSUE'].includes(a.mobile_320)?a.mobile_320:'UNKNOWN',
+   export_only_reexports:whole(a.export_only_reexports)?a.export_only_reexports:null,evidence_path:ref};
+ });
+ const measuredUsage=reviewed&&typeof aar.usage?.work_usage_percent==='number'&&
+  Number.isFinite(aar.usage.work_usage_percent)&&aar.usage.work_usage_percent>=0&&aar.usage.work_usage_percent<=100;
+ const margins=rows.filter(i=>i.insets_px);
+ return {edition_date:edition,first_native_accepts:reliable?attempts.filter(i=>i.generation_attempts===1).length:null,
+  native_calls:reliable?calls:null,rejected_native_candidates:reliable?calls-6:null,
+  first_export_margins_measured:margins.length,first_export_margin_failures:margins.length===6?
+   margins.filter(i=>insets.some(k=>i.insets_px[k]<40)).length:null,
+  export_only_reexports:rows.length===6&&rows.every(i=>i.export_only_reexports!==null)?
+   rows.reduce((n,i)=>n+i.export_only_reexports,0):null,
+  advisory_targets:{first_native_accepts_minimum:4,native_calls_maximum:8},
+  work_usage_percent:measuredUsage?aar.usage.work_usage_percent:null,rows};
+}
+
+export function summarizeImageLiveFindings({edition,manifest,release,review,liveVerified}){
+ if(edition<IMAGE_NOV28_FOLLOWUP_EFFECTIVE)return null;
+ const list=manifest?.edition_date===edition?manifest.images:null;
+ const images=Array.isArray(list)&&list.length===6&&new Set(list.map(i=>i?.story_id)).size===6&&
+  list.every(i=>note(i?.story_id)&&hash(i?.sha256))?list:[];
+ const run=String(review?.evidence_source?.workflow_run_id??'');
+ const exact=liveVerified===true&&release?.edition_date===edition&&review?.edition_date===edition&&
+  review.schema_version==='external-image-semantic-pixel-review-v1'&&/^\d+$/.test(run)&&
+  release.actions_run_url==='https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/'+run;
+ const targets=images.flatMap(i=>['dated_brief','permanent_story'].flatMap(context=>['desktop','mobile'].map(viewport=>{
+  const target_id=[i.story_id,context,viewport].join(':');
+  const matches=byTarget(review?.targets,target_id),t=matches[0];
+  const bound=exact&&matches.length===1&&t.story_id===i.story_id&&t.context===context&&t.viewport===viewport&&t.live_image_sha256===i.sha256;
+  const inspected=bound&&t.actual_pixels_inspected===true&&hash(t.capture_sha256)&&whole(t.capture_bytes)&&t.capture_bytes>0;
+  const pass=inspected&&t.result==='PASS'&&t.correct_story_asset_visible===true&&t.full_diagram_visible===true&&
+   t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true;
+  const issue=inspected&&['ISSUE','FAIL'].includes(t.result);
+  const result=pass?'PASS':issue?'ISSUE':'GAP';
+  const recorded=bound?note(t.finding)??note(t.observation):null;
+  const finding=pass?recorded??'Bound semantic review confirmed full diagram and recognizable primary labels.':
+   issue?recorded??'An inspected issue is recorded, but the specific finding is missing.':
+   bound&&t.result==='GAP'&&recorded?recorded:
+   (!liveVerified?'Live release hashes are not verified.':!exact?'No semantic receipt bound to this release workflow.':
+    matches.length>1?'Duplicate context rows.':matches.length===0?'No target finding recorded.':'Exact capture inspection or required visual checks are not evidenced.');
+  return {target_id,result,finding,capture_sha256:inspected?t.capture_sha256:null};
+ })));
+ return {expected_targets:24,live_hashes_verified:liveVerified===true?6:null,
+  unavailable_target_id_count:24-targets.length,pass_count:targets.filter(t=>t.result==='PASS').length,
+  issue_count:targets.filter(t=>t.result==='ISSUE').length,
+  gap_count:24-targets.filter(t=>t.result!=='GAP').length,targets};
+}
+
+const tableCell=x=>String(x??'Unknown').replace(/[|\r\n]/g,' ');
+export function renderImageFirstExports(report){
+ if(!report)return [];
+ return ['## First export and native effort','',
+  'First-native accepts: '+tableCell(report.first_native_accepts)+'/6 (target ≥4). Native calls: '+tableCell(report.native_calls)+
+  ' (target ≤8). Rejections: '+tableCell(report.rejected_native_candidates)+
+  '. Export-only re-exports: '+tableCell(report.export_only_reexports)+'. Work usage: '+
+  (report.work_usage_percent===null?'Unknown':report.work_usage_percent+'% (AAR-reported)')+'.',
+  'First-export margins measured: '+report.first_export_margins_measured+'/6. Margin failures: '+tableCell(report.first_export_margin_failures)+'.',
+  '', '| Story | First-export inset L/T/R/B px | 320 px check | Export-only re-exports | Evidence |','|---|---|---|---:|---|',
+  ...report.rows.map(i=>'| '+[i.story_id,i.insets_px?insets.map(k=>i.insets_px[k]).join('/'):null,i.mobile_320,i.export_only_reexports,
+    i.first_export_sha256?i.first_export_sha256.slice(0,12)+' · '+i.evidence_path:null].map(tableCell).join(' | ')+' |'),''];
+}
+
+export function renderImageLiveFindings(report){
+ if(!report)return [];
+ return ['## Per-context live image findings','',
+  'Live image hashes verified: '+tableCell(report.live_hashes_verified)+' / 6. Contexts: '+report.pass_count+' passed, '+
+    report.issue_count+' issue(s), '+report.gap_count+' gap(s) out of 24. Capture is not semantic inspection.',
+  ...(report.unavailable_target_id_count?['Target identities unavailable: '+report.unavailable_target_id_count+' (no exact six-image manifest).']:[]),'',
+  '| Exact target | Result | Finding or gap |','|---|---|---|',
+  ...report.targets.map(t=>'| '+[t.target_id,t.result,t.finding].map(tableCell).join(' | ')+' |'),''];
+}

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {validateImageAfterAction} from './image-aar-contract.mjs';
+import {validateImageAfterAction,summarizeImageFirstExports,renderImageFirstExports} from './image-aar-contract.mjs';
 import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
 import {collectImageEditorialFeedback,renderImageEditorialFeedback} from './image-editorial-feedback.mjs';
 const cell=s=>String(s??'Not recorded').replaceAll('|','/').replace(/\r?\n/g,' ');
@@ -29,6 +29,7 @@ export function renderImageAar({aar,job,manifest}){
  '| Public verified time | '+cell(aar.publication?.verified_at)+' |',
  '| Final saved-context review | '+cell(aar.visual_review?.result)+'; '+cell(aar.visual_review?.reviewed_targets)+' targets |',
  '| Weekly usage | '+(aar.usage?.work_usage_percent??'UNKNOWN')+' |','',
+ ...renderImageFirstExports(summarizeImageFirstExports({edition:job.edition_date,aar,manifest})),
  '## Per-story effort','', '| Story | Attempts | Accepted SHA-256 |','|---|---:|---|',
  ...aar.images.map(i=>'| '+cell(i.story_id)+' | '+i.generation_attempts+' | '+i.sha256+' |'),'',
  ...(diversity.required?[

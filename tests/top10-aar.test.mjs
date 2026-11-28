@@ -350,3 +350,29 @@ test('raw noncanonical trend receipts are diagnosed but never promoted to valida
  assert.equal(result.selected_mappings.length,0);
  assert.match(renderTop10Section(result),/Raw, unverified Top 10 receipt observations/);
 });
+
+test('prospective topic dispositions distinguish verified selection, search only and missing evidence',()=>{
+ const {e,h}=fixture();
+ const nextCycle='2026-11-28',nextEdition='2026-11-29';
+ const translate=x=>JSON.parse(JSON.stringify(x).replaceAll('2026-11-05','2026-12-01')
+  .replaceAll('2026-11-03',nextEdition).replaceAll('2026-11-02',nextCycle));
+ const n=translate(e);
+ const raw=crypto.createHash('sha256').update(JSON.stringify(n['top10-report'],null,2)+'\n').digest('hex');
+ for(const k of ['top10-report-source','trend-consumed-source','trend-input','trend-search-coverage'])n[k].report_sha256=raw;
+ h['top10-report']=h['trend-consumed-report']=raw;
+ const searches=n['trend-search-coverage'].searches;
+ for(const r of searches){
+  r.query=n['top10-report'].topics.find(t=>t.topic_id===r.topic_id).suggested_searches[r.format];
+  if(r.topic_id==='topic-3')Object.assign(r,{outcome:'not_attempted',attempted_at:null,source_urls:[],candidate_ids:[]});
+ }
+ searches[0].candidate_ids=['story-1'];
+ searches[0].source_urls.push(n['trend-search-coverage'].selected_mappings[0].url);
+ const q=summarizeTop10(nextCycle,nextEdition,n,h);
+ assert.equal(q.search_status,'RECEIPTS_OBSERVED');
+ assert.deepEqual(q.topic_dispositions.slice(0,3).map(t=>t.status),['SELECTED','SEARCHED_NOT_SELECTED','NOT_EVIDENCED']);
+ assert.match(renderTop10Section(q),/SEARCHED NOT SELECTED/);
+ n['trend-search-coverage'].selected_mappings=[];
+ assert.equal(summarizeTop10(nextCycle,nextEdition,n,h).topic_dispositions[0].status,'SEARCHED_NOT_SELECTED');
+ delete n['trend-search-coverage'].selected_mappings;
+ assert.equal(summarizeTop10(nextCycle,nextEdition,n,h).topic_dispositions[0].status,'NOT_EVIDENCED');
+});

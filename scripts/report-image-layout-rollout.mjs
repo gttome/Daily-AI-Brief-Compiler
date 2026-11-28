@@ -3,6 +3,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {verifyImageLayoutAudit,LAYOUT_AUDIT_EFFECTIVE} from '../operations/image-layout-audit.mjs';
 
+import {IMAGE_NOV28_FOLLOWUP_EFFECTIVE,summarizeImageFirstExports} from './image-aar-contract.mjs';
+
 const date=s=>typeof s==='string'&&/^\d{4}-\d\d-\d\d$/.test(s);
 const metric=(x,min=0,max=Infinity)=>typeof x==='number'&&Number.isFinite(x)&&x>=min&&x<=max?x:null;
 const safeRef=x=>typeof x==='string'&&/^https:\/\/(github\.com\/gttome\/Daily-AI-Brief-Compiler\/|chatgpt\.com\/)/.test(x);
@@ -14,8 +16,8 @@ export function reportImageLayoutRollout({repo,site,through}){
  const index=read(path.join(site,'image-jobs/index.json'));
  if(!Array.isArray(index?.editions))throw Error('Use the verified Pages history image-job index.');
  const dates=[...new Set(index.editions.filter(x=>date(x.edition_date)&& x.edition_date>=LAYOUT_AUDIT_EFFECTIVE&&
-  x.edition_date<=through&&['PUBLISHED_PENDING','RELEASED_VERIFIED'].includes(x.status)).map(x=>x.edition_date))].sort().slice(0,7);
- const rows=dates.map(edition=>{
+  x.edition_date<=through&&['PUBLISHED_PENDING','RELEASED_VERIFIED'].includes(x.status)).map(x=>x.edition_date))].sort();
+ function row(edition){
   const base=path.join(repo,'external-image-packages',edition);
   const m=read(path.join(base,'manifest.json')),a=read(path.join(base,'reviews/after-action.json'));
   const matched=a?.edition_date===edition&&m?.edition_date===edition&&a.job_sha256===m.job_sha256&&
@@ -29,6 +31,7 @@ export function reportImageLayoutRollout({repo,site,through}){
   if(!Number.isSafeInteger(attempts)||attempts!==imgs?.reduce((sum,i)=>sum+i.generation_attempts,0))attempts=null;
   const deployment=Array.isArray(obs?.artifact_deployments)?obs.artifact_deployments.filter(x=>safeRef(x.evidence_ref)&&
    ['deployed','artifact_missing','other_failure','unknown'].includes(x.deploy_outcome)):null;
+  const firstExports=summarizeImageFirstExports({edition,aar:a,manifest:m});
   return {
    edition, evidence_status: layout&&imgs?'AVAILABLE':'PARTIAL_OR_NOT_RECORDED',
    distinct_layouts:layout?Object.keys(layout.observed).length:null,
@@ -42,12 +45,20 @@ export function reportImageLayoutRollout({repo,site,through}){
    artifact_deployments:deployment?.length?deployment.map(x=>({evidence_ref:x.evidence_ref,
     visibility_wait_seconds:metric(x.visibility_wait_seconds),deploy_outcome:x.deploy_outcome})):null,
    source_manifest:m?.edition_date===edition?'external-image-packages/'+edition+'/manifest.json':null,
-   source_aar:matched?'external-image-packages/'+edition+'/reviews/after-action.json':null
+   source_aar:matched?'external-image-packages/'+edition+'/reviews/after-action.json':null,
+   ...(firstExports?{rejected_native_candidates:firstExports.rejected_native_candidates,
+    export_only_reexports:firstExports.export_only_reexports,
+    first_export_margin_failures:firstExports.first_export_margin_failures,
+    efficiency:firstExports.native_calls===null?'NOT_EVIDENCED':firstExports.first_native_accepts>=4&&firstExports.native_calls<=8?'MET':'NOT_MET'}:{})
   };
- });
+ }
+ const rows=dates.slice(0,7).map(row);
+ const followup=dates.filter(x=>x>=IMAGE_NOV28_FOLLOWUP_EFFECTIVE).slice(0,3).map(row);
  return {schema_version:'image-layout-rollout-report-v1',first_eligible_on_or_after:LAYOUT_AUDIT_EFFECTIVE,
   through,window_status:rows.length===7?'FIRST_SEVEN_IDENTIFIED':'COLLECTING',eligible_editions_observed:rows.length,
-  assessed_layout_editions:rows.filter(r=>r.distinct_layouts!==null).length,rows};
+  assessed_layout_editions:rows.filter(r=>r.distinct_layouts!==null).length,rows,
+  ...(through>=IMAGE_NOV28_FOLLOWUP_EFFECTIVE?{november28_followup:{window_status:followup.length===3?'FIRST_THREE_IDENTIFIED':'COLLECTING',
+   advisory_targets:{first_native_accepts_minimum:4,native_calls_maximum:8},rows:followup}}:{})};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const [repo,site,through]=process.argv.slice(2);

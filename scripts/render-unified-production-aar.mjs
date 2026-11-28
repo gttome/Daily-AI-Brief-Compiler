@@ -1,6 +1,6 @@
 import {summarizeNov02Evidence} from './nov02-evidence-summary.mjs';
 import {summarizeNov20Evidence,renderNov20Evidence} from './nov20-evidence-review.mjs';
-import {validateImageAfterAction} from './image-aar-contract.mjs';
+import {validateImageAfterAction,summarizeImageFirstExports,renderImageFirstExports,summarizeImageLiveFindings,renderImageLiveFindings} from './image-aar-contract.mjs';
 import {verifyFinalImageCheckpoint} from './worker-checkpoint-consistency.mjs';
 import fs from "node:fs";
 import {ownerReportedWorkUsage} from "./owner-usage.mjs";
@@ -89,6 +89,9 @@ function generateUnified(cycle,e,hashes={}) {
       t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true&&
       t.result==="PASS"&&/^[a-f0-9]{64}$/.test(t.capture_sha256||"")&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
   const visualOk=!!(oldVisualOk||pixelVisualOk);
+  const firstExports=summarizeImageFirstExports({edition,aar:imageAar,manifest});
+  const interimReview=imageAar?.job_sha256===manifest?.job_sha256?imageAar?.live_context_gap_review:null;
+  const imageFindings=summarizeImageLiveFindings({edition,manifest,release,review:reviews??interimReview,liveVerified:imagesOk});
   const worker=obj('image-worker-state');
   const checkpoint=verifyFinalImageCheckpoint({edition,worker,release,manifest,aar:imageAar});
   const workerClosed=edition<'2026-10-21'||(worker?.phase==='PUBLISHED_COMPLETE'&&worker.lease_status==='RELEASED'&&
@@ -299,6 +302,8 @@ renderAarChartsMarkdown(charts),
 "```",
 "",
 renderTop10Section(top10),
+...renderImageFirstExports(firstExports),
+...renderImageLiveFindings(imageFindings),
 "",
 "## Track 1 — Compiler",
 "",
@@ -433,6 +438,8 @@ imgCols,
 ].join("\n");
   const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,scientific_paper_coverage:paperCoverage,media_topic_diversity:{status:mediaEventStatus,documented_events:eventIds.length===4?new Set(eventIds).size:null,pairwise_reviews:Array.isArray(eventReview?.comparisons)?eventReview.comparisons.length:null,original_source_truth_independently_verified:false},source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   if(charts)json.charts=charts;
+  if(firstExports)json.image_first_exports=firstExports;
+  if(imageFindings)json.image_live_context_findings=imageFindings;
   json.approved_nov20_improvements=nov20;
   json.status_dimensions={publication:compilerOk?'VERIFIED':'NOT_VERIFIED',
    images:imagesOk&&visualOk?'RELEASED_AND_24_CONTEXTS_VERIFIED':'INCOMPLETE',

@@ -103,9 +103,12 @@ test('workflow adds measurements to existing reporting job and preserves schedul
  const w=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');assert.match(w,/cp scripts\/aar-improvement-metrics.mjs/);assert.match(w,/recovery\/\$edition.json/);assert.match(w,/node "\$tmp\/aar-improvement-metrics.mjs" daily/);
  assert.equal((w.match(/runs-on:/g)||[]).length,1);assert.equal((w.match(/cron:/g)||[]).length,1);
  const source=fs.readFileSync('scripts/top10-aar.mjs','utf8');assert.match(source,/Historical producer observations \(not current status\)/);assert.match(source,/Current reconciled conclusion/);
- const changes=JSON.parse(fs.readFileSync('config/aar-improvement-register.json'));assert.equal(changes.changes.filter(x=>!x.change_id.startsWith('NOV16-')&&!x.change_id.startsWith('IMG19-')&&!x.change_id.startsWith('NOV20-')&&!x.change_id.startsWith('NOV25-')).length,19);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('NOV16-')).length,12);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('IMG19-')).length,8);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('NOV20-')).length,12);const nov25=changes.changes.filter(x=>x.change_id.startsWith('NOV25-'));
+ const changes=JSON.parse(fs.readFileSync('config/aar-improvement-register.json'));assert.equal(changes.changes.filter(x=>!x.change_id.startsWith('NOV16-')&&!x.change_id.startsWith('IMG19-')&&!x.change_id.startsWith('NOV20-')&&!x.change_id.startsWith('NOV25-')&&!x.change_id.startsWith('NOV27-')&&!x.change_id.startsWith('NOV28-')).length,19);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('NOV16-')).length,12);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('IMG19-')).length,8);assert.equal(changes.changes.filter(x=>x.change_id.startsWith('NOV20-')).length,12);const nov25=changes.changes.filter(x=>x.change_id.startsWith('NOV25-'));
  assert.deepEqual(nov25.map(x=>x.change_id),['NOV25-P0-01','NOV25-P0-02','NOV25-P0-03','NOV25-P1-01','NOV25-P1-02','NOV25-P2-01']);
  assert.ok(nov25.every(x=>x.effective_edition==='2026-11-26'&&x.review_due_edition==='2026-12-02'));
+ assert.equal(changes.supplemental_plans.filter(x=>x.change_id.startsWith('NOV27-IMG-')).length,4);
+ const nov28=changes.changes.filter(x=>x.change_id.startsWith('NOV28-IMG-'));
+ assert.equal(nov28.length,6);assert.ok(nov28.every(x=>x.effective_edition==='2026-11-29'&&x.review_due_edition==='2026-12-01'));
  assert.equal(new Set(changes.changes.map(x=>x.change_id)).size,changes.changes.length);
 });
 test('consolidated prompts retain all four task identities and mapped requirements with inactive archived history',()=>{
