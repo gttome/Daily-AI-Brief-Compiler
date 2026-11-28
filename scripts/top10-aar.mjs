@@ -195,6 +195,17 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   defects,limitations:[...new Set(limitations)],
   note:'Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.'
  };
+ if(edition>='2026-11-29'){
+  const knownTopics=reportValid?topics:[];
+  const selectionKnown=coverageValid&&Array.isArray(coverage?.selected_mappings)&&
+   ['NONE_RECORDED','MATCHES_EDITION_BUNDLE'].includes(mappingStatus);
+  result.topic_dispositions=knownTopics.map(t=>{
+   const searched_formats=coverageValid?FORMATS.filter(f=>attemptedPairs.has(t.topic_id+':'+f)):[];
+   const verified=result.selected_mappings.filter(m=>m.topic_id===t.topic_id);
+   return {topic_id:t.topic_id,name:t.name??null,searched_formats,verified_selected_count:selectionKnown?verified.length:null,
+    status:verified.length?'SELECTED':selectionKnown&&searched_formats.length?'SEARCHED_NOT_SELECTED':'NOT_EVIDENCED'};
+  });
+ }
  result.ranking_status=reportValid?report.ranking_status??null:null;
  result.daily_improvement=summarizeDailyImprovement(result,evidence,hashes);
  return result;
@@ -361,6 +372,9 @@ export function renderTop10Section(s){
   '| Search format | Receipt rows | Attempts recorded | Explicitly not attempted |','|---|---:|---:|---:|',
   ...FORMATS.map(f=>`| ${f} | ${s.search_counts[f].recorded} | ${s.search_counts[f].attempted} | ${s.search_counts[f].not_attempted} |`),'',
   '**Selected Brief items linked to trends:**','');
+ if(s.topic_dispositions?.length)lines.push('| Top 10 topic | Compiler disposition | Verified search formats |','|---|---|---|',
+  ...s.topic_dispositions.map(t=>`| ${cell(t.name??t.topic_id)} | ${t.status.replaceAll('_',' ')} | ${cell(t.searched_formats.join(', ')||'Not evidenced')} |`),
+  '', 'A search receipt and a verified selection are separate evidence. No causal influence is inferred.', '');
  if(s.selected_mappings.length)lines.push('| Topic | Format | Selected item | Reason |','|---|---|---|---|',
   ...s.selected_mappings.map(m=>`| ${cell(m.topic_id)} | ${cell(m.format)} | ${cell(m.item_id)} · ${link(m.url)} | ${cell(m.reason)} |`),'');
  else lines.push('No validated selection-to-topic mapping was recorded.','');

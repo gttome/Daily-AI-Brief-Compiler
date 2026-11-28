@@ -1,5 +1,9 @@
 # Current Image task contract
 
+## November 28 owner-approved image improvements
+
+Apply [the six approved changes](../NOV28_APPROVED_IMAGE_FOLLOWUP.md) on the next unfrozen edition and subsequent runs. Record first-export margins, mobile results and re-exports, make evidence labels visibly separate, and record a finding or gap for each live review context. Use the existing three-edition efficiency evaluation, stronger variety rules and source-bound Top 10 attribution. Keep schedules, release safeguards and accepted images unchanged.
+
 ## November 27 owner-approved visual quality correction — next unfrozen edition
 
 Apply [the four follow-through changes](../NOV27_APPROVED_IMAGE_FOLLOWUP.md) before any new edition plan freeze. Inspect actual visible treatment and how labels are drawn, as well as layout. The initial November 27 set passed the existing layout audit but the owner still found it too similar. Record the separate owner-directed revision as a comparison, never as unattended output or owner aesthetic acceptance. Preserve accepted originals, existing 320/1440 live QA, ownership and schedules.
