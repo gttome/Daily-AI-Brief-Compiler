@@ -465,8 +465,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-28/shadow-runs/2026-11-28/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-28/shadow-runs/2026-11-28/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-28/shadow-runs/2026-11-28/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/88191c81df3d23b993780cd52e4bb096fed38f3f/signals/ai-topic-top10/2026-11-27.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/88191c81df3d23b993780cd52e4bb096fed38f3f/signals/ai-topic-top10/2026-11-27.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1ff321acfe2adbfa71df939fa48694e43bd6b1ed/signals/ai-topic-top10/2026-11-27.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1ff321acfe2adbfa71df939fa48694e43bd6b1ed/signals/ai-topic-top10/2026-11-27.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-28/shadow-runs/2026-11-28/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-28/shadow-runs/2026-11-28/editorial/trend-search-coverage.json) |
 
@@ -483,7 +483,7 @@ Edition **2026-11-28**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**3 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-12-02**. The daily review never waits for that date to act on a safe live problem.
+**3 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-12-01**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
@@ -554,6 +554,12 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV25-P1-01 — Bind observed silhouettes and prior comparisons to exact pixels | 2026-12-02 | PENDING | Not recorded |
 | NOV25-P1-02 — Record attempt-scoped Pages artifact visibility and missing-artifact failures | 2026-12-02 | PENDING | Not recorded |
 | NOV25-P2-01 — Evaluate the first seven eligible image editions | 2026-12-02 | PENDING | Not recorded |
+| NOV28-IMG-01 — Source-specific first composition | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV28-IMG-02 — Phone-first export inspection | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV28-IMG-03 — Separate study evidence and mechanism | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV28-IMG-04 — Visible variety across recent verified editions | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV28-IMG-05 — Actual findings for 24 live contexts | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV28-IMG-06 — Image effort and evidence-bound Top 10 attribution | 2026-12-01 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 6; overdue: 11; reviewed: 40. Implemented controls await measured results; review decisions do not disable controls.
 
