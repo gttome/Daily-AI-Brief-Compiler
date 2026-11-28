@@ -1,0 +1,386 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-28",
+  "story_id": "nov28-e2-skill-supply-chain-check",
+  "source_url": "https://www.air.security/blog-posts/trojanpony",
+  "visual_thesis": "A skill may perform its advertised job while its bundled updater loads a malicious library and steals credentials.",
+  "mechanism_metaphor": "A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+  "story_anchors": [
+    "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+    "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee."
+  ],
+  "required_labels": [
+    "Working skill",
+    "Signed updater",
+    "Malicious library",
+    "Credential theft",
+    "Pin source",
+    "Inspect downloads",
+    "Test without secrets",
+    "Vendor incident report; scanners missed it"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+      "supporting_source_excerpt": "Apart from the payload, it works like the original.",
+      "source_url": "https://www.air.security/blog-posts/trojanpony",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+      "supporting_source_excerpt": "The updater side-loads a malicious libcurl.dll from the same folder",
+      "source_url": "https://www.air.security/blog-posts/trojanpony",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Signed updater",
+      "to": "Malicious library",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported productivity, safety, quality, adoption, performance or single-agent-superiority guarantee. No invented quantitative readings, product interface, control knobs, badges, check marks or decorative machinery.",
+    "No people, humanoids, logos, photorealism, panel collages, simulated writing or unallowlisted glyphs. No arrowheads beyond the one declared source-supported relationship."
+  ],
+  "composition_signature": {
+    "grammar": "Skill package supply-chain dissection",
+    "metaphor": "Skill package supply-chain dissection",
+    "layout": "A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+    "palette": "Graphite and vermilion",
+    "hierarchy": "Dominant package anatomy reveals a hidden secondary execution route",
+    "perspective": "Large cutaway section with one magnified inner seam",
+    "annotation": "Direct open type at the relevant cut surfaces"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 14,
+    "major_regions": 3,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "outer skill package",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "outer skill package as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "advertised-function layer",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "advertised-function layer as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "normal procedure layer",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "normal procedure layer as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "bundled updater compartment",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "bundled updater compartment as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "signed binary housing",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "signed binary housing as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "library seam",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "library seam as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "malicious library layer",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "malicious library layer as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "loader connection",
+        "visible_fact": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "loader connection as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "credential boundary",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "credential boundary as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "reported theft route",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "reported theft route as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "pinned-source review",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "pinned-source review as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "download inspection",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "download inspection as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "no-secrets isolation",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "no-secrets isolation as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "vendor limitation",
+        "visible_fact": "The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "vendor limitation as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November28 native image worker",
+    "source_url": "https://www.air.security/blog-posts/trojanpony",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Working skill",
+        "region_id": "package",
+        "region": "package: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 90,
+          "width": 450,
+          "height": 48
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Signed updater",
+        "region_id": "package",
+        "region": "package: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 240,
+          "width": 450,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Malicious library",
+        "region_id": "package",
+        "region": "package: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 675,
+          "y": 300,
+          "width": 440,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Credential theft",
+        "region_id": "package",
+        "region": "package: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 690,
+          "y": 410,
+          "width": 420,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Pin source",
+        "region_id": "review",
+        "region": "review: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 475,
+          "width": 280,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Inspect downloads",
+        "region_id": "review",
+        "region": "review: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 410,
+          "y": 475,
+          "width": 380,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Test without secrets",
+        "region_id": "review",
+        "region": "review: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 790,
+          "y": 475,
+          "width": 330,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Vendor incident report; scanners missed it",
+        "region_id": "limit",
+        "region": "limit: Skill package supply-chain dissection source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 525,
+          "width": 1000,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Vendor incident report; scanners missed it",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mobile_inline_390px_review_planned": true,
+    "mechanism_canvas_percent": 77,
+    "explanatory_substage_labels": [
+      "Working skill",
+      "Signed updater"
+    ],
+    "thumbnail_priority_labels": [
+      "Working skill",
+      "Signed updater",
+      "Malicious library"
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer.",
+        "allowed_path": "Only Signed updater to Malicious library; endpoints touch actual object ports clear of text.",
+        "blocked_path": "No additional causal arrows, no pathway through detached caveats, and no guaranteed quality or safety outcome.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Signed updater",
+        "to": "Malicious library",
+        "support_claim_id": "claim-1",
+        "origin_region": "package: actual source port (500,305)",
+        "target_region": "package: actual target port (700,365)",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Skill package supply-chain dissection",
+      "dominant_grammar": "Skill package supply-chain dissection",
+      "medium_treatment": "Fine crosshatched engraved package section with sharp vermilion hazard accents",
+      "perspective": "Large cutaway section with one magnified inner seam",
+      "information_hierarchy": "Dominant package anatomy reveals a hidden secondary execution route",
+      "palette_family": "Graphite and vermilion",
+      "subject_specific_visual_thesis": "A skill may perform its advertised job while its bundled updater loads a malicious library and steals credentials. At full size expose signed binary housing, library seam, malicious library layer, loader connection. A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+      "difference_from_earlier_story_images": "The earlier sandbox is a raised stone tray with an outside-material inset. This is one large crosshatched package cutaway exposing two software layers and a library seam, with open direct text and a distinct lower editorial review path.",
+      "first_pass_risk_mitigation": "Use a visibly blank 60–72px perimeter; exact specified surfaces only receive words. Keep all causal endpoints on the described object ports. Remove simulated writing, unsupported controls, extra arrows and repetitive plaque silhouettes before saving. Actual pixels and 320px comparison remain mandatory."
+    },
+    "structural_layout_plan": {
+      "layout_family": "central-cutaway",
+      "silhouette": ".SS/.DD/SSS",
+      "visual_treatment_family": "engraved-section",
+      "label_architecture": "direct-type"
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "package",
+          "description": "package: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 70,
+            "width": 1040,
+            "height": 390
+          }
+        },
+        {
+          "id": "review",
+          "description": "review: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 465,
+            "width": 1040,
+            "height": 55
+          }
+        },
+        {
+          "id": "limit",
+          "description": "limit: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 525,
+            "width": 1040,
+            "height": 55
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Signed updater",
+          "to": "Malicious library",
+          "support_claim_id": "claim-1",
+          "from_region_id": "package",
+          "to_region_id": "package",
+          "origin_px": {
+            "x": 500,
+            "y": 305
+          },
+          "target_px": {
+            "x": 700,
+            "y": 365
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing November28 worker source-and-prompt review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "60c0831bc4b1a1a096b0d9e1346d50ff6d99669db0403e640fb86b5dcb1e3d96"
+      }
+    }
+  },
+  "native_generation_prompt": "TARGETED SAVED-PIXEL CORRECTION: Keep the engraved software-package cutaway, intact Working skill upper layer, Signed updater, Malicious library and one red load arrow attached to actual ports. Remove the three anonymous blank tiles and their joining rails on the upper shelf; the intact labeled layer itself represents advertised function, without invented internal stages. Remove ALL standalone lower label boxes and the footer border. Pin source, Inspect downloads and Test without secrets must be freestanding black type on white; the vendor incident limitation must also be one detached open line on white. Remove the plaque around Credential theft; put that wording directly beside the red consequence path at the cut surface. Keep all lettering, foreground and hatching safely inside the white perimeter. No new symbols, writing, shapes, arrowheads or words.\nCreate exactly ONE finished static factual editorial illustration, wide 1200 x 630 aspect ratio, white background. This is a conceptual textbook illustration, not CAD, a machine-readable plot or an interactive UI.\nStory: A working agent skill can still hide a credential-stealing updater\nFull published story: AIR Security reports TrojanPony copies of popular coding-agent skills that still perform their advertised task while installing a Windows credential stealer. Its November 26 census found 487 affected repositories or marketplace entries, including 413 skill forks. The investigation shows scanner misses and propagation paths, but remains one security vendor’s incident assessment.\nReader action: Before installing a skill, verify the original maintainer and commit, inspect scripts and binary downloads, run it without secrets in a disposable environment, and compare the observed files and network calls with the declared procedure.\nSource facts and scope: The malicious skill still works, but its bundled signed updater side-loads a malicious library that drops a credential stealer. The incident report describes scanners missing the malicious library; source review and isolated no-secrets testing are the editorial skill procedure, not a guarantee.\nVisual thesis: A skill may perform its advertised job while its bundled updater loads a malicious library and steals credentials.\nComposition: A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.\nRendering treatment: Fine crosshatched engraved package section with sharp vermilion hazard accents. Large cutaway section with one magnified inner seam. Graphite and vermilion. Dominant package anatomy reveals a hidden secondary execution route. Direct open type at the relevant cut surfaces.\nMeaningful components: outer skill package; advertised-function layer; normal procedure layer; bundled updater compartment; signed binary housing; library seam; malicious library layer; loader connection; credential boundary; reported theft route; pinned-source review; download inspection; no-secrets isolation; vendor limitation. Each has an explanatory job described above. No decorative filler or blank information promises.\nExact visible wording, once each and no other characters: [\"Working skill\",\"Signed updater\",\"Malicious library\",\"Credential theft\",\"Pin source\",\"Inspect downloads\",\"Test without secrets\",\"Vendor incident report; scanners missed it\"]. Render these only at their specified objects or open white labels; all other surfaces remain completely blank. At final 1200x630, priority lettering >=36px and other lettering >=28px. Crisp professional typography. Keep foreground, labels and all marks visibly at least 60–72px from every edge, mandatory floor 40px. No brand marks, avatars, people, humanoids, glossy photorealism, shields, gears, knobs, UI chrome, fake writing, extra digits or unsupported chart marks. No panel collage, repeated cards or generic dashboard.\nThere is exactly one causal arrow: Signed updater source port (500,305) to Malicious library target port (700,365). It touches physical objects, never lettering. All other supports/guides are nondirectional, with no arrowhead. Detached limitation is never a causal state.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"package\",\"description\":\"package: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.\",\"bounding_box_px\":{\"x\":80,\"y\":70,\"width\":1040,\"height\":390}},{\"id\":\"review\",\"description\":\"review: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.\",\"bounding_box_px\":{\"x\":80,\"y\":465,\"width\":1040,\"height\":55}},{\"id\":\"limit\",\"description\":\"limit: Skill package supply-chain dissection; A single large engraved cross-section of an abstract software package, opened to expose the normal skill procedure and an unexpected updater/library seam. It is not an actual product UI or branded package. The advertised-function layer remains visibly intact above, while the underside exposes Signed updater beside Malicious library. The one causal arrow goes from updater load port (500,305) to library entry port (700,365), clear of all lettering. A red thin continuation without an arrowhead indicates the reported credential-theft consequence at the package edge, not a command for exploitation. Never add code, file hashes, IPs, terminal output or malware instructions. A lower separate editorial review path is represented as unnumbered textual checks—pin source, inspect downloads, test without secrets—with no approval badge or guarantee. All blank internal faces remain blank with no simulated lettering. A detached vendor-report limitation makes evidence scope explicit. Do not portray a scanner pass as safety proof.\",\"bounding_box_px\":{\"x\":80,\"y\":525,\"width\":1040,\"height\":55}}],\"labels\":[{\"label\":\"Working skill\",\"region_id\":\"package\",\"region\":\"package: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":90,\"width\":450,\"height\":48},\"minimum_font_px\":40},{\"label\":\"Signed updater\",\"region_id\":\"package\",\"region\":\"package: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":240,\"width\":450,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Malicious library\",\"region_id\":\"package\",\"region\":\"package: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":675,\"y\":300,\"width\":440,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Credential theft\",\"region_id\":\"package\",\"region\":\"package: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":690,\"y\":410,\"width\":420,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Pin source\",\"region_id\":\"review\",\"region\":\"review: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":475,\"width\":280,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Inspect downloads\",\"region_id\":\"review\",\"region\":\"review: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":410,\"y\":475,\"width\":380,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Test without secrets\",\"region_id\":\"review\",\"region\":\"review: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":790,\"y\":475,\"width\":330,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Vendor incident report; scanners missed it\",\"region_id\":\"limit\",\"region\":\"limit: Skill package supply-chain dissection source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":525,\"width\":1000,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Signed updater\",\"to\":\"Malicious library\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"package\",\"to_region_id\":\"package\",\"origin_px\":{\"x\":500,\"y\":305},\"target_px\":{\"x\":700,\"y\":365}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nUse this geometry as the composition brief, not visible text. Do not render the JSON, coordinate numbers or field names. Preserve clear hierarchy and breathing room. The factual relationship must survive at 320px width; full-size viewing rewards the meaningful inner detail. Draft is reviewed against actual saved pixels."
+}
