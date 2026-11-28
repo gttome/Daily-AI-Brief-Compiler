@@ -1,6 +1,6 @@
 # 2026-11-28 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_PACKAGE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | efc66fd4e943fe4a9b1cb0f339985440a39e970f |
 | Executor observed run start | 2026-11-28T03:13:01Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-28T03:23:00Z (observed before tool call) |
-| Public release | NOT_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | NOT_RUN; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-28T03:54:38.074Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -116,9 +116,9 @@ Job SHA-256: de1c0b4199f693d4c8c663e5bb23912a19782846d5ade3ee8122364c29b15d2a. O
 
 The actual generation start is 2026-11-28T03:23:00Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: external-image-packages/2026-11-28/reviews/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-28/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
-Actual observed layout families: vertical-stack 1, side-by-side 1, branching-tree 1, continuous-scene 1, radial-loop 1, central-cutaway 1. Maximum repeated family 1. Conservative changed layout-and-treatment combinations versus latest verified November27 revision: 3. Separate live24-context QA remains pending before release closeout.
+Actual observed layout families: vertical-stack 1, side-by-side 1, branching-tree 1, continuous-scene 1, radial-loop 1, central-cutaway 1. Maximum repeated family 1. Conservative changed layout-and-treatment combinations versus latest verified November27 revision: 3. Separate actual live24-context semantic pixel review passed after publication.
 
 Actual treatment families: six. Label architectures: two leader-callout images, one direct-type image, one typographic-hierarchy image, one badge/plaque paper relief and one on-surface engraved section. Four compositions avoid dominant badge/plaque labeling. All15 color/grayscale pair judgments are source-sheet-bound; no same-grammar pair is unresolved.
 
@@ -135,5 +135,11 @@ Exact Top10 selected_mappings in the immutable Compiler coverage receipt is an e
 All six PNGs matched immutable Git bytes and independent hashes. Four also matched complete connected base64 readbacks. The connector returned empty content for the two files over1MB; immutable Git object readback supplied their complete original bytes. Fixed256KiB-offset reconstruction passed without re-encoding.
 
 The six frozen specs and all accepted originals remain immutable. No November25 release was reopened. Any prior-edition reading was comparison-only. First-party scheduler origin, native-provider active runtime, actual billing and Work percentage remain unproved.
+
+Image-only release46104950459 succeeded. Independent six live hashes and12dated/permanent pairings passed; separate protected October8 audit passed17/17. All24actual saved desktop/mobile contexts were opened and reviewed, with no clipping, overlap, placeholders or story mismatches. Accepted image regeneration remains0. Owner artistic acceptance and actual usage remain UNKNOWN.
+
+Pages artifact visibility:8stable polls,0not-visible polls,0API errors,20seconds elapsed. Exact final metadata visibility evidence is retained separately; no scheduler or billing provenance inferred.
+
+Closeout found daily-operations-report46105206292 failing INVALID_IMPROVEMENT_EVIDENCE_REVIEW: four NOV27-IMG plan definitions were misplaced in evidence_reviews. The first repair moved them into changes, but exact-head CI46105713047 rejected expansion of the protected cohort (23 versus19). The final repair preserves the four unchanged definitions in supplemental_plans, retaining57existing change records, IDs and due dates, eight genuine evidence reviews, and all protected checks. The reporter does not automatically evaluate supplemental_plans; current actual observations remain in this AAR and their November30evaluation is pending. No historical outcome or protected baseline was rewritten.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
