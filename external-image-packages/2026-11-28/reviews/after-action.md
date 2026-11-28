@@ -140,4 +140,6 @@ Image-only release46104950459 succeeded. Independent six live hashes and12dated/
 
 Pages artifact visibility:8stable polls,0not-visible polls,0API errors,20seconds elapsed. Exact final metadata visibility evidence is retained separately; no scheduler or billing provenance inferred.
 
+Closeout found daily-operations-report46105206292 failing INVALID_IMPROVEMENT_EVIDENCE_REVIEW: four NOV27-IMG plan definitions were misplaced in evidence_reviews. Moved those unchanged definitions into changes and validated the existing improvementRegister contract:61changes, four plans PENDING. No completed historical edition or outcome was rewritten. This is a reporting schema repair, not evidence of better production outcomes.
+
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
