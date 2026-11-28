@@ -1,0 +1,406 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-28",
+  "story_id": "nov28-t1-amd-local-inference-benchmarks",
+  "source_url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+  "visual_thesis": "Reproducible local inference comparisons keep configuration fixed and separate prompt processing from generation.",
+  "mechanism_metaphor": "One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+  "story_anchors": [
+    "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+    "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization."
+  ],
+  "required_labels": [
+    "Matched configuration",
+    "Model · build · quantization",
+    "Ten repetitions",
+    "Prompt processing",
+    "512 input tokens",
+    "Text generation",
+    "128 generated tokens",
+    "Flash Attention on / off",
+    "Public raw data",
+    "Configuration-bound results"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+      "supporting_source_excerpt": "with Flash Attention on and off, with 10 repetitions per configuration.",
+      "source_url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+      "supporting_source_excerpt": "PP512 measures processing 512 input tokens without generation; TG128 measures generating 128 tokens without a pre-existing context.",
+      "source_url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Matched configuration",
+      "to": "Prompt processing",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported productivity, safety, quality, adoption, performance or single-agent-superiority guarantee. No invented quantitative readings, product interface, control knobs, badges, check marks or decorative machinery.",
+    "No people, humanoids, logos, photorealism, panel collages, simulated writing or unallowlisted glyphs. No arrowheads beyond the one declared source-supported relationship."
+  ],
+  "composition_signature": {
+    "grammar": "Forked benchmark test rig",
+    "metaphor": "Forked benchmark test rig",
+    "layout": "One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+    "palette": "Graphite and cyan",
+    "hierarchy": "Shared configuration above two unequal workload probes",
+    "perspective": "Frontal exploded technical elevation",
+    "annotation": "Sparse leaders into open white space"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 13,
+    "major_regions": 3,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "configuration rail",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "configuration rail as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "model socket",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "model socket as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "build socket",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "build socket as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "quantization socket",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "quantization socket as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "benchmark input port",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "benchmark input port as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "repetition association",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "repetition association as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "Flash Attention on trace",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Flash Attention on trace as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "Flash Attention off trace",
+        "visible_fact": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "Flash Attention off trace as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "prompt token batch",
+        "visible_fact": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "prompt token batch as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "input processing aperture",
+        "visible_fact": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "input processing aperture as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "generated token outlet",
+        "visible_fact": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "generated token outlet as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "raw result sheet",
+        "visible_fact": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "raw result sheet as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      },
+      {
+        "object": "configuration limitation",
+        "visible_fact": "Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "configuration limitation as specifically described in the mechanism; factual wording or a distinctive geometric state; unused faces remain entirely blank."
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November28 native image worker",
+    "source_url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Matched configuration",
+        "region_id": "setup",
+        "region": "setup: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 80,
+          "width": 600,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Model · build · quantization",
+        "region_id": "setup",
+        "region": "setup: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 100,
+          "y": 140,
+          "width": 650,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Ten repetitions",
+        "region_id": "setup",
+        "region": "setup: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 760,
+          "y": 140,
+          "width": 340,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Prompt processing",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 110,
+          "y": 300,
+          "width": 450,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "512 input tokens",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 110,
+          "y": 356,
+          "width": 450,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Text generation",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 670,
+          "y": 300,
+          "width": 420,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "128 generated tokens",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 670,
+          "y": 356,
+          "width": 420,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Flash Attention on / off",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 110,
+          "y": 420,
+          "width": 500,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Public raw data",
+        "region_id": "measure",
+        "region": "measure: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 720,
+          "y": 420,
+          "width": 370,
+          "height": 40
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Configuration-bound results",
+        "region_id": "limit",
+        "region": "limit: Forked benchmark test rig source-specific illustrated surface or open label position",
+        "bounding_box_px": {
+          "x": 220,
+          "y": 520,
+          "width": 760,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Configuration-bound results",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mobile_inline_390px_review_planned": true,
+    "mechanism_canvas_percent": 66,
+    "explanatory_substage_labels": [
+      "Matched configuration",
+      "Prompt processing"
+    ],
+    "thumbnail_priority_labels": [
+      "Matched configuration",
+      "Prompt processing",
+      "Text generation"
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration.",
+        "allowed_path": "Only Matched configuration to Prompt processing; endpoints touch actual object ports clear of text.",
+        "blocked_path": "No additional causal arrows, no pathway through detached caveats, and no guaranteed quality or safety outcome.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Matched configuration",
+        "to": "Prompt processing",
+        "support_claim_id": "claim-1",
+        "origin_region": "setup: actual source port (600,210)",
+        "target_region": "measure: actual target port (600,260)",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Forked benchmark test rig",
+      "dominant_grammar": "Forked benchmark test rig",
+      "medium_treatment": "Precision technical pen linework with restrained cyan wash",
+      "perspective": "Frontal exploded technical elevation",
+      "information_hierarchy": "Shared configuration above two unequal workload probes",
+      "palette_family": "Graphite and cyan",
+      "subject_specific_visual_thesis": "Reproducible local inference comparisons keep configuration fixed and separate prompt processing from generation. At full size expose benchmark input port, repetition association, Flash Attention on trace, Flash Attention off trace. One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+      "difference_from_earlier_story_images": "The prior revised parity picture is two thin horizontal traces. This picture descends through an open exploded test rig into unequal workload probes, with sparse cyan technical leaders rather than two red and black API lines.",
+      "first_pass_risk_mitigation": "Use a visibly blank 60–72px perimeter; exact specified surfaces only receive words. Keep all causal endpoints on the described object ports. Remove simulated writing, unsupported controls, extra arrows and repetitive plaque silhouettes before saving. Actual pixels and 320px comparison remain mandatory."
+    },
+    "structural_layout_plan": {
+      "layout_family": "vertical-stack",
+      "silhouette": ".SS/.DD/SDS",
+      "visual_treatment_family": "line-diagram",
+      "label_architecture": "leader-callouts"
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "setup",
+          "description": "setup: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 65,
+            "width": 1040,
+            "height": 165
+          }
+        },
+        {
+          "id": "measure",
+          "description": "measure: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 250,
+            "width": 1040,
+            "height": 240
+          }
+        },
+        {
+          "id": "limit",
+          "description": "limit: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 500,
+            "width": 1000,
+            "height": 75
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Matched configuration",
+          "to": "Prompt processing",
+          "support_claim_id": "claim-1",
+          "from_region_id": "setup",
+          "to_region_id": "measure",
+          "origin_px": {
+            "x": 600,
+            "y": 210
+          },
+          "target_px": {
+            "x": 600,
+            "y": 260
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing November28 worker source-and-prompt review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "3ea1227dcb4667281ec800d6ddf489094bff8c2a5930236c63128db163b59e65"
+      }
+    }
+  },
+  "native_generation_prompt": "TARGETED CORRECTION OF REJECTED ART: Remove every perimeter frame, bolted rail, screw, plaque, rounded label box, machinery wall and decorative fixture. All words must be freestanding technical callouts on white, with sparse leaders. Entire foreground must fit within x=90..1110,y=80..550 of final canvas. Draw one unboxed, light technical-pen exploded specimen: configuration tokens above, an open comparison aperture in the middle, input and output token paths below. No three equally weighted stations. All background outside the content bounds stays plain white. Preserve every exact factual label, the one downward configuration-to-benchmark arrow, and the different PP512 and TG128 workload concepts. Do not add a number of meaningless bolts or waveform graphs. Use only two nondirectional thin lines for the Flash Attention alternatives.\nCreate exactly ONE finished static factual editorial illustration, wide 1200 x 630 aspect ratio, white background. This is a conceptual textbook illustration, not CAD, a machine-readable plot or an interactive UI.\nStory: A public dashboard makes local-model speed claims reproducible\nFull published story: Hugging Face and ggml published an AMD benchmark dashboard backed by scheduled public workflows and raw data. The initial lanes cover selected Ryzen and Radeon platforms, run llama-bench weekly, toggle Flash Attention and repeat each configuration ten times. Results improve reproducibility, but they do not generalize across untested hardware, firmware, thermals or workloads.\nReader action: Before choosing local-model hardware, match the exact model, quantization, context, backend and thermal envelope, then rerun the published benchmark yourself locally rather than comparing vendor peak numbers or screenshots from different configurations.\nSource facts and scope: Public workflows run llama-bench weekly with Flash Attention on and off and ten repetitions per configuration. Prompt processing and text generation are different reference workloads, measured separately and bound to hardware, model, build and quantization.\nVisual thesis: Reproducible local inference comparisons keep configuration fixed and separate prompt processing from generation.\nComposition: One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.\nRendering treatment: Precision technical pen linework with restrained cyan wash. Frontal exploded technical elevation. Graphite and cyan. Shared configuration above two unequal workload probes. Sparse leaders into open white space.\nMeaningful components: configuration rail; model socket; build socket; quantization socket; benchmark input port; repetition association; Flash Attention on trace; Flash Attention off trace; prompt token batch; input processing aperture; generated token outlet; raw result sheet; configuration limitation. Each has an explanatory job described above. No decorative filler or blank information promises.\nExact visible wording, once each and no other characters: [\"Matched configuration\",\"Model · build · quantization\",\"Ten repetitions\",\"Prompt processing\",\"512 input tokens\",\"Text generation\",\"128 generated tokens\",\"Flash Attention on / off\",\"Public raw data\",\"Configuration-bound results\"]. Render these only at their specified objects or open white labels; all other surfaces remain completely blank. At final 1200x630, priority lettering >=36px and other lettering >=28px. Crisp professional typography. Keep foreground, labels and all marks visibly at least 60–72px from every edge, mandatory floor 40px. No brand marks, avatars, people, humanoids, glossy photorealism, shields, gears, knobs, UI chrome, fake writing, extra digits or unsupported chart marks. No panel collage, repeated cards or generic dashboard.\nThere is exactly one causal arrow: Matched configuration source port (600,210) to Prompt processing target port (600,260). It touches physical objects, never lettering. All other supports/guides are nondirectional, with no arrowhead. Detached limitation is never a causal state.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"setup\",\"description\":\"setup: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.\",\"bounding_box_px\":{\"x\":80,\"y\":65,\"width\":1040,\"height\":165}},{\"id\":\"measure\",\"description\":\"measure: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.\",\"bounding_box_px\":{\"x\":80,\"y\":250,\"width\":1040,\"height\":240}},{\"id\":\"limit\",\"description\":\"limit: Forked benchmark test rig; One vertically organized open technical test fixture, no dashboard or surrounding frame. A matched configuration rail occupies the top, with separate model, build and quantization sockets. A specimen-like benchmark block below exposes a Flash Attention toggle comparison as two noninteractive alternative traces, not a drawn switch. A single downward causal arrow goes from configuration rail at (600,210) to test fixture port (600,260). Below, two asymmetric open measurement branches expose input processing and output generation. Different token shapes distinguish input from generated tokens; no invented rates, bars, graph axes, buttons, sliders, ticks or controls. Show source-backed 512-input and 128-output distinctions through exact wording, not by drawing hundreds of units. Ten repeated runs are expressed by the exact label, never fake readings. Raw result sheets have only the approved Public raw data label and otherwise remain smooth blank. White area is continuous. Never make three equal stations.\",\"bounding_box_px\":{\"x\":100,\"y\":500,\"width\":1000,\"height\":75}}],\"labels\":[{\"label\":\"Matched configuration\",\"region_id\":\"setup\",\"region\":\"setup: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":80,\"width\":600,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Model · build · quantization\",\"region_id\":\"setup\",\"region\":\"setup: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":100,\"y\":140,\"width\":650,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Ten repetitions\",\"region_id\":\"setup\",\"region\":\"setup: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":760,\"y\":140,\"width\":340,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Prompt processing\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":110,\"y\":300,\"width\":450,\"height\":48},\"minimum_font_px\":38},{\"label\":\"512 input tokens\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":110,\"y\":356,\"width\":450,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Text generation\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":670,\"y\":300,\"width\":420,\"height\":48},\"minimum_font_px\":38},{\"label\":\"128 generated tokens\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":670,\"y\":356,\"width\":420,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Flash Attention on / off\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":110,\"y\":420,\"width\":500,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Public raw data\",\"region_id\":\"measure\",\"region\":\"measure: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":720,\"y\":420,\"width\":370,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Configuration-bound results\",\"region_id\":\"limit\",\"region\":\"limit: Forked benchmark test rig source-specific illustrated surface or open label position\",\"bounding_box_px\":{\"x\":220,\"y\":520,\"width\":760,\"height\":44},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Matched configuration\",\"to\":\"Prompt processing\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"setup\",\"to_region_id\":\"measure\",\"origin_px\":{\"x\":600,\"y\":210},\"target_px\":{\"x\":600,\"y\":260}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nUse this geometry as the composition brief, not visible text. Do not render the JSON, coordinate numbers or field names. Preserve clear hierarchy and breathing room. The factual relationship must survive at 320px width; full-size viewing rewards the meaningful inner detail. Draft is reviewed against actual saved pixels."
+}
