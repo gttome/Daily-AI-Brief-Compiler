@@ -47,7 +47,218 @@ function generateUnified(cycle,e,hashes={}) {
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
   const sourceReadiness=oct27SourceReadiness(edition,{routeCoverage:obj('source-route-coverage'),
     itemCensus:obj('source-item-census'),qualifications:obj('source-qualification')});
-  const state=obj("compiler-state"),compile=obj("compil…5919 tokens truncated…cate active Watchlist display titles | **${watch?watchCollisions.length:"Not recorded"}** | Published canonical Watchlist only; historical evidence retained |`,
+  const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle");
+  const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
+  const publicationHealth=obj("publication-health");
+  const ownerIncident=obj("owner-intervention-incident");
+  const publishedVideoCheck=obj("postpublish-video-playback");
+  const incidentLedger=obj("postpublication-incidents");
+  const indexRetry=obj("source-item-retries");
+  const scientificPaperReceipt=obj("scientific-paper-coverage");
+  const readerIncidents=Array.isArray(incidentLedger?.incidents)?incidentLedger.incidents.filter(i=>
+    i&&typeof i.incident_id==="string"&&typeof i.impact==="string"&&typeof i.status==="string"):[];
+  const confirmedOwnerRecovery=ownerIncident?.owner_intervention?.required_in_observed_sequence===true||
+    ownerIncident?.unattended_autonomy_result==="FAIL_OWNER_TRIGGER_REQUIRED"||
+    compile?.owner_intervention===true;
+  const autonomy=confirmedOwnerRecovery?"FAIL_OWNER_RECOVERY":"UNPROVEN";
+  // Preserve separately grounded owner-assisted recovery evidence.
+  const ownerIncidentId=typeof ownerIncident?.incident_id==='string'?
+    ownerIncident.incident_id:null;
+  const recoveryPr=Number.isSafeInteger(ownerIncident?.recovery?.correcting_pr)?
+    ownerIncident.recovery.correcting_pr:null;
+  const protectionEvents=Array.isArray(publicationHealth?.events)?
+    publicationHealth.events.filter(x=>x.status==="BLOCKED_PUBLICATION"):[];
+  const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
+  const amount=ownerReportedWorkUsage(usage,cycle,edition);
+  const usageDisplay=amount===null?"**Not reported**":`**${amount}%** (owner reported)`;
+  const compilerOk=state?.state==="SHADOW_VERIFIED"&&state?.bundle?.status==="BUNDLE_READY"&&compile?.result==="PASS"&&integrity?.result==="PASS"&&integrity?.oct8_protected_count===17&&Array.isArray(integrity?.live_http_and_sha256)&&integrity.live_http_and_sha256.some(p=>p.url===pub+"briefs/"+edition+"/"&&p.status===200);
+  const images=Array.isArray(release?.images)?release.images:[];
+  const imagesOk=release?.result==="RELEASED_VERIFIED"&&images.length===6&&new Set(images.map(i=>i.story_id)).size===6&&manifest?.images?.length===6&&manifest.images.every(i=>images.some(v=>v.story_id===i.story_id&&v.sha256===i.sha256));
+  const oldVisualOk=reviews?.result==="PASS"&&reviews.reviewed_targets===24&&reviews.expected_targets===24&&reviews.criteria?.semantic_defects===0&&Array.isArray(reviews.stories)&&reviews.stories.length===6&&reviews.stories.every(i=>i.result==="PASS"&&i.targets?.length===4&&images.some(v=>v.story_id===i.story_id&&v.sha256===i.live_image_sha256)&&i.targets.every(t=>t.result==="PASS"));
+  // Newer actual-pixel receipts have 24 individually inspected captures rather than six nested story reviews.
+  // Require the same released story identities, all four contexts, and the exact release workflow evidence.
+  const expectedContexts=new Set(images.flatMap(i=>["dated_brief","permanent_story"].flatMap(c=>["desktop","mobile"].map(v=>i.story_id+":"+c+":"+v))));
+  const pixelTargets=reviews?.targets;
+  const pixelVisualOk=imagesOk&&reviews?.schema_version==="external-image-semantic-pixel-review-v1"&&
+    reviews.result==="PASS"&&reviews.expected_targets===24&&reviews.captured_targets===24&&reviews.reviewed_pass===24&&
+    Array.isArray(reviews.defects)&&reviews.defects.length===0&&
+    release?.actions_run_url===gh+"/actions/runs/"+reviews.evidence_source?.workflow_run_id&&
+    Array.isArray(pixelTargets)&&pixelTargets.length===24&&new Set(pixelTargets.map(t=>t.target_id)).size===24&&
+    pixelTargets.every(t=>expectedContexts.has(t.target_id)&&t.target_id===t.story_id+":"+t.context+":"+t.viewport&&
+      t.actual_pixels_inspected===true&&t.correct_story_asset_visible===true&&t.full_diagram_visible===true&&
+      t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true&&
+      t.result==="PASS"&&/^[a-f0-9]{64}$/.test(t.capture_sha256||"")&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
+  const visualOk=!!(oldVisualOk||pixelVisualOk);
+  const firstExports=summarizeImageFirstExports({edition,aar:imageAar,manifest});
+  const interimReview=imageAar?.job_sha256===manifest?.job_sha256?imageAar?.live_context_gap_review:null;
+  const imageFindings=summarizeImageLiveFindings({edition,manifest,release,review:reviews??interimReview,liveVerified:imagesOk});
+  const worker=obj('image-worker-state');
+  const checkpoint=verifyFinalImageCheckpoint({edition,worker,release,manifest,aar:imageAar});
+  const workerClosed=edition<'2026-10-21'||(worker?.phase==='PUBLISHED_COMPLETE'&&worker.lease_status==='RELEASED'&&
+    worker.job_sha256===manifest?.job_sha256&&worker.accepted_hashes?.length===6&&
+    new Set(worker.accepted_hashes).size===6&&images.every(i=>worker.accepted_hashes.includes(i.sha256))&&
+    (edition<'2026-10-25'||checkpoint.result==='PASS'));
+  const provenanceWarnings=[];
+  const end=Date.parse(state?.updated_at||'');
+  for(const story of bundle?.stories||[]){
+    for(const key of [story.source?.retrieved_at,story.source?.read_evidence?.read_at])
+      if(Number.isFinite(end)&&Date.parse(key)>end)provenanceWarnings.push('Source evidence timestamp follows recorded publication: '+story.id);
+  }
+  let aarWarning=null;
+  if(edition>='2026-10-21'){
+    try{validateImageAfterAction({aar:imageAar,job,manifest});}catch(error){aarWarning=String(error.message);}
+  }
+  const complete=!!(compilerOk&&imagesOk&&visualOk&&workerClosed&&!provenanceWarnings.length&&!aarWarning), badge=complete?"COMPLETE":(compilerOk||imagesOk?"PARTIAL":"NOT_VERIFIED");
+  // Discovery evidence is part of the system AAR, never a new publication gate.
+  const systemStatus=!top10.applicable?"NOT_APPLICABLE":complete&&top10.end_to_end_ready===true?
+    (top10.report_status==='provisional'?"COMPLETE_WITH_PROVISIONAL_TRENDS":"COMPLETE"):
+    (top10.report_available||compilerOk||imagesOk?"PARTIAL":"NOT_VERIFIED");
+  const stateColor=complete?"0b7b57":(badge==="PARTIAL"?"d97706":"64748b");
+  const nice=s=>String(s??"Not reported").replace(/\|/g,"/").replace(/\r?\n/g," ");
+  const dateString=new Date(edition+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
+  const stories=Array.isArray(bundle?.stories)?bundle.stories:[];
+  // This is a source-bound producer report, not independent proof of full-paper reading.
+  const paperRows=scientificPaperReceipt?.published_papers;
+  const paperIdentityValid=scientificPaperReceipt?.schema_version==="daily-scientific-paper-coverage-v1"&&
+    scientificPaperReceipt?.review_status==="VERIFIED"&&Array.isArray(paperRows)&&
+    new Set(paperRows.map(x=>x?.story_id)).size===paperRows.length&&
+    paperRows.every(x=>typeof x?.title==="string"&&typeof x?.original_paper_url==="string"&&
+      x.original_paper_url.startsWith("https://")&&["PREPRINT","PEER_REVIEWED"].includes(x?.publication_status)&&
+      stories.some(s=>s.id===x.story_id));
+  const paperCoverage={status:paperIdentityValid?(scientificPaperReceipt.review_timing==='POSTPUBLICATION'?
+    "POSTPUBLICATION_REVIEW_BUNDLE_MATCH":"PRODUCER_REPORTED_BUNDLE_MATCH"):
+    scientificPaperReceipt?"UNVERIFIED_RECEIPT":"NOT_RECORDED",
+    paper_led_stories:paperIdentityValid?paperRows.length:null,
+    target_paper_led_stories:1,target_paper_led_stories_per_seven_editions:1,window_editions:nov20.paper_window_editions,
+    selected_story_ids:paperIdentityValid?paperRows.map(x=>x.story_id):[],
+    caveat:"The current paper window is an advisory quality-first target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."};
+  const watch=e["published-watchlist"]?.edition_date===edition?e["published-watchlist"]:null;
+  const watchActive=(watch?.topics||[]).filter(t=>t.status!=="archived");
+  const normalizeTitle=v=>String(v??"").toLowerCase().normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
+  const seenTitles=new Map(),watchCollisions=[];
+  for(const t of watchActive){
+    const key=normalizeTitle(t.name);
+    if(seenTitles.has(key))watchCollisions.push([seenTitles.get(key),t.topic_id]);
+    else seenTitles.set(key,t.topic_id);
+  }
+  const publishedNoon=Date.parse(edition+"T12:00:00Z");
+  const withinOneDay=stories.filter(t=>{
+    const published=Date.parse(t.source?.published_at||"");
+    return Number.isFinite(published)&&publishedNoon-published<=86400000&&published<=publishedNoon;
+  }).length;
+  const distinctArticlePublishers=new Set(stories.map(t=>t.source?.publisher).filter(Boolean)).size;
+  const mediaOld=(bundle?.videos||[]).filter(t=>{
+    const published=Date.parse(t.original_date||"");
+    return Number.isFinite(published)&&publishedNoon-published>7*86400000;
+  }).length;
+  const selectedVideoPublishers=new Set((bundle?.videos||[])
+    .map(t=>t.verification?.publisher_channel_id||t.source).filter(Boolean)).size;
+  // A prospective producer event review is a separate disclosure, not an
+  // independent verification of the original media program's actual subject.
+  const eventReview=bundle?.media_topic_review;
+  const eventIds=Array.isArray(eventReview?.programs)?eventReview.programs.map(p=>p.event_id):[];
+  const mediaEventStatus=edition<'2026-11-15'?'HISTORICAL_NOT_REQUIRED':
+    eventReview?.schema_version==='daily-brief-media-topic-review-v1'&&
+    eventIds.length===4&&new Set(eventIds).size===4&&eventReview.comparisons?.length===6?
+      'FOUR_DISTINCT_EVENTS_REVIEW_RECORDED':'NOT_VERIFIED';
+  const originImages=e["image-task-origin"]?.edition_date===edition?e["image-task-origin"]:null;
+
+  const durations=bundle?.videos?.length===2&&bundle?.podcasts?.length===2?"2 videos + 2 podcasts":"Source receipt incomplete";
+  // Image timeline uses persisted first-accepted-binary and approved 24-context review Git events.
+  const seconds=n=>{
+    if(!Number.isFinite(n)||n<0)return 'Not independently recorded';
+    const rounded=Math.round(n);
+    return Math.floor(rounded/60)+'m '+String(rounded%60).padStart(2,'0')+'s';
+  };
+  const chicago=t=>t&&Number.isFinite(Date.parse(t))?
+    new Date(t).toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit'}):'Not independently recorded';
+  const timeEvidence=imageTiming?.result==='DURATIONS_VERIFIED'&&imageTiming?.events?imageTiming:null;
+  const sealSeconds=reconciled.compiler_timing.final_seal_window_seconds;
+  const compilerStageDuration=seconds(sealSeconds);
+  const elapsed=Number.isFinite(sealSeconds)?(sealSeconds/60).toFixed(1)+" min":"Not recorded";
+  const compilerStateDuration=seconds(reconciled.compiler_timing.state_elapsed_seconds);
+  const top10StageDuration=Number.isFinite(top10.elapsed_minutes)?seconds(top10.elapsed_minutes*60):'Not recorded';
+  const imageStageDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_final_review);
+  const imageScheduleWindow=seconds(timeEvidence?.durations_seconds?.scheduled_start_to_final_review);
+  const imageReleaseDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_public_release);
+  const observedGenerationDuration=seconds(timeEvidence?.durations_seconds?.executor_observed_generation_to_final_review);
+  const timingEvents=timeEvidence?.events??{};
+  const attempts=imageAar?.production?.actual_generation_count;
+  const rejected=imageAar?.production?.rejected_count;
+  const accepted=imageAar?.production?.accepted_count;
+  const imgb=imagesOk?images.map((i,idx)=>({label:stories.find(s=>s.id===i.story_id)?.headline||i.story_id,...i,attempts:imageAar?.images?.find(a=>a.story_id===i.story_id)?.generation_attempts})): [];
+  // Text and Unicode status colors render without third-party image downloads in Typora and GitHub.
+  const good="**"+(complete?"🟩":"🟨")+" RELEASE "+badge.replaceAll("_"," ")+"**";
+  const indicators="**TOP 10 "+nice(top10.result)+"** · **"+(compilerOk?"🟩":"🟨")+" COMPILER "+(compilerOk?"VERIFIED":"UNVERIFIED")+"** · **"+(imagesOk?"🟦":"🟨")+" IMAGES "+(imagesOk?"6/6 RELEASED":"NOT YET COMPLETE")+"** · **"+(visualOk?"🟪":"🟨")+" VISUAL QA "+(visualOk?"24/24 PASS":"NOT YET VERIFIED")+"**";
+  const line=(v)=>v?"✅":"Not yet evidenced";
+  const requestedAarPath=imageAar?.human_readable_path||manifest?.after_action_path;
+  const aarPath=typeof requestedAarPath==='string'&&requestedAarPath.startsWith('external-image-packages/'+edition+'/reviews/')&&
+    !requestedAarPath.split('/').includes('..')?requestedAarPath:'external-image-packages/'+edition+'/reviews/after-action.md';
+  const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/${aarPath}`]];
+  if(indexRetry)sourceInfo.push(["Observed editorial index retries",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/source-item-retries.json`]);
+  if(scientificPaperReceipt)sourceInfo.push(["Scientific paper selection review",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/scientific-paper-coverage.json`]);
+  if(incidentLedger)sourceInfo.push(["Postpublication incident register",`${gh}/blob/main/docs/after-action/incidents/${edition}.json`]);
+  if(publishedVideoCheck)sourceInfo.push(["Published player playback receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-video-playback.json`]);
+  const top10SourceRef=/^[a-f0-9]{40}$/.test(top10.source_commit||'')?top10.source_commit:'operations-reports';
+  if(e['top10-report'])sourceInfo.push(["Top 10 ranked topic report",`${gh}/blob/${top10SourceRef}/signals/ai-topic-top10/${cycle}.json`]);
+  if(e['top10-after-action'])sourceInfo.push(["Top 10 run after-action receipt",`${gh}/blob/${top10SourceRef}/signals/ai-topic-top10/${cycle}.aar.json`]);
+  if(e['trend-input'])sourceInfo.push(["Compiler Top 10 input snapshot",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/trend-input.json`]);
+  if(e['trend-search-coverage'])sourceInfo.push(["Top 10 article/video/podcast search coverage",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/trend-search-coverage.json`]);
+  const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
+  const charts=buildAarCharts({edition,coverage:reconciled.source_index_coverage,bundle,imageAar,
+    imageEvidenceVerified:imagesOk&&!aarWarning,top10,compilerVerified:compilerOk});
+  const md=[
+good,
+indicators,
+"",
+"# Daily AI Brief — Unified Production After-Action Report",
+`**Edition:** ${dateString} · **Production evening:** ${cycle} · **Timezone:** America/Chicago`,
+`**Primary public reader:** [Open ${edition} Brief](${pub}briefs/${edition}/) · **Repository:** [Daily-AI-Brief-Compiler](${gh})`,
+"",
+"> **IMPORTANT — VERIFIED PRODUCTION RESULT**",
+`> **Executive release result: ${badge.replace("_"," ")}.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: ${systemStatus}.** Top 10 report: **${nice(top10.report_status)}**; Compiler handoff: **${nice(top10.handoff_status)}**; guided searches: **${nice(top10.search_status)}**. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Autonomous completion: **${autonomy}**. Missing evidence must not be promoted to a success claim.`,
+"",
+`**🕒 Production stage durations:** **Top 10 ${top10StageDuration}** · **Compiler final seal window ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
+"",
+...(provenanceWarnings.length?["> **PROVENANCE WARNING:** Source-reading timestamps follow the recorded publication verification time. The original evidence is preserved; exact historical reading times are not reconstructed. Publication/image success does not resolve this audit discrepancy.",""]:[]),
+...(aarWarning?["> **AAR SCHEMA WARNING:** "+aarWarning,""]:[]),
+...(!workerClosed?["> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.",""]:[]),
+"## Evidence reconciliation",
+"",
+`Compiler final seal window: ${compilerStageDuration}. Compiler state start to public verification: ${compilerStateDuration}. ${reconciled.compiler_timing.timing_caveat}`,
+`Image capability route preflight: ${reconciled.image_capability_preflight_recorded?'RECORDED':'NOT OBSERVED'}; scheduler origin remains UNPROVEN.`,
+`Image efficiency: ${reconciled.image_efficiency.first_pass_accepted??'Unknown'}/6 first-pass accepts; ${reconciled.image_efficiency.total_attempts??'Unknown'} total attempts. ${edition>='2026-11-17'?'Approved prospective efficiency target: at least 4/6 first-pass and no more than 8 total attempts, strictly advisory':edition>='2026-11-08'?'Current efficiency target: at least 3/6 first-pass and at most 2 attempts per image':'November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image'}, with unchanged quality floor.`,
+`Image review completed: ${reconciled.image_review.semantic_review_completed_at??'Not recorded'}; review-record commit: ${reconciled.image_review.review_record_commit_at??'Not recorded'}; protected review merge: ${reconciled.image_review.review_merge_at??'Not recorded'}.`,
+...(reconciled.source_index_coverage?[`Eligible source indexes: ${reconciled.source_index_coverage.eligible}; editorial inspections reported: ${reconciled.source_index_coverage.inspected??"Unknown"} (${reconciled.source_index_coverage.inspected_percent??"Unknown"}%); inaccessible in editorial audit: ${reconciled.source_index_coverage.inaccessible??"Unknown"}; explicitly unreviewed IDs: ${reconciled.source_index_coverage.unreviewed??"Unknown"}; unclassified editorial IDs: ${reconciled.source_index_coverage.unclassified_editorial_ids??"Unknown"}. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.`]:[]),
+"",
+...(reconciled.video_source_sweep?.registered!==null&&reconciled.video_source_sweep?.registered!==undefined?
+[`Registered video sources: ${reconciled.video_source_sweep.registered}; attempted this edition: ${reconciled.video_source_sweep.attempted??"Unknown"}; unattempted: ${reconciled.video_source_sweep.unattempted??"Unknown"}; enabled: ${reconciled.video_source_sweep.enabled??"Unknown"}; qualification-only: ${reconciled.video_source_sweep.qualification_only??"Unknown"}; sources yielding candidate URLs: ${reconciled.video_source_sweep.candidate_sources??"Unknown"}. Status: ${reconciled.video_source_sweep.completeness}. Attempt evidence is not automatic proof of source-content review or playback.`]:[]),
+"",
+...renderPresealEvidence(reconciled),
+...(edition>='2026-11-20'?[renderNov20Evidence(nov20)]:[]),
+renderAarChartsMarkdown(charts),
+"## Performance dashboard",
+"",
+"| Measure | Recorded result | Source / caveat |",
+"|:--|:--:|:--|",
+`| Entire-system evidence | **${systemStatus}** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |`,
+`| Top 10 report | **${nice(top10.report_status)} · ${top10.topic_count??"Not recorded"} topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |`,
+`| Top 10 received by Compiler | **${nice(top10.handoff_status)}** | Exact report snapshot bytes; consumed commit separately corroborated: ${top10.consumed_commit_independently_verified===true?"YES":"UNPROVEN"} |`,
+`| Top 10 guided article/video/podcast searches | **${nice(top10.search_status)}** | Actual source-search receipts and selected/rejected topic outcomes |`,
+`| Top 10 stage duration | **${top10StageDuration}** | Same-cycle run receipt only; no runtime or usage estimate |`,
+`| Editorial publication | **${compilerOk?"PASS":"NOT VERIFIED"}** | State and public reader integrity receipt |`,
+`| **Unattended autonomy (separate from publication)** | **${autonomy}** | Owner incident receipt takes precedence over unverified producer self-attestation |`,
+`| Recorded protected publishing gate failures | **${protectionEvents.length}** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |`,
+`| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
+`| Original scientific-paper-led articles | **${paperCoverage.paper_led_stories??"Not recorded"}** | Rolling target: one qualified original paper in ${nov20.paper_window_editions} editions; ${paperCoverage.status}. Preprints are not peer-reviewed by default |`,
+`| Verified original sources within preceding 24 hours | **${withinOneDay} / ${stories.length}** | Original publisher dates only; other sources require a documented fallback rationale |`,
+`| Distinct selected article publishers | **${distinctArticlePublishers}** | Six different primary organizations preferred |`,
+`| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
+`| Distinct selected video publishers | **${selectedVideoPublishers}** | One channel is one publisher even across multiple videos |`,
+`| Cross-media topic diversity | **${mediaEventStatus}** | Four video/podcast events and six pairwise original-source comparisons; editorial claims remain producer-attested |`,
+`| Video discovery source attempts | **${reconciled.video_source_sweep?.attempted??"NOT_RECORDED"} / ${reconciled.video_source_sweep?.registered??"NOT_RECORDED"}** | Attempt evidence across enabled and qualification-only leads; ${reconciled.video_source_sweep?.completeness??"NOT_RECORDED"}. Not a claim of full content review or player verification | `,
+`| Duplicate active Watchlist display titles | **${watch?watchCollisions.length:"Not recorded"}** | Published canonical Watchlist only; historical evidence retained |`,
 `| Original-release video playback (historical) | **${publishedVideoCheck?.result??"NOT_RECORDED"}** | Later reader corrections may replace these originally verified videos; see incident register | `,
 `| Postpublication reader incidents | **${incidentLedger?readerIncidents.length:"NOT_RECORDED"}** | Edition-specific owner reports and corrective PRs, not inferred absence | `,
 `| Verified postpublication video corrections | **${incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:"NOT_RECORDED"}** | Incident register tracks correction PR, actual playback evidence and reader preservation |`,
